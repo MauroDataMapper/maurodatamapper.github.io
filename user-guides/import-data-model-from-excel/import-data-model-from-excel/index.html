@@ -1,0 +1,1665 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+    
+    
+      
+        <title>Import a Data Model from Excel - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9299cb39.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,700%7CNunito+Sans&display=fallback">
+        <style>:root{--md-text-font-family:"Nunito Sans";--md-code-font-family:"Nunito Sans"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="primary" data-md-color-accent="accent">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-create-data-model-import-file" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Header -->
+<header class="md-header" data-md-component="header">
+    <nav
+            class="md-header-nav md-header__inner md-grid"
+            aria-label="Header"
+    >
+
+        <!-- Link to home -->
+        <a href="../../.." title="Documentation" class="md-header-nav__button md-logo" aria-label="Documentation">
+            
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+        </a>
+
+        <!-- Button to open drawer -->
+        <label class="md-header__button md-icon" for="__drawer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+        </label>
+
+        <!-- Header title -->
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+          <span class="md-ellipsis">
+            <!-- Documentation -->
+          </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            <!-- 
+              Import a Data Model from Excel
+             -->
+          </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color palette -->
+        
+
+        <!-- Site language selector -->
+        
+
+        <!-- Button to open search modal -->
+        
+        <label class="md-header__button md-icon" for="__search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+
+        <!-- Repository information -->
+        
+    </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        About
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/history/" class="md-nav__link">
+        History
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/research/" class="md-nav__link">
+        Research
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/mauro/" class="md-nav__link">
+        Mauro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/release-notes/" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/development-roadmap/" class="md-nav__link">
+        Development Roadmap
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Using Mauro
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Using Mauro" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Using Mauro
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        User Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="User Guides" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          User Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-a-data-model/create-a-data-model/" class="md-nav__link">
+        Create a Data Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../document-a-dataset/document-a-dataset/" class="md-nav__link">
+        Document a Dataset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporting-data-models/exporting-data-models/" class="md-nav__link">
+        Exporting Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Import a Data Model from Excel
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Import a Data Model from Excel
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-data-model-import-file" class="md-nav__link">
+    1. Create Data Model import file
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Create Data Model import file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-data-model-listing-sheet" class="md-nav__link">
+     1.1 Data Model listing sheet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-data-model-key-sheet" class="md-nav__link">
+     1.2 Data Model key sheet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-import-data-model" class="md-nav__link">
+    2. Import Data Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-round-tripping-data-models" class="md-nav__link">
+    3. Round Tripping Data Models
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-search/how-to-search/" class="md-nav__link">
+        How to search
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../add-a-semantic-link/semantic-links/" class="md-nav__link">
+        Semantic links
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../publish-subscribe/publish-subscribe/" class="md-nav__link">
+        Publish / Subscribe
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-profile/user-profile/" class="md-nav__link">
+        User profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin-functionality/admin-functionality/" class="md-nav__link">
+        Admin functionality
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Tutorials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/semantic-links/" class="md-nav__link">
+        Semantic Links
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Installing and Administration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Installing and Administration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Installing and Administration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        Installation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Installation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Installation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/docker/" class="md-nav__link">
+        Docker Install
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/administration/" class="md-nav__link">
+        Administration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/branding/branding/" class="md-nav__link">
+        Branding
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/plugins/" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/migration/" class="md-nav__link">
+        Migrating Old Data
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Developer Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Developer Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Developer Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/architecture/" class="md-nav__link">
+        Technical Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        REST API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="REST API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          REST API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/apikeys/" class="md-nav__link">
+        API Keys
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/errors/" class="md-nav__link">
+        Errors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/pagination/" class="md-nav__link">
+        Pagination
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/postman/" class="md-nav__link">
+        Postman Library
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2_7" type="checkbox" id="__nav_5_2_7" >
+      
+      <label class="md-nav__link" for="__nav_5_2_7">
+        Core resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Core resources" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Core resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/catalogue-item/" class="md-nav__link">
+        Catalogue item
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/classifier/" class="md-nav__link">
+        Classifier
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/codeset/" class="md-nav__link">
+        Codeset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-class/" class="md-nav__link">
+        Data class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-element/" class="md-nav__link">
+        Data element
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-flow/" class="md-nav__link">
+        Data flow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-flow-component/" class="md-nav__link">
+        Data flow component
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-model/" class="md-nav__link">
+        Data model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-type/" class="md-nav__link">
+        Data type
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/enumeration-value/" class="md-nav__link">
+        Enumeration value
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/folder/" class="md-nav__link">
+        Folder
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/plugin/" class="md-nav__link">
+        Plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/semantic-link/" class="md-nav__link">
+        Semantic link
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/term/" class="md-nav__link">
+        Term
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/term-relationship/" class="md-nav__link">
+        Term relationship
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/terminology/" class="md-nav__link">
+        Terminology
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/user/" class="md-nav__link">
+        User
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/user-group/" class="md-nav__link">
+        User group
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/trees/" class="md-nav__link">
+        Trees
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/importexport/" class="md-nav__link">
+        Import / Export
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/admin/" class="md-nav__link">
+        Admin functions
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      <label class="md-nav__link" for="__nav_5_3">
+        Client Libraries
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Client Libraries" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Client Libraries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/client/java/" class="md-nav__link">
+        Groovy / Java
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/client/typescript/" class="md-nav__link">
+        TypeScript
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/client/net/" class="md-nav__link">
+        .NET
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4">
+        Technical Plugins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Technical Plugins" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Technical Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/freemarker/" class="md-nav__link">
+        Freemarker Templating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/sparql/" class="md-nav__link">
+        SPARQL
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Community
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Community
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/support/" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-create-data-model-import-file" class="md-nav__link">
+    1. Create Data Model import file
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Create Data Model import file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-data-model-listing-sheet" class="md-nav__link">
+     1.1 Data Model listing sheet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-data-model-key-sheet" class="md-nav__link">
+     1.2 Data Model key sheet
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-import-data-model" class="md-nav__link">
+    2. Import Data Model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-round-tripping-data-models" class="md-nav__link">
+    3. Round Tripping Data Models
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Import a Data Model from Excel</h1>
+                
+                <p>This user guide will explain the steps you need to follow to import a health dataset into <strong>Mauro Data Mapper</strong> using an Excel spreadsheet.</p>
+<hr />
+<p>To add an existing dataset to <strong>Mauro Data Mapper</strong>, you can either enter all the information online as explained in the <a href="../../document-a-dataset/document-a-dataset/">'Document a Health Dataset user guide'</a>, or you may find it more convenient to import information automatically from an Excel spreadsheet. </p>
+<p>The importing functionality of <strong>Mauro Data Mapper</strong> allows you to import several <a href="../../../glossary/data-model/data-model/">Data Models</a> using the same spreadsheet. </p>
+<hr />
+<h2 id="1-create-data-model-import-file">1. Create Data Model import file<a class="headerlink" href="#1-create-data-model-import-file" title="Permanent link">&para;</a></h2>
+<p>To ensure all the information is imported correctly, the dataset needs to be entered into a spreadsheet in a specific format. To help with this, you can download a zip file of the standard <a href="../Template_DataModel_Import_File.xlsx.zip">Data Model import file here</a>.</p>
+<p>This standard spreadsheet contains two types of worksheets. Firstly, there is the <a href="./#listing-sheet">Data Model listing sheet</a>, titled <strong>‘DataModels’</strong>. This is effectively a contents page which lists the main details of each <strong>Data Model</strong> you wish to import. There must only ever be one <strong>Data Model listing sheet</strong>.</p>
+<p>The next sheet is the <a href="./#key-sheet">Data Model key sheet</a> which is titled <strong>‘KEY_1’</strong>. This contains all the relevant details of one <strong>Data Model</strong> listed in the <strong>‘DataModels’</strong> sheet. Therefore, if you wish to import several <strong>Data Models</strong>, you will need to add a <strong>Data Model key sheet</strong> for each additional <strong>Data Model</strong> and title it <strong>‘KEY_2’</strong>, <strong>‘KEY_3’</strong> respectively.</p>
+<h3 id="11-data-model-listing-sheet"><a name="listing-sheet"></a> 1.1 Data Model listing sheet<a class="headerlink" href="#11-data-model-listing-sheet" title="Permanent link">&para;</a></h3>
+<p>In the <strong>Data Model listing sheet</strong>, use one row for each <strong>Data Model</strong>. Enter the information according to the columns, which are explained below, along with any other properties or metadata which may be relevant. </p>
+<p><img alt="Data Model listing sheet" src="../data-model-listing-sheet.png" /></p>
+<p>The following columns must be completed:</p>
+<ul>
+<li>
+<p><strong>SHEET_KEY</strong><br />
+    The unique name of each <strong>Data Model key sheet</strong> such as <strong>‘KEY_1’</strong>, <strong>‘KEY_2’</strong> etc. </p>
+</li>
+<li>
+<p><strong>Name</strong><br />
+    The unique name or <a href="../../../glossary/label/label/">Label</a> of the <strong>Data Model</strong>. Remember this should be different to all the existing <strong>Data Models</strong> within <strong>Mauro Data Mapper</strong>, unless you are updating an existing <strong>Data Model</strong>.</p>
+</li>
+<li>
+<p><strong>Description</strong><br />
+    Enter a description which explains the contextual details of the dataset within the <strong>Data Model</strong>. </p>
+</li>
+<li>
+<p><strong>Author</strong><br />
+    Record the name(s) of the authors who are creating and maintaining this <strong>Data Model</strong>.</p>
+</li>
+<li>
+<p><strong>Organisation</strong><br />
+    Type the name of the organisation responsible for the <strong>Data Model</strong>, or the underlying data.</p>
+</li>
+<li>
+<p><strong>Type</strong><br />
+    This is the type of <strong>Data Model</strong>, which can either be a <a href="../../../glossary/data-asset/data-asset/">Data Asset</a> or a <a href="../../../glossary/data-standard/data-standard/">Data Standard</a>. </p>
+<p>A <strong>Data Asset</strong> is a collection of existing data, such as a database or a completed form. While a <strong>Data Standard</strong> is a specification template to collect new data, such as a form or schema.</p>
+</li>
+<li>
+<p><strong>Adding properties</strong><br />
+    Any other relevant properties or metadata relating to the <strong>Data Model</strong> can be included in additional columns to the right of the core columns. Metadata can have the following properties:</p>
+<ul>
+<li>
+<p><strong>Namespace</strong><br />
+    This will be used to select the correct profile / property selection and should be entered in <strong>row 1</strong> of the spreadsheet. If it is left 
+  blank, the default namespace of <strong>ox.softeng.metadatacatalogue.plugins.excel</strong> will be used. </p>
+</li>
+<li>
+<p><strong>Key</strong><br />
+    This is a relevant property name such as <strong>‘contact email’</strong> and <strong><em>must</em></strong> be entered in <strong>row 2</strong>. If no key is supplied, then the value will not be assigned.</p>
+</li>
+<li>
+<p><strong>Value</strong><br />
+    This is the <strong>Value</strong> of the given property, for example <strong>‘<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#101;&#110;&#113;&#117;&#105;&#114;&#105;&#101;&#115;&#45;&#109;&#121;&#100;&#97;&#116;&#97;&#115;&#101;&#116;&#64;&#104;&#117;&#98;&#46;&#111;&#114;&#103;">&#101;&#110;&#113;&#117;&#105;&#114;&#105;&#101;&#115;&#45;&#109;&#121;&#100;&#97;&#116;&#97;&#115;&#101;&#116;&#64;&#104;&#117;&#98;&#46;&#111;&#114;&#103;</a>’</strong> and should be entered into the relevant row. If multiple rows are being imported and a <strong>Namespace</strong> and <strong>Key</strong> column is created, then the property will only be assigned if a <strong>Value</strong> is supplied. </p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Data Model listing sheet with additional properties" src="../data-model-listing-sheet-additional-metadata.png" /></p>
+<h3 id="12-data-model-key-sheet"><a name="key-sheet"></a> 1.2 Data Model key sheet<a class="headerlink" href="#12-data-model-key-sheet" title="Permanent link">&para;</a></h3>
+<p>There should be one <strong>Data Model key sheet</strong> for each <strong>Data Model</strong>, and its name should correspond to the relevant <strong>'SHEET_KEY'</strong> on the <strong>Data Model listing sheet</strong>. Any <strong>Data Model</strong> listed without the correctly named key sheet will not be imported. </p>
+<p>Therefore, the best practise is to first copy the <strong>'KEY_1'</strong> sheet in the standard excel template, rename it and then add the details of the relevant <strong>Data Model</strong>. Otherwise, formatting issues could occur, resulting in the data importing incorrectly.  </p>
+<p><img alt="Data Model key sheet" src="../data-model-key-sheet.png" /></p>
+<p>The following columns must be completed:</p>
+<ul>
+<li>
+<p><strong>DataClass Path</strong><br />
+    This is the path from the top level of the <strong>Data Model</strong> to the <strong>Data Class</strong>. For a top level <strong>Data Class</strong>, only the class name should be entered in this field. However, if it is a <strong>Nested Data Class</strong>, then the name of the parent class along with the child class should be entered and be separated by <strong>“I”</strong>, for example: </p>
+<ul>
+<li>A nested class: <strong>'parentIchild'</strong></li>
+<li>A nested class within a nested class: <strong>'grandparentIparentIchild'</strong></li>
+<li>Another nested class within a nested class: <strong>'grandparentIparentIanotherChild'</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>DataElement Name</strong><br />
+    If the row is describing a <strong>Data Element</strong>, instead of a <strong>Data Class</strong>, then the name of the <strong>Data Element</strong> should be entered here. </p>
+<p>If supplied, the remaining information in this row will be used to create the <strong>Data Element</strong> inside the <strong>Data Class</strong> provided in the <strong>'DataClass Path'</strong> column. However, if left blank, the remaining information in this row will be assigned to the <strong>Data Class</strong> entered in the <strong>'DataClass Path'</strong> column. </p>
+</li>
+<li>
+<p><strong>Description</strong><br />
+    Enter a description which explains any contextual details relating to the <strong>Data Element</strong> or <strong>Data Class</strong>.</p>
+</li>
+<li>
+<p><strong>Minimum <a href="../../../glossary/multiplicity/multiplicity/">Multiplicity</a></strong><br />
+    The minimum number of instances of the <strong>Data Class</strong> or <strong>Data Element</strong> within the <strong>Data Model</strong>. 
+    Optional data has a minimum <strong>Multiplicity</strong> of 0, whereas mandatory data has a minimum <strong>Multiplicity</strong> of 1.</p>
+</li>
+<li>
+<p><strong>Maximum Multiplicity</strong><br />
+    The maximum number of instances of the <strong>Data Class</strong> or <strong>Data Element</strong> within the <strong>Data Model</strong>. 
+    Optional data has a maximum <strong>Multiplicity</strong> of 1, whereas data which occurs any number of times and therefore has no upper bound has a maximum <strong>Multiplicity</strong> of * which represents -1 internally.</p>
+</li>
+<li>
+<p><strong>DataType Name</strong><br />
+    This is the name given to the <a href="../../../glossary/data-type/data-type/">Data Type</a> of the <strong>Data Element</strong> being described and must be included when entering information for <strong>Data Elements</strong>. </p>
+<p>The <strong>Data Type</strong> describes the range of possible values that the <strong>Data Element</strong> may take. There are four different <strong>Data Types</strong> stored within a <strong>Data Model</strong>:</p>
+<ul>
+<li>
+<p><a href="../../../glossary/enumeration-data-type/enumeration-data-type/">Enumeration</a>:<br />
+A constrained set of possible values. Each <strong>Enumeration Type</strong> defines a number of <strong>Enumeration Values</strong> which have a coded key and a human-readable value.   </p>
+</li>
+<li>
+<p><a href="../../../glossary/primitive-data-type/primitive-data-type/">Primitive</a>:<br />
+Data without further details on structure or referencing. <strong>Primitive Data Types</strong> include <strong>‘String’</strong>, <strong>‘Integer’</strong> or <strong>‘Date’</strong>.</p>
+</li>
+<li>
+<p><a href="../../../glossary/reference-data-type/reference-data-type/">Reference</a>:<br />
+Data which refers to another <strong>Data Class</strong> within the same <strong>Data Model</strong>.</p>
+</li>
+<li>
+<p><a href="../../../glossary/terminology-data-type/terminology-data-type/">Terminology</a>:<br />
+A structured collection of <strong>Enumeration Values</strong> which have relationships between different data terms.   </p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>DataType Description</strong><br />
+    This is a short description of the <strong>Data Type</strong>. If the same <strong>Data Type</strong> is used multiple times, then the first description entry will be used so subsequent description fields can be left blank.</p>
+</li>
+<li>
+<p><strong>Reference to DataClass Path</strong><br />
+    If the <strong>Data Element</strong> is a <strong>‘Reference’</strong> <strong>Data Type</strong> and therefore the <strong>Data Element</strong> is a reference to an instance of another <strong>Data Class</strong>, then the path to that <strong>Data Class</strong> should be entered here. </p>
+<p>This path must match a path provided in the <strong>'DataClass Path'</strong> column using the same format with <strong>‘I’</strong> as the separator. This field cannot be used in conjunction with <strong>‘Enumeration Key’</strong> and <strong>‘Enumeration Value’</strong>. </p>
+</li>
+<li>
+<p><strong>Enumeration Key</strong><br />
+    If the <strong>Data Element</strong> is an <strong>Enumeration Data Type</strong>, then the <strong>Key</strong> and <strong>Value</strong> of each <strong>Enumeration</strong> should be included in the <strong>‘Enumeration Key’</strong> and <strong>‘Enumeration Value’</strong> columns respectively, with one <strong>Key</strong> and <strong>Value</strong> per row. </p>
+<p>The <strong>Enumeration Key</strong> is the text or string that may appear in a column of the dataset. </p>
+</li>
+<li>
+<p><strong>Enumeration Value</strong><br />
+    The <strong>Enumeration Value</strong> is the data that corresponds to the <strong>Key</strong>. For example, for a yes/no question on a webform, the <strong>Value</strong> is either ‘Yes’ or ‘No’. Each <strong>Value</strong> is assigned a <strong>Key</strong>, which in this case could be ‘1’ and ‘0’ respectively. </p>
+<p>An <strong>Enumeration Value</strong> must be provided if an <strong>Enumeration Key</strong> has been entered. </p>
+<p>Once all the <strong>Enumeration Key</strong> and <strong>Value</strong> pairs have been entered you will need to merge the corresponding cells in the <strong>'DataClass Path'</strong> column, and you may wish to merge the other relevant cells in the other columns too for consistency.</p>
+</li>
+</ul>
+<p>For example, if you were entering the information for a <strong>Data Element</strong> that was an <strong>Enumeration Data Type</strong> then the <strong>Data Model key sheet</strong> would look similar to the below: </p>
+<p><img alt="Data Model key sheet for a Data Element of Enumeration Data Type" src="../data-element-enumeration-example.png" /></p>
+<hr />
+<h2 id="2-import-data-model">2. Import Data Model<a class="headerlink" href="#2-import-data-model" title="Permanent link">&para;</a></h2>
+<p>Once the <strong>Data Model import file</strong> has been completed, click the <strong>'Import a Data Model'</strong> icon at the top right of the <strong>Model Tree</strong>. The <strong>'Import a new Data Model'</strong> form will then appear on the right. </p>
+<p>Click the <strong>'Select an importer'</strong> box and select <strong>'Excel (XLSX) importer'</strong>
+from the dropdown menu. This will automatically load the rest of the form that you need to complete. </p>
+<p><img alt="Section 1 of the Data Model import form" src="../data-model-import-form-1.png" /></p>
+<p>You then need to select the relevant folder that you wish to import the <strong>Data Model</strong> into. You can do this by either typing in the folder name, or clicking the menu icon to the right of the <strong>'Folder location'</strong> box. This will display the <strong>Model Tree</strong>, from which you can then select the relevant folder.  </p>
+<p>You then need to tick the <strong>'Finalised'</strong> box to indicate whether the <strong>Data Model</strong> you are importing is finalised. Although, it is recommended to keep the model as a draft until the gateway presentation of model descriptions has been decided. </p>
+<p>If the <strong>Data Model</strong> you are importing is intended to replace an existing <strong>Data Model</strong> within the current version of <strong>Mauro Data Mapper</strong>, then tick the <strong>'Import as New Documentation Version'</strong> box. This means that the imported model will supersede any <strong>Data Models</strong> with the same name and will be assigned the latest documentation version of the existing <strong>Data Model</strong>. </p>
+<p>If you are importing a new <strong>Data Model</strong>, then make sure the <strong>'Name'</strong> field in the <strong>Data Model listing sheet</strong> is unique, otherwise this will cause an error when importing. </p>
+<p>In the <strong>'Source'</strong> box, click <strong>'Choose file'</strong> and your file explorer will open. Navigate to the relevant <strong>Data Model import file</strong> and then select <strong>'Import Model(s)'</strong>. </p>
+<p><img alt="Section 2 of the Data Model import form" src="../data-model-import-form-2.png" /></p>
+<hr />
+<h2 id="3-round-tripping-data-models">3. Round Tripping Data Models<a class="headerlink" href="#3-round-tripping-data-models" title="Permanent link">&para;</a></h2>
+<p>Excel files can be safely used to <strong>'Round trip'</strong> <strong>Data Model</strong> descriptions. This is essentially where:</p>
+<ul>
+<li>A <strong>Data Model</strong> is exported in the form of an Excel spreadsheet.</li>
+<li>This exported spreadsheet is edited or updated with new information.</li>
+<li>
+<p>The new version of the spreadsheet is re-imported into <strong>Mauro Data Mapper</strong> and therefore automatically updates the existing <strong>Data Model</strong>. </p>
+<p>Note: <strong>'Import as New Documentation Version'</strong> should be ticked when re-importing. </p>
+</li>
+</ul>
+<p>This method is a quick and easy way to update existing <strong>Data Models</strong> as well as adding extra information. This can be particularly useful when <strong>Data Models</strong> have previously been imported using an alternative method, and therefore may only have the basic layout. </p>
+<hr />
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../exporting-data-models/exporting-data-models/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Exporting Data Models
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../../how-to-search/how-to-search/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              How to search
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021 University of Oxford and Health and Social Care Information Centre, also known as NHS Digital
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.7353b375.min.js"></script>
+      
+        <script src="../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
