@@ -64,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#child-classes" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -416,6 +421,18 @@
     <li class="md-nav__item">
       <a href="../../../user-guides/import-data-model-from-excel/import-data-model-from-excel/" class="md-nav__link">
         Import a Data Model from Excel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
       </a>
     </li>
   
@@ -876,9 +893,64 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Data class
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Data class
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#child-classes" class="md-nav__link">
+    Child Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiplicity" class="md-nav__link">
+    Multiplicity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-information" class="md-nav__link">
+    Getting information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-update-delete" class="md-nav__link">
+    Create / Update / Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying" class="md-nav__link">
+    Copying
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1281,6 +1353,63 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#child-classes" class="md-nav__link">
+    Child Classes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiplicity" class="md-nav__link">
+    Multiplicity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-information" class="md-nav__link">
+    Getting information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-update-delete" class="md-nav__link">
+    Create / Update / Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying" class="md-nav__link">
+    Copying
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1289,20 +1418,109 @@
                 
                   <h1>Data class</h1>
                 
-                <p><endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses</endpoint>
-<endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses</endpoint>
-<endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/content</endpoint>
-<endpoint class="delete">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses/<strong>{id}</strong></endpoint>
-<endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses/<strong>{id}</strong></endpoint>
-<endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses/<strong>{otherDataModelId}</strong>/<strong>{otherDataClassId}</strong></endpoint>
-<endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses</endpoint>
-<endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses</endpoint>
-<endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/allDataClasses</endpoint>
-<endpoint class="delete">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{id}</strong></endpoint>
-<endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{id}</strong></endpoint>
-<endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{otherDataModelId}</strong>/<strong>{otherDataClassId}</strong></endpoint></p>
+                <p>A DataClass can be represented as follows:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Response body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;81d00110-40e3-4ec0-b279-6004fa1b9b52&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;domainType&quot;</span><span class="p">:</span> <span class="s2">&quot;DataClass&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;parent&quot;</span><span class="p">,</span>        
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Represents a parent data class.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;root&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-28T10:10:13.945Z&quot;</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;20b1fd65-a7bf-4a39-a14b-c80b0174b03e&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;parentDataClass&quot;</span><span class="p">:</span> <span class="s2">&quot;363c202b-e6d9-4098-a5bf-78194d57b70d&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;minMultipicity&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;maxMultiplicity&quot;</span><span class="p">:</span> <span class="mi">-1</span><span class="p">,</span>
+    <span class="nt">&quot;classifiers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2fd9e8c7-4545-42f4-99a3-f93f14d35786&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;NIHR Health Data Finder&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-10-03T09:15:37.323Z&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>The fields are as follows:</p>
+<ul>
+<li><strong>id</strong> (UUID): The unique identifier of this data class</li>
+<li><strong>domainType</strong> (Type): The domain type of this catalogue object. Will always be <code>DataClass</code> in this case.</li>
+<li><strong>label</strong> (String): The human-readable identifier of this class.</li>
+<li><strong>description</strong> (String): A long description of the data class, and any important characteristics of the data.  This field may include HTML, or 
+MarkDown.</li>
+<li><strong>aliases</strong> (Set(String)): Any other names by which this data class is known</li>
+<li><strong>lastUpdated</strong> (DateTime): The date/time when this DataClass was last modified</li>
+<li><strong>model</strong> (UUID): The unique identifier of the owning data model</li>
+<li><strong>parentDataClass</strong> (UUID): The unique identifier of the data class of which this is a child of. If the data class does not have a parent, this field is undefined/not provided.</li>
+<li><strong>minMultiplicity</strong> (Number): Defines the minimum uses of this data class may be applied to a data model. See the <a href="#multiplicity">multipicity</a>.</li>
+<li><strong>maxMultiplicity</strong> (Number): Defines the maximum uses of this data class may be applied to a data model. See the <a href="#multiplicity">multipicity</a>.</li>
+<li><strong>classifiers</strong> (Set(Classifier)): The <strong>id</strong>, <strong>label</strong> and <strong>lastUpdated</strong> date of any classifiers used to tag or categorise this data class 
+(see <a href="../classifier/">classifiers</a>)</li>
+</ul>
+<p>As well as the endpoints listed below, a DataClass is also a CatalogueItem, and so a DataClass identifier can also be used as the parameter to any 
+of <a href="../catalogue-item/">those endpoints</a></p>
+<h2 id="child-classes">Child Classes<a class="headerlink" href="#child-classes" title="Permanent link">&para;</a></h2>
+<p>A DataClass may be composed of child classes to define more complex definitions for a DataModel. Endpoints are provided to differentiate between parent and child data classes.</p>
+<h2 id="multiplicity">Multiplicity<a class="headerlink" href="#multiplicity" title="Permanent link">&para;</a></h2>
+<p>Each DataClass defines its <a href="../../../glossary/multiplicity/multiplicity">multiplicity</a> to state how many occurances of this class should be expected in a model. Multipicities are defined in the notation <code>x..y</code>, where:</p>
+<ul>
+<li><code>x</code> represents the <em>minimum</em> multipicity.</li>
+<li><code>y</code> represents the <em>maximum</em> multipicity.</li>
+</ul>
+<p>A minimum multipicity <em>must</em> be provided and be greater than or equal to <code>0</code>.</p>
+<p>A maximum multiplicity <em>may</em> be provided that is greater than or equal to <code>1</code>. To represent <em>unbounded</em> multipicity, the <code>*</code> symbol is used - numerically, for endpoints, this is represented as the integer <code>-1</code>.</p>
+<p>Some examples of multipicities and what they represent:</p>
+<ul>
+<li><code>0..*</code> - an optional, unbounded data class. This may be present or not, and has not limit on how many are present.</li>
+<li><code>1..*</code> - a required, unbounded data class. Similar to above but with the added constraint that at least one must be present.</li>
+<li><code>0..1</code> - an optional, singular data class. Either the class is present in the model or not.</li>
+<li><code>1..1</code> - a required, singular data class. This represents that the class must be present in the model.</li>
+</ul>
+<h2 id="getting-information">Getting information<a class="headerlink" href="#getting-information" title="Permanent link">&para;</a></h2>
+<p>The following endpoints returns a <a href="../../pagination/">paginated</a> list of all the DataTypes within a particular DataModel. The first requests the data classes for a data model, the second requests the data classes for a parent data class.</p>
+<p><endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses</endpoint></p>
+<p><endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses</endpoint></p>
+<p>These endpoints provide the detailed information about a particular DataClass; the first requests a DataType under a particular DataModel, the second requests a DataClass from a parent DataClass.</p>
+<p><endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses/<strong>{id}</strong></endpoint></p>
+<h2 id="create-update-delete">Create / Update / Delete<a class="headerlink" href="#create-update-delete" title="Permanent link">&para;</a></h2>
+<p>To create a new DataClass from scratch, use the following <em>post</em> endpoints, depending on whether to create one directly under a DataModel or under a parent DataClass respectively.</p>
+<p><endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses</endpoint></p>
+<p><endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses</endpoint></p>
+<p>To edit the properties of a DataClass, use the following endpoints, with a body similar to the JSON described at the top of this page. Use the appropriate endpoint depending on whether to edit one directly under a DataModel or under a parent DataClass respectively.</p>
+<p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{id}</strong></endpoint></p>
+<p>To delete a DataClass, use the following endpoint, depending on whether to delete one directly under a DataModel or under a parent DataClass respectively.</p>
+<p><endpoint class="delete">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="delete">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses/<strong>{id}</strong></endpoint></p>
+<h2 id="copying">Copying<a class="headerlink" href="#copying" title="Permanent link">&para;</a></h2>
+<p>Instead of creating a new DataClass from scratch, it is also possible to copy an existing DataClass from another DataModel. Use the following endpoints to accomplish this, depending on whether to copy one directly under a DataModel or under a parent DataClass respectively. The <strong>dataModelId</strong> and <strong>dataClassId</strong> refers to the target DataModel or parent DataClass to copy to; <strong>otherDataModelId</strong> and <strong>otherDataCLassId</strong> refers to the source DataModel/Class to copy from.</p>
+<p><endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{otherDataModelId}</strong>/<strong>{otherDataClassId}</strong></endpoint></p>
+<p><endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataClasses/<strong>{otherDataModelId}</strong>/<strong>{otherDataClassId}</strong></endpoint></p>
                 
               
               

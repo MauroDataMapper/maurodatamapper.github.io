@@ -64,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#list-all-terminologies" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -416,6 +421,18 @@
     <li class="md-nav__item">
       <a href="../../../user-guides/import-data-model-from-excel/import-data-model-from-excel/" class="md-nav__link">
         Import a Data Model from Excel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
       </a>
     </li>
   
@@ -1020,9 +1037,84 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Terminology
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Terminology
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#list-all-terminologies" class="md-nav__link">
+    List all terminologies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-information-about-a-particular-terminology" class="md-nav__link">
+    Get information about a particular terminology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-terminologies" class="md-nav__link">
+    Create terminologies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-terminology" class="md-nav__link">
+    Update terminology
+  </a>
+  
+    <nav class="md-nav" aria-label="Update terminology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sharing" class="md-nav__link">
+    Sharing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-terminology" class="md-nav__link">
+    Delete terminology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-export-a-terminology" class="md-nav__link">
+    Import / export a terminology
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1281,6 +1373,83 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#list-all-terminologies" class="md-nav__link">
+    List all terminologies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-information-about-a-particular-terminology" class="md-nav__link">
+    Get information about a particular terminology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-terminologies" class="md-nav__link">
+    Create terminologies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-terminology" class="md-nav__link">
+    Update terminology
+  </a>
+  
+    <nav class="md-nav" aria-label="Update terminology">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sharing" class="md-nav__link">
+    Sharing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-terminology" class="md-nav__link">
+    Delete terminology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-export-a-terminology" class="md-nav__link">
+    Import / export a terminology
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1289,29 +1458,129 @@
                 
                   <h1>Terminology</h1>
                 
-                <p><endpoint class="get">/api/admin/terminologies/deleted</endpoint>
-<endpoint class="get">/api/admin/terminologies/modelSuperseded</endpoint>
-<endpoint class="get">/api/admin/terminologies/documentSuperseded</endpoint>
-<endpoint class="post">/api/terminologies/import/<strong>{type}</strong></endpoint>
-<endpoint class="get">/api/classifiers/<strong>{classifierId}</strong>/terminologies</endpoint>
-<endpoint class="get">/api/terminologies/<strong>{terminologyId}</strong>/tree</endpoint>
-<endpoint class="put">/api/terminologies/<strong>{terminologyId}</strong>/newVersion</endpoint>
-<endpoint class="put">/api/terminologies/<strong>{terminologyId}</strong>/newDocumentationVersion</endpoint>
-<endpoint class="put">/api/terminologies/<strong>{terminologyId}</strong>/finalise</endpoint>
-<endpoint class="delete">/api/terminologies/<strong>{terminologyId}</strong>/readByAuthenticated</endpoint>
-<endpoint class="put">/api/terminologies/<strong>{terminologyId}</strong>/readByAuthenticated</endpoint>
-<endpoint class="delete">/api/terminologies/<strong>{terminologyId}</strong>/readByEveryone</endpoint>
-<endpoint class="put">/api/terminologies/<strong>{terminologyId}</strong>/readByEveryone</endpoint>
-<endpoint class="get">/api/terminologies/<strong>{terminologyId}</strong>/export/<strong>{type}</strong></endpoint>
-<endpoint class="put">/api/terminologies/<strong>{terminologyId}</strong>/folder/<strong>{folderId}</strong></endpoint>
-<endpoint class="put">/api/folders/<strong>{folderId}</strong>/terminologies/<strong>{terminologyId}</strong></endpoint>
-<endpoint class="post">/api/terminologies</endpoint>
-<endpoint class="get">/api/terminologies</endpoint>
-<endpoint class="delete">/api/terminologies/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/terminologies/<strong>{id}</strong></endpoint>
-<endpoint class="get">/api/terminologies/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/terminologies/<strong>{terminologyId}</strong>/<strong>{type}</strong>/<strong>{share}</strong>/<strong>{shareId}</strong>?</endpoint>
-<endpoint class="delete">/api/terminologies/<strong>{terminologyId}</strong>/<strong>{type}</strong>/<strong>{share}</strong>/<strong>{shareId}</strong></endpoint></p>
+                <p>In its simplest form, a Terminology can be represented as follows:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Response body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;81d00110-40e3-4ec0-b279-6004fa1b9b52&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;domainType&quot;</span><span class="p">:</span> <span class="s2">&quot;Terminology&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Sample Terminology&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;aliases&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;sample&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Example of a Terminology&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;NHS Digital&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;organisation&quot;</span><span class="p">:</span> <span class="s2">&quot;NHS Digital&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;documentationVersion&quot;</span><span class="p">:</span> <span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-10-03T12:00:05.95Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;classifiers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2fd9e8c7-4545-42f4-99a3-f93f14d35786&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;NIHR Health Data Finder&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2019-10-03T09:15:37.323Z&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;Terminology&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;finalised&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>The fields are as follows:</p>
+<ul>
+<li><strong>id</strong> (UUID): The unique identifier of this terminology</li>
+<li><strong>domainType</strong> (Type): The domain type of this catalogue object - always <code>Terminology</code> in this case</li>
+<li><strong>label</strong> (String): The human-readable identifier of this terminology.  The combination of <code>label</code> and <code>documentationVersion</code> are unique across the catalogue</li>
+<li><strong>aliases</strong> (Set(String)): Any other names by which this terminology is known</li>
+<li><strong>description</strong> (String): A long description of the description, and any important characteristics of the data.  This field may include HTML, or 
+MarkDown.</li>
+<li><strong>author</strong> (String): The names of those creating and maintaining this terminology (not any underlying dataset itself)</li>
+<li><strong>organisation</strong> (String): The name of the organisation holding the terminology</li>
+<li><strong>documentationVersion</strong> (Version): The version of the description of an underlying dataset</li>
+<li><strong>lastUpdated</strong> (DateTime): The date/time when this terminology was last modified</li>
+<li><strong>classifiers</strong> (Set(Classifier)): The <strong>id</strong>, <strong>label</strong> and <strong>lastUpdated</strong> date of any classifiers used to tag or categorise this terminology 
+(see <a href="../classifier/">classifiers</a>)</li>
+<li><strong>type</strong> (Terminology Type): Will always be defined as <code>Terminology</code>.</li>
+<li><strong>finalised</strong> (Boolean): Whether this terminology has been 'finalised', or is in draft mode</li>
+</ul>
+<p>Endpoints which return multiple terminologies typically include sufficient fields for generating links on the interface - a separate call to return the 
+details of the terminology is usually required. </p>
+<p>As well as the endpoints listed below, a terminology is also a CatalogueItem, and so a terminology identifier can also be used as the parameter to any 
+of <a href="../catalogue-item/">those endpoints</a></p>
+<h2 id="list-all-terminologies">List all terminologies<a class="headerlink" href="#list-all-terminologies" title="Permanent link">&para;</a></h2>
+<p>The following endpoint returns a <a href="../../pagination/">paginated</a> list of all terminologies readable by the current user:  </p>
+<p><endpoint class="get">/api/terminologies</endpoint></p>
+<p>This endpoint returns all the terminologies within a particular folder; again, this result is <a href="../../pagination/">paginated</a>.</p>
+<p><endpoint class="get">/api/folders/<strong>{folderId}</strong>/terminologies</endpoint></p>
+<h2 id="get-information-about-a-particular-terminology">Get information about a particular terminology<a class="headerlink" href="#get-information-about-a-particular-terminology" title="Permanent link">&para;</a></h2>
+<p>This endpoint provides the default information about a terminology, as per the JSON at the top of the page.</p>
+<p><endpoint class="get">/api/terminologies/<strong>{id}</strong></endpoint></p>
+<h2 id="create-terminologies">Create terminologies<a class="headerlink" href="#create-terminologies" title="Permanent link">&para;</a></h2>
+<p>There are two ways of versioning terminologies in the catalogue.  To create an entirely new version of a model, please use the following endpoint:</p>
+<p><endpoint class="put">/api/terminology/<strong>{terminologyId}</strong>/newModelVersion</endpoint></p>
+<p>The name must be different to the original model.</p>
+<p>To create a new 'documentation version', use the following endpoint:</p>
+<p><endpoint class="put">/api/terminology/<strong>{terminologyId}</strong>/newDocumentationVersion</endpoint></p>
+<p>By default, this will supersede the original terminology.</p>
+<p>It is also possible to <em>branch</em> and <em>fork</em> code sets to create drafts before finalising them. To create a new <em>branch</em> from an existing code set:</p>
+<p><endpoint class="put">/api/terminology/<strong>{terminologyId}</strong>/newBranchModelVersion</endpoint></p>
+<p>To create a <em>fork</em> of the original terminology:</p>
+<p><endpoint class="put">/api/terminology/<strong>{terminologyId}</strong>/newForkModel</endpoint></p>
+<h2 id="update-terminology">Update terminology<a class="headerlink" href="#update-terminology" title="Permanent link">&para;</a></h2>
+<p>To edit the primitive properties of a terminology, use the following endpoint, with a body similar to the JSON described at the top of this page:</p>
+<p><endpoint class="put">/api/terminology/<strong>{id}</strong></endpoint></p>
+<p>To move a terminology from one folder to another, call the following, using the id fields for the terminology, and the new folder:</p>
+<p><endpoint class="put">/api/folders/<strong>{folderId}</strong>/terminologies/<strong>{terminologyId}</strong></endpoint></p>
+<p>Alternatively, you can call this equivalent endpoint:</p>
+<p><endpoint class="put">/api/terminologies/<strong>{terminologyId}</strong>/folder/<strong>{folderId}</strong></endpoint></p>
+<p>To move a terminology from a draft state to 'finalised', use the following endpoint:</p>
+<p><endpoint class="put">/api/terminologies/<strong>{terminologyId}</strong>/finalise</endpoint></p>
+<h3 id="sharing">Sharing<a class="headerlink" href="#sharing" title="Permanent link">&para;</a></h3>
+<p>To allow a terminology to be read by any authenticated user of the system, use the following endpoint:</p>
+<p><endpoint class="put">/api/terminologies/<strong>{terminologyId}</strong>/readByAuthenticated</endpoint></p>
+<p>... and to remove this flag, use the following:</p>
+<p><endpoint class="delete">/api/terminologies/<strong>{terminologyId}</strong>/readByAuthenticated</endpoint></p>
+<p>Similarly, to allow the terminology to be publicly readable - ie. readable by any unauthenticated user of the system, 
+use the following endpoint: </p>
+<p><endpoint class="put">/api/terminologies/<strong>{terminologyId}</strong>/readByEveryone</endpoint></p>
+<p>... and the following to remove this flag:</p>
+<p><endpoint class="delete">/api/terminologies/<strong>{terminologyId}</strong>/readByEveryone</endpoint></p>
+<h2 id="delete-terminology">Delete terminology<a class="headerlink" href="#delete-terminology" title="Permanent link">&para;</a></h2>
+<p>To delete a terminology, use the following endpoint.  The <strong>permanent</strong> parameter is a boolean value that controls whether a 'hard' or 'soft' delete
+ is used if the user is an administrator.</p>
+<p><endpoint class="delete">/api/terminologies/<strong>{id}</strong>?permanent=<strong>{true/false}</strong></endpoint></p>
+<p>An administrator is able to restore a 'soft' deleted terminology using the following endpoint:</p>
+<p><endpoint class="put">/api/admin/terminologies/<strong>{id}</strong>/undoSoftDelete</endpoint></p>
+<h2 id="import-export-a-terminology">Import / export a terminology<a class="headerlink" href="#import-export-a-terminology" title="Permanent link">&para;</a></h2>
+<p>To export a terminology using a particular export plugin, you will need to know the namespace, the name, and the version of the plugin.  The
+ following endpoint can be used to export multiple code sets: </p>
+<p><endpoint class="post">/api/terminologies/export/<strong>{exporterNamespace}</strong>/<strong>{exporterName}</strong>/<strong>{exporterVersion}</strong></endpoint></p>
+<p>To export a single terminology, you can use the following endpoint with the id of the terminologies specified:</p>
+<p><endpoint class="get">/api/terminologies/<strong>{terminologyId}</strong>/export/<strong>{exporterNamespace}</strong>/<strong>{exporterName}</strong>/<strong>{exporterVersion}</strong></endpoint></p>
+<p>Similarly, to import one or more terminologies, the namespace, name and version of the import plugin must be known.  The body of this method should
+ be the parameters for the import, including any files that are required.</p>
+<p><endpoint class="post">/api/terminologies/import/<strong>{importerNamespace}</strong>/<strong>{importerName}</strong>/<strong>{importerVersion}</strong></endpoint></p>
                 
               
               

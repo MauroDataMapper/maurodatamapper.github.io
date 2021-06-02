@@ -431,6 +431,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../user-guides/how-to-search/how-to-search/" class="md-nav__link">
         How to search
       </a>
@@ -914,8 +926,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#edit-history" class="md-nav__link">
-    Edit History
+  <a href="#item-history" class="md-nav__link">
+    Item history
   </a>
   
 </li>
@@ -1452,8 +1464,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#edit-history" class="md-nav__link">
-    Edit History
+  <a href="#item-history" class="md-nav__link">
+    Item history
   </a>
   
 </li>
@@ -1536,16 +1548,26 @@ the catalogue.</li>
 </ul>
 <p>The endpoints for using metadata properties are listed below.</p>
 <p>To retrieve all the properties for a particular object, use the following endpoint.  The metadata properties are returned in a <a href="../../pagination/">paginated list</a> </p>
-<p><endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/metadata</endpoint></p>
+<p><endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/metadata</endpoint></p>
+<p>Where <strong>{catalogueItemDomainType}</strong> can be one of:</p>
+<ul>
+<li><code>folders</code>,</li>
+<li><code>dataModels</code>,</li>
+<li><code>dataClasses</code>,</li>
+<li><code>dataTypes</code>,</li>
+<li><code>terminologies</code>,</li>
+<li><code>terms</code>, or</li>
+<li><code>referenceDataModels</code></li>
+</ul>
 <p>To get a specific property (whose <strong>id</strong> field is known), use the following endpoint:</p>
-<p><endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/metadata/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/metadata/<strong>{id}</strong></endpoint></p>
 <p>To add a new property to an object you have write-access to, post a structure similar to the one displayed above (ignoring <strong>id</strong> and 
 <strong>lastUpdated</strong> fields, which will be automatically set to the following endpoint:</p>
-<p><endpoint class="post">/api/facets/<strong>{facetOwnerId}</strong>/metadata</endpoint></p>
+<p><endpoint class="post">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/metadata</endpoint></p>
 <p>To edit an existing property (whose <strong>id</strong> field is known), use the following endpoint:</p>
-<p><endpoint class="put">/api/facets/<strong>{facetOwnerId}</strong>/metadata/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="put">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/metadata/<strong>{id}</strong></endpoint></p>
 <p>To delete an existing property (whose <strong>id</strong> field is known), use the following endpoint:</p>
-<p><endpoint class="delete">/api/facets/<strong>{facetOwnerId}</strong>/metadata/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="delete">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/metadata/<strong>{id}</strong></endpoint></p>
 <p>The following endpoint returns all known namespaces for a particular object (given by the <strong>id</strong> field).  To find all namespaces across the whole 
 catalogue, the final component of the URL can be left off.</p>
 <p><endpoint class="get">/api/metadata/namespaces/<strong>{id}</strong>?</endpoint></p>
@@ -1653,10 +1675,10 @@ subset of the users listed in <strong>readableByUsers</strong></li>
 <p>Note that read/write permissions are propagated through folders and sub-folders, and the list of permissions given is the inferred list.  So 
 changes to that list may not always have an affect if they are contradicted by another assertion further up the tree.</p>
 </div>
-<p>The endpoint for getting the permissions each of DataModel, Terminology, Folder, CodeSet and Classifier are listed below.  The details for updating
+<p>The endpoint for getting the permissions each of DataModel, ReferenceDataModel, Folder, CodeSet and Classifier are listed below.  The details for updating
  permissions are listed on their respective pages. </p>
 <p><endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/permissions</endpoint>
-<endpoint class="get">/api/terminologies/<strong>{terminologyId}</strong>/permissions</endpoint>
+<endpoint class="get">/api/referenceDataModels/<strong>{referenceDataModelId}</strong>/permissions</endpoint>
 <endpoint class="get">/api/folders/<strong>{folderId}</strong>/permissions</endpoint>
 <endpoint class="get">/api/codeSets/<strong>{codeSetId}</strong>/permissions</endpoint>
 <endpoint class="get">/api/classifiers/<strong>{classifierId}</strong>/permissions</endpoint></p>
@@ -1732,76 +1754,93 @@ changes to that list may not always have an affect if they are contradicted by a
 </div>
 <h3 id="listing-annotations">Listing annotations<a class="headerlink" href="#listing-annotations" title="Permanent link">&para;</a></h3>
 <p>To get all the annotations for a particular object, use the following endpoint. The results are returned in a <a href="../../pagination/">paginated list</a></p>
-<p><endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/annotations</endpoint></p>
+<p><endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/annotations</endpoint></p>
+<p>Where <strong>{catalogueItemDomainType}</strong> can be one of:</p>
+<ul>
+<li><code>folders</code>,</li>
+<li><code>dataModels</code>,</li>
+<li><code>dataClasses</code>,</li>
+<li><code>dataTypes</code>,</li>
+<li><code>terminologies</code>,</li>
+<li><code>terms</code>, or</li>
+<li><code>referenceDataModels</code></li>
+</ul>
 <p>To get the details of a particular annotation / comment, whose <strong>id</strong> is known, use the following endpoint:</p>
-<p><endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/annotations/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/annotations/<strong>{id}</strong></endpoint></p>
 <p>To create a new top-level annotation, post to the following endpoint, with a body similar to the JSON above (but without the <strong>id</strong> and
  <strong>lastUpdated</strong> fields)</p>
-<p><endpoint class="post">/api/facets/<strong>{facetOwnerId}</strong>/annotations</endpoint></p>
+<p><endpoint class="post">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/annotations</endpoint></p>
 <p>To delete an annotation / comment whose identifier is known, use the following <em>delete</em> endpoint:</p>
-<p><endpoint class="delete">/api/facets/<strong>{facetOwnerId}</strong>/annotations/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="delete">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/annotations/<strong>{id}</strong></endpoint></p>
 <h3 id="child-annotations-responses">Child annotations (responses)<a class="headerlink" href="#child-annotations-responses" title="Permanent link">&para;</a></h3>
 <p>Comments can have child comments (or replies).  To get all the child comments for a particular comment, use the following endpoint. The
  results are returned in a <a href="../../pagination/">paginated list</a></p>
-<p><endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/annotations/<strong>{annotationId}</strong>/annotations</endpoint></p>
+<p><endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/annotations/<strong>{annotationId}</strong>/annotations</endpoint></p>
 <p>To get the details of a particular child annotation / comment, whose <strong>id</strong> is known, use the following endpoint:</p>
-<p><endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/annotations/<strong>{annotationId}</strong>/annotations/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/annotations/<strong>{annotationId}</strong>/annotations/<strong>{id}</strong></endpoint></p>
 <p>To create a new child annotation, post to the following endpoint, with a body similar to the JSON above (but without the <strong>id</strong> and
  <strong>lastUpdated</strong> fields)</p>
-<p><endpoint class="post">/api/facets/<strong>{facetOwnerId}</strong>/annotations/<strong>{annotationId}</strong>/annotations</endpoint></p>
+<p><endpoint class="post">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/annotations/<strong>{annotationId}</strong>/annotations</endpoint></p>
 <p>To delete a child annotation / comment whose identifier is known, use the following <em>delete</em> endpoint:</p>
-<p><endpoint class="delete">/api/facets/<strong>{facetOwnerId}</strong>/annotations/<strong>{annotationId}</strong>/annotations/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="delete">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/annotations/<strong>{annotationId}</strong>/annotations/<strong>{id}</strong></endpoint></p>
 <h2 id="searching">Searching<a class="headerlink" href="#searching" title="Permanent link">&para;</a></h2>
-<p>An advanced search is powered by Lucene.  The parameters for an advanced search can be provided as the body of a <em>post</em> request as follows:</p>
-<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Request body (JSON)</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;searchTerm&quot;</span><span class="p">:</span><span class="s2">&quot;smoking&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;limit&quot;</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span>
-    <span class="nt">&quot;offset&quot;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="nt">&quot;domainTypes&quot;</span><span class="p">:[],</span>
-    <span class="nt">&quot;labelOnly&quot;</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-    <span class="nt">&quot;dataModelTypes&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-    <span class="nt">&quot;classifiers&quot;</span><span class="p">:[],</span>
-    <span class="nt">&quot;classifierFilter&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-    <span class="nt">&quot;lastUpdatedAfter&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-    <span class="nt">&quot;lastUpdatedBefore&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-    <span class="nt">&quot;createdAfter&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
-    <span class="nt">&quot;createdBefore&quot;</span><span class="p">:</span><span class="kc">null</span>
-<span class="p">}</span>  
-</code></pre></div>
-</td></tr></table>
-</div>
-</div>
-<p>The fields are defined as follows:</p>
-<ul>
-<li><strong>searchTerm</strong> (String): the search string - this can take a number of standard search operators - for example "smoking + pregnancy"</li>
-<li><strong>limit</strong> (Integer): the number of results returned in a <a href="../../pagination/">paginated list</a></li>
-<li><strong>offset</strong> (Integer): the index of the first result returned in a <a href="../../pagination/">paginated list</a></li>
-<li><strong>domainTypes</strong> (Set(String)): the catalogue object types that should be searched - for example "DataModel", "DataClass</li>
-<li><strong>labelOnly</strong> (Boolean): whether the search should only query the label of all objects</li>
-<li><strong>dataModelTypes</strong> (Set(String)): the types of data model that should be searched - for example "Data Asset", "Data Standard" </li>
-<li><strong>classifiers</strong> (Set(String)): a set of classifier labels, such that all results must be classified by one of those tags</li>
-<li><strong>classifierFilter</strong> (?? Unknown): Currently undocumented</li>
-<li><strong>lastUpdatedAfter</strong> (DateTime): Only include objects in the search results if they have been modified more recently than the given date</li>
-<li><strong>lastUpdatedBefore</strong> (DateTime): Only include objects in the search results if they have been modified earlier than the given date </li>
-<li><strong>createdAfter</strong> (DateTime): Only include objects in the search results if they were created more recently than the given date</li>
-<li><strong>createdBefore</strong> (DateTime): Only include objects in the search results if they were created earlier than the given date </li>
-</ul>
+<p>An advanced search is powered by Lucene.  The parameters for an advanced search can be provided as query parameters of a <em>get</em> request, as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>searchTerm</code></td>
+<td>(String): the search string - this can take a number of standard search operators - for example "smoking + pregnancy"</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>(Integer): the number of results returned in a <a href="../../pagination/">paginated list</a></td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td>(Integer): the index of the first result returned in a <a href="../../pagination/">paginated list</a></td>
+</tr>
+<tr>
+<td><code>domainTypes</code></td>
+<td>(Set(String)): the catalogue object types that should be searched. These can include: <code>DataModel</code>, <code>DataClass</code>, <code>DataElement</code>, <code>DataType</code>, <code>EnumerationType</code>.</td>
+</tr>
+<tr>
+<td><code>labelOnly</code></td>
+<td>(Boolean): whether the search should only query the label of all objects</td>
+</tr>
+<tr>
+<td><code>dataModelTypes</code></td>
+<td>(Set(String)): the types of data model that should be searched - for example <code>Data Asset</code>, <code>Data Standard</code></td>
+</tr>
+<tr>
+<td><code>classifiers</code></td>
+<td>(Set(String)): a set of classifier labels, such that all results must be classified by one of those tags</td>
+</tr>
+<tr>
+<td><code>lastUpdatedAfter</code></td>
+<td>(DateTime): Only include objects in the search results if they have been modified more recently than the given date</td>
+</tr>
+<tr>
+<td><code>lastUpdatedBefore</code></td>
+<td>(DateTime): Only include objects in the search results if they have been modified earlier than the given date</td>
+</tr>
+<tr>
+<td><code>createdAfter</code></td>
+<td>(DateTime): Only include objects in the search results if they were created more recently than the given date</td>
+</tr>
+<tr>
+<td><code>createdBefore</code></td>
+<td>(DateTime): Only include objects in the search results if they were created earlier than the given date</td>
+</tr>
+</tbody>
+</table>
 <p>The response will be a <a href="../../pagination/">paginated list</a> of items, where each item has the following structure:</p>
-<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Response body (JSON)</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Response body (JSON)</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1852,18 +1891,16 @@ changes to that list may not always have an affect if they are contradicted by a
 <li><strong>breadcrumbs</strong> (List(Breadcrumb)): An ordered list of, e.g. DataModels and DataClasses to show the location of an object in the hierarchy of a
  model.  This will include, for each component of the breadcrumb, an <strong>id</strong>, a <strong>label</strong> and a <strong>domainType</strong>.  </li>
 </ul>
-<p>To search across the whole catalogue, use the following endpoint:</p>
-<p><endpoint class="post">/api/catalogueItems/search</endpoint></p>
-<p>To restrict the search to items within a particular folder, use the following endpoint:</p>
-<p><endpoint class="post">/api/folders/<strong>{folderId}</strong>/search</endpoint></p>
+<p>To search across the whole catalogue, use the following endpoint, optionally passing the above query parameters:</p>
+<p><endpoint class="get">/api/tree/folders/search</endpoint></p>
 <p>Similarly, to search within a particular data model, use the following:</p>
 <p><endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/search</endpoint></p>
 <p>Finally, to search within a specific Data Class, use the following:</p>
 <p><endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/search</endpoint></p>
-<h2 id="edit-history">Edit History<a class="headerlink" href="#edit-history" title="Permanent link">&para;</a></h2>
+<h2 id="item-history">Item history<a class="headerlink" href="#item-history" title="Permanent link">&para;</a></h2>
 <p>The edit history for various catalogue items can be retrieved using the endpoints listed below.  The format of a response is a paginated list of
  edits, with the following structure:</p>
-<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Response body (JSON)</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Response body (JSON)</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -1906,23 +1943,83 @@ changes to that list may not always have an affect if they are contradicted by a
 <endpoint class="get">/api/classifiers/<strong>{classifierId}</strong>/edits</endpoint>
 <endpoint class="get">/api/userGroups/<strong>{userGroupId}</strong>/edits</endpoint></p>
 <h2 id="reference-files">Reference files<a class="headerlink" href="#reference-files" title="Permanent link">&para;</a></h2>
-<p><endpoint class="post">/api/facets/<strong>{facetOwnerId}</strong>/referenceFiles</endpoint>
-<endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/referenceFiles</endpoint>
-<endpoint class="delete">/api/facets/<strong>{facetOwnerId}</strong>/referenceFiles/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/facets/<strong>{facetOwnerId}</strong>/referenceFiles/<strong>{id}</strong></endpoint>
-<endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/referenceFiles/<strong>{id}</strong></endpoint></p>
+<p>Reference files (or attachments) can be stored alongside various catalogue items to supplement information about the catalogue item. Reference 
+files have the following structure:</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Response body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;eea67c19-1833-4125-9934-b06f45844c20&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;domainType&quot;</span><span class="p">:</span> <span class="s2">&quot;ReferenceFile&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fileName&quot;</span><span class="p">:</span> <span class="s2">&quot;uploadedFile.png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fileSize&quot;</span><span class="p">:</span> <span class="mi">80899</span><span class="p">,</span>
+    <span class="nt">&quot;fileType&quot;</span><span class="p">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-05-13T12:50:37.523Z&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>The fields have the following definition:</p>
+<ul>
+<li><strong>id</strong> (UUID): The identifier of the returned object</li>
+<li><strong>domainType</strong> (String): The type of the returned object - in this case, "ReferenceFile"</li>
+<li><strong>fileName</strong> (String): The name of the uploaded file</li>
+<li><strong>fileSize</strong> (Number): The size of the uploaded reference file, in bytes</li>
+<li><strong>fileType</strong> (String): The MIME type of the uploaded reference file</li>
+<li><strong>lastUpdated</strong> (DateTime): the date and time when this modification was made</li>
+</ul>
+<p>To upload and attach a new reference file to a catalogue item, use the following endpoint and request payload:</p>
+<p><endpoint class="post">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/referenceFiles</endpoint></p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Request body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;fileName&quot;</span><span class="p">:</span> <span class="s2">&quot;uploadedFile.png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fileSize&quot;</span><span class="p">:</span> <span class="mi">80899</span><span class="p">,</span>
+    <span class="nt">&quot;fileType&quot;</span><span class="p">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;fileContents&quot;</span><span class="p">:</span> <span class="p">[</span> 
+        <span class="err">//</span> <span class="err">Array</span> <span class="err">of</span> <span class="err">bytes</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Where <strong>{catalogueItemDomainType}</strong> can be one of:</p>
+<ul>
+<li><code>dataModels</code>,</li>
+<li><code>terminologies</code>,</li>
+<li><code>codeSets</code>, or</li>
+<li><code>referenceDataModels</code></li>
+</ul>
+<p>To get either a <a href="../../pagination/">paginated list</a> of reference files for a catalogue item, or an individual reference file known by <strong>{id}</strong>:</p>
+<p><endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/referenceFiles</endpoint>
+<endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/referenceFiles/<strong>{id}</strong></endpoint></p>
+<p>To delete a reference file from a catalogue item whose identifier is known, use the following delete endpoint:</p>
+<p><endpoint class="delete">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/referenceFiles/<strong>{id}</strong></endpoint></p>
 <h2 id="summary-metadata">Summary Metadata<a class="headerlink" href="#summary-metadata" title="Permanent link">&para;</a></h2>
-<p><endpoint class="post">/api/facets/<strong>{facetOwnerId}</strong>/summaryMetadata</endpoint>
-<endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/summaryMetadata</endpoint>
-<endpoint class="delete">/api/facets/<strong>{facetOwnerId}</strong>/summaryMetadata/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/facets/<strong>{facetOwnerId}</strong>/summaryMetadata/<strong>{id}</strong></endpoint>
-<endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/summaryMetadata/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="post">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/summaryMetadata</endpoint>
+<endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/summaryMetadata</endpoint>
+<endpoint class="delete">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/summaryMetadata/<strong>{id}</strong></endpoint>
+<endpoint class="put">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/summaryMetadata/<strong>{id}</strong></endpoint>
+<endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/summaryMetadata/<strong>{id}</strong></endpoint></p>
 <h3 id="summary-metadata-reports">Summary Metadata Reports<a class="headerlink" href="#summary-metadata-reports" title="Permanent link">&para;</a></h3>
-<p><endpoint class="post">/api/facets/<strong>{facetOwnerId}</strong>/summaryMetadata/<strong>{summaryMetadataId}</strong>/summaryMetadataReports</endpoint>
-<endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/summaryMetadata/<strong>{summaryMetadataId}</strong>/summaryMetadataReports</endpoint>
-<endpoint class="delete">/api/facets/<strong>{facetOwnerId}</strong>/summaryMetadata/<strong>{summaryMetadataId}</strong>/summaryMetadataReports/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/facets/<strong>{facetOwnerId}</strong>/summaryMetadata/<strong>{summaryMetadataId}</strong>/summaryMetadataReports/<strong>{id}</strong></endpoint>
-<endpoint class="get">/api/facets/<strong>{facetOwnerId}</strong>/summaryMetadata/<strong>{summaryMetadataId}</strong>/summaryMetadataReports/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="post">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/summaryMetadata/<strong>{summaryMetadataId}</strong>/summaryMetadataReports</endpoint>
+<endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/summaryMetadata/<strong>{summaryMetadataId}</strong>/summaryMetadataReports</endpoint>
+<endpoint class="delete">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/summaryMetadata/<strong>{summaryMetadataId}</strong>/summaryMetadataReports/<strong>{id}</strong></endpoint>
+<endpoint class="put">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/summaryMetadata/<strong>{summaryMetadataId}</strong>/summaryMetadataReports/<strong>{id}</strong></endpoint>
+<endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/summaryMetadata/<strong>{summaryMetadataId}</strong>/summaryMetadataReports/<strong>{id}</strong></endpoint></p>
                 
               
               

@@ -431,6 +431,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../user-guides/how-to-search/how-to-search/" class="md-nav__link">
         How to search
       </a>
@@ -709,6 +721,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-and-advanced-configuration" class="md-nav__link">
+    Debugging and advanced configuration
+  </a>
   
 </li>
       
@@ -1427,6 +1446,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#debugging-and-advanced-configuration" class="md-nav__link">
+    Debugging and advanced configuration
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1444,9 +1470,8 @@
                 
                 <h2 id="checking-version-information">Checking version information<a class="headerlink" href="#checking-version-information" title="Permanent link">&para;</a></h2>
 <p>Inside the web interface, the <strong>Plugins and Modules</strong> tab on the administrator dashboard provides information about the loaded components of the
-Mauro installation.  The first list, <strong>Plugins</strong>, provides a list of names and versions of components which integrate with known plugin hooks -
-for example <strong>Importers</strong>, <strong>Exporters</strong> and <strong>Email Providers</strong>.  The <strong>Modules</strong> list below provides a more comprehensive account of all Java /
-Grails components installed, including system libraries.  Each Module may include one or more Plugins.</p>
+Mauro installation.  The first list, <strong>Plugins</strong>, provides a list of names and versions of components which integrate with known plugin hooks. For example <strong>Importers</strong>, <strong>Exporters</strong> and <strong>Email Providers</strong>.  The <strong>Modules</strong> list below provides a more comprehensive account of all Java /
+Grails components installed, including system libraries.  Each <strong>Module</strong> may include one or more <strong>Plugins</strong>.</p>
 <p>To provide automated reporting, the API call behind this dashboard may be called separately.  The <code>GET</code> urls below will return lists of plugins,
 for each named type:</p>
 <p><endpoint class="get">/api/admin/providers/importers</endpoint>
@@ -1455,6 +1480,7 @@ for each named type:</p>
 <endpoint class="get">/api/admin/providers/emailers</endpoint></p>
 <p>The endpoint below will return the list of modules:</p>
 <p><endpoint class="get">/api/admin/modules</endpoint></p>
+<hr />
 <h2 id="updating-to-the-latest-version">Updating to the latest version<a class="headerlink" href="#updating-to-the-latest-version" title="Permanent link">&para;</a></h2>
 <p>The Docker installation repository provides an <code>./update</code> script for updating to the latest version of Mauro:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -1468,8 +1494,8 @@ for each named type:</p>
 
 Usage ./update <span class="o">[</span>-b COMMIT_BRANCH<span class="o">]</span> <span class="o">[</span>-f COMMIT_BRANCH<span class="o">]</span>
 
--b, --back-end COMMIT_BRANCH    : The commit or branch to checkout and build <span class="k">for</span> the back-end from mdm-core
--f, --front-end COMMIT_BRANCH   : The commit or branch to checkout and build <span class="k">for</span> the front-end from mdm-ui
+-b, --back-end COMMIT_BRANCH   : The commit or branch to checkout and build <span class="k">for</span> the back-end from mdm-core
+-f, --front-end COMMIT_BRANCH    : The commit or branch to checkout and build <span class="k">for</span> the front-end from mdm-ui
 </code></pre></div>
 </td></tr></table>
 <p>When running the Docker repository from the <code>main</code> branch, this will update the running instance to the latest tagged release.  When running the
@@ -1478,42 +1504,47 @@ Usage ./update <span class="o">[</span>-b COMMIT_BRANCH<span class="o">]</span> 
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git pull
 </code></pre></div>
 </td></tr></table>
-<p>followed by</p>
+<p>Followed by:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>./update
 </code></pre></div>
 </td></tr></table>
-<p>to rebuild just the Mauro Data Mapper image with the latest version.  The script will restart the container using that version.</p>
-<p>Occasionally, database migrations are required when updating to a new version.  The run automatically when the application restarts, making use of
+<p>This will rebuild just the Mauro Data Mapper image with the latest version.  The script will restart the container using that version.</p>
+<p>Occasionally, database migrations are required when updating to a new version.  These run automatically when the application restarts, making use of
 the <a href="https://flywaydb.org">Flyway</a> versioning system.  No manual steps are required from the user.</p>
+<hr />
 <h2 id="backing-up-the-database">Backing up the database<a class="headerlink" href="#backing-up-the-database" title="Permanent link">&para;</a></h2>
 <p>In order to back up the data from a running Mauro system, it is usually sufficient to take a simple backup of the underlying Postgres database, 
 which can be achieved through standard Postgres utilities (for example, using <code>pg_dump</code>).</p>
 <p>Within the Docker repository, a simple script in <code>postgres/bin/snapshot-data.sh</code> can be used within the docker container to take a copy of the 
-underlying postgres database - this creates a file in a new folder <code>/database</code> on the container which can be copied back out to the host machine.</p>
-<p>Alternatively, you can run an <code>exec</code> command directly from the host machine - for example the command listed below:</p>
+underlying postgres database. This creates a file in a new folder <code>/database</code> on the container which can be copied back out to the host machine.</p>
+<p>Alternatively, you can run an <code>exec</code> command directly from the host machine. For example the command listed below:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>docker-compose <span class="nb">exec</span> postgres pg_dump -U postgres maurodatamapper <span class="p">|</span> gzip -9  &gt; db-backup-<span class="k">$(</span>date +%d-%m-%y<span class="k">)</span>.sql.gz 
 </code></pre></div>
 </td></tr></table>
-<p>will execute the <code>pg_dump</code> command on the postgres container, connecting to the <code>maurodatamapper</code> database.  The result will be zipped using the 
+<p>This will execute the <code>pg_dump</code> command on the postgres container, connecting to the <code>maurodatamapper</code> database.  The result will be zipped using the 
 <code>gzip</code> command, creating a file with today's timestamp on it.</p>
 <p>Backup requirements vary, but a typical use-case is to combine one of the backup commands listed above with a script to manage regular backups at 
-timed intervals, and deleting old backups once a certain period has passed.  Example scripts which may be adapted can be 
+timed intervals and deleting old backups once a certain period has passed.  Example scripts which may be adapted can be 
 found on the official Postgres Wiki <a href="https://wiki.postgresql.org/wiki/Automated_Backup_on_Linux">here</a>.</p>
+<hr />
 <h2 id="re-building-the-search-index">Re-building the search index<a class="headerlink" href="#re-building-the-search-index" title="Permanent link">&para;</a></h2>
-<p>The search index improves the performance of searching, this content is stored in-memory (and persisted to files on disk at suitable intervals). 
+<p>The search index improves the performance of searching and this content is stored in-memory (and persisted to files on disk at suitable intervals). 
 In some places in the <strong>Core</strong>, it may also be used to speed up access to particular model contents.</p>
 <p>The index is built using <a href="https://lucene.apache.org">Apache Lucene</a> but managed in the code through Hibernate. 
-This means that it is always kept in sync with the database contents, but it can be re-indexed if necessary - for example if searching provides 
+This means that it is always kept in sync with the database contents, but it can be re-indexed if necessary. For example if searching provides 
 incorrect or inconsistent results.  </p>
-<p>Administrators may rebuild the Lucene index through the user interface: drop down the menu by clicking on your username in the top right of the 
-screen; choose 'Configuration', and the 'Lucene' tab, and click "Rebuild Index".</p>
-<p>Please do not leave the page whilst reindexing is in progress - the time required is dependent on the number of models saved in the system, but may 
+<p>Administrators may rebuild the Lucene index through the user interface. To do this, click the white arrow by your user profile to the right of the menu header. Select <strong>'Configuration'</strong> from the dropdown menu.</p>
+<p><img alt="User profile menu showing 'Configuration' option" src="../branding/user-profile-menu-configuration.png" /></p>
+<p>This will take you to configuration page where you can click the <strong>'Lucene'</strong> tab and then select <strong>'Rebuild Index'</strong>. </p>
+<p><img alt="Lucene page in configuration settings" src="../lucene-page.png" /></p>
+<p>Please do not leave the page whilst reindexing is in progress. The time required is dependent on the number of models saved in the system, but may 
 take between 5 and 10 minutes for a large system.</p>
 <p>Alternatively, an API call may be made: <a href="../../rest-api/admin/#system-actions">see here</a> for details.  This <code>POST</code> call may be made with an 
 existing session cookie, by passing username / password parameters as part of the call, or by passing an API Key.  Only those with system 
 administrator role may perform this action.</p>
 <p>The contents of the search index can be hard to inspect for debugging purposes! We use a tool called 
-<a href="https://github.com/flaxsearch/marple">Marple</a> but be sure to use a compatible version!</p>
+<a href="https://github.com/flaxsearch/marple">Marple</a> but be sure to use a compatible version.</p>
+<hr />
 <h2 id="docker-administration">Docker administration<a class="headerlink" href="#docker-administration" title="Permanent link">&para;</a></h2>
 <h3 id="cleaning-up-docker">Cleaning up docker<a class="headerlink" href="#cleaning-up-docker" title="Permanent link">&para;</a></h3>
 <p>Continually building docker images will leave a lot of loose snapshot images floating around, occasionally make use of:</p>
@@ -1532,13 +1563,13 @@ administrator role may perform this action.</p>
 </td></tr></table>
 <p>Remove all stopped containers first then remove all tagged images.</p>
 <p>A useful tool is <a href="https://github.com/justone/dockviz">Dockviz</a>,
-ever since docker did away with <code>docker images --tree</code> you can't see all the layers of images and therefore how much floating mess you have.</p>
+ever since docker did away with <code>docker images --tree</code> you can't see all the layers of images and therefore how many disconneected images you have.</p>
 <p>Add the following to the appropriate bash profile file:</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nb">alias</span> <span class="nv">dockviz</span><span class="o">=</span><span class="s2">&quot;docker run --privileged -it --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz&quot;</span>
 </code></pre></div>
 </td></tr></table>
-<p>Then in a new terminal you can run <code>dockviz images -t</code> to see the tree,
-the program also does dot notation files for a graphical view as well.</p>
+<p>Then in a new terminal you can run <code>dockviz images -t</code> to see the tree.
+The program also does dot notation files for a graphical view as well.</p>
 <h3 id="multiple-compose-files">Multiple compose files<a class="headerlink" href="#multiple-compose-files" title="Permanent link">&para;</a></h3>
 <p>When you supply multiple files, <code>docker-compose</code> combines them into a single configuration.
 Compose builds the configuration in the order you supply the files.
@@ -1560,8 +1591,35 @@ $ docker-compose -f docker-compose.yml -f docker-compose.prod.yml -d &lt;COMMAND
 <span class="nb">alias</span> docker-compose-prod<span class="o">=</span><span class="s2">&quot;docker-compose -f docker-compose.yml -f docker-compose.dev.yml&quot;</span>
 </code></pre></div>
 </td></tr></table>
-This will allow you to start compose in dev mode without all the extra file definitions</p>
+This will allow you to start compose in dev mode without all the extra file definitions.</p>
 <hr />
+<h2 id="debugging-and-advanced-configuration">Debugging and advanced configuration<a class="headerlink" href="#debugging-and-advanced-configuration" title="Permanent link">&para;</a></h2>
+<p>Here we present some useful hints for extending or customising the Docker setup for different configurations or use cases:</p>
+<p><strong>Development file override</strong></p>
+<p>The <code>docker-compose.dev.yml</code> can be used to override the standard <code>docker-compose.yml</code> file for development.  In its initial configuarion, 
+it opens up the ports in the Postgres container for manual connection from the host machine.  This <code>.dev</code> compose file rebuilds all of the images, 
+whereas the standard compose file and <code>.prod</code> versions <strong>do not</strong> build new images.</p>
+<p><strong>Make use of the wait_scripts</strong></p>
+<p>While <code>-links</code> and <code>depends_on</code> make sure the services a service requires are brought up first Docker only waits till they are running NOT till they
+are actually ready.  The wait scripts provided test responses on given ports to make sure that a given service is actually available and ready to 
+interact.</p>
+<p><strong>Use <code>COPY</code> over <code>ADD</code></strong></p>
+<p>Docker recommends using COPY instead of ADD unless the source is a URL or a tar file which ADD can retrieve and/or unzip.</p>
+<p><strong>Use of <code>ENTRYPOINT</code> &amp; <code>CMD</code></strong></p>
+<ul>
+<li>If not requiring any dependencies then just set <code>CMD ["arg1", ...]</code> and the args will be passed to the <code>ENTRYPOINT</code></li>
+<li>If requiring dependencies then set the <code>ENTRYPOINT</code> to the wait script and the <code>CMD</code> to <code>CMD ["process", "arg1", ...]</code></li>
+</ul>
+<p><strong>Try to keep images as small as possible</strong></p>
+<p>As a general rule, we try to use the base images (e.g. of Tomcat, Postgres) and install additional packages at runtime or start-up.  This
+increases portability and cuts down on disk usage when deploying updates.</p>
+<p><strong>Exposing ports</strong></p>
+<p>Exposing ports to other services must be carefully considered, to avoid unnecessary security vulnerabilities</p>
+<p>If the port only needs to be available to other docker services then use <code>expose</code>.</p>
+<p>If the port needs to be open to the host machine or beyond, then use <code>ports</code>.</p>
+<p>If the <code>ports</code> option is used this opens the port from the service to the outside world,
+it does not affect <code>exposed</code> ports between services, so if a service (e.g. postgres with port 5432) exposes a port
+then any service which used <code>link</code> to <code>postgres</code> will be able to find the database at <code>postgresql://postgres:5432</code></p>
                 
               
               

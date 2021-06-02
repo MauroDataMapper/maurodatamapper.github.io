@@ -431,6 +431,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../user-guides/how-to-search/how-to-search/" class="md-nav__link">
         How to search
       </a>
@@ -719,8 +731,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#default-username-password" class="md-nav__link">
+    Default username / password
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additional-backend-plugins" class="md-nav__link">
     Additional backend Plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#theme" class="md-nav__link">
+    Theme
   </a>
   
 </li>
@@ -1554,8 +1580,22 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#default-username-password" class="md-nav__link">
+    Default username / password
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#additional-backend-plugins" class="md-nav__link">
     Additional backend Plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#theme" class="md-nav__link">
+    Theme
   </a>
   
 </li>
@@ -1710,11 +1750,14 @@ Type the following at the command line, or add it to the appropriate bash profil
 <p><code>Cannot connect to the Docker daemon. Is the docker daemon running on this host?</code></p>
 <hr />
 <h2 id="git-repository">Git repository<a class="headerlink" href="#git-repository" title="Permanent link">&para;</a></h2>
+<p>Depending on the operating system of the server you are running on, you may first need to install <code>git</code> to checkout the Mauro application.  You 
+can read more about installing <code>git</code> on different operating systems here: <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Getting Started - Installing Git</a></p>
 <p>The <strong>Mauro Docker</strong> configuration repository can be found here: 
-<a href="https://github.com/MauroDataMapper/mdm-docker">https://github.com/MauroDataMapper/mdm-docker</a>.  </p>
-<p>Different branches provide different configurations. We recommend checking out the <code>main</code> branch which will provide the latest releases of back-end and front-end.  Alternatively, you 
-can check out a specific tag to install a specific front-end / back-end combination. Tagged releases of <strong>Docker</strong> take the form <code>Ba.b.c_Fx.y.z</code> where 
-<code>a.b.c</code> is the tagged version of the back-end and <code>x.y.z</code> is the tagged version of the front-end.</p>
+<a href="https://github.com/MauroDataMapper/mdm-docker">https://github.com/MauroDataMapper/mdm-docker</a>.  Where you clone it is up to you, but on a *nix 
+system we recommend cloning into <code>/opt/</code> (for optional software packages)</p>
+<p>Different branches provide different configurations. We recommend checking out the <code>main</code> branch which will provide the latest releases of back-end 
+and front-end.  Alternatively, you can check out a specific tag to install a specific front-end / back-end combination. Tagged releases of 
+<strong>Docker</strong> take the form <code>Ba.b.c_Fx.y.z</code> where <code>a.b.c</code> is the tagged version of the back-end and <code>x.y.z</code> is the tagged version of the front-end.</p>
 <div class="admonition information">
 <p class="admonition-title">Information</p>
 <p>If you're running on an internal server with SSH access forbidden by a firewall, you can use the following link to access the repository via 
@@ -1746,7 +1789,7 @@ provided to run this process on a <code>*nix</code> system and are described bel
 
 Usage ./make <span class="o">[</span>-b COMMIT_BRANCH<span class="o">]</span> <span class="o">[</span>-f COMMIT_BRANCH<span class="o">]</span>
 
--b, --back-end COMMIT_BRANCH    : The commit or branch to checkout and build <span class="k">for</span> the back-end from mdm-core
+-b, --back-end  COMMIT_BRANCH  : The commit or branch to checkout and build <span class="k">for</span> the back-end from mdm-core
 -f, --front-end COMMIT_BRANCH   : The commit or branch to checkout and build <span class="k">for</span> the front-end from mdm-ui
 </code></pre></div>
 </td></tr></table>
@@ -1785,15 +1828,18 @@ which performs a clean build of just the Tomcat image.</p>
 4
 5
 6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>mauro-data-mapper:
-    build:
-        context: mauro-data-mapper
-        args:
-            MDM_APPLICATION_COMMIT: develop
-            MDM_UI_COMMIT: develop
-            ...
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">mauro-data-mapper</span><span class="p">:</span>
+    <span class="nt">build</span><span class="p">:</span>
+        <span class="nt">context</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mauro-data-mapper</span>
+        <span class="nt">args</span><span class="p">:</span>
+            <span class="nt">MDM_APPLICATION_COMMIT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">develop</span>
+            <span class="nt">MDM_UI_COMMIT</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">develop</span>
+            <span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
 </td></tr></table>
+<h3 id="default-username-password">Default username / password<a class="headerlink" href="#default-username-password" title="Permanent link">&para;</a></h3>
+<p>The docker installation is empty on initialisation - it comes with one pre-configured user: with the username <code>admin@maurodatamapper.com</code> and the 
+password <code>password</code>.  We <em>strongly recommend</em> changing this password on first login, and then setting up personal user accounts for individual users. </p>
 <h3 id="additional-backend-plugins">Additional backend Plugins<a class="headerlink" href="#additional-backend-plugins" title="Permanent link">&para;</a></h3>
 <p>Additional plugins can be found at the <a href="https://github.com/MauroDataMapper-Plugins">Mauro Data Mapper Plugins</a> organisation page.
 Each of these can be added as dependencies by adding them to the <code>ADDITIONAL_PLUGINS</code> build argument within the <code>docker-compose.yml</code> file.  These 
@@ -1804,17 +1850,24 @@ dependency.</p>
 2
 3
 4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code> mauro-data-mapper:
-        build:
-            context: mauro-data-mapper
-            args:
-                ADDITIONAL_PLUGINS: &quot;uk.ac.ox.softeng.maurodatamapper.plugins:mdm-plugin-authentication-keycloak:1.0.1&quot;
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code> <span class="nt">mauro-data-mapper</span><span class="p">:</span>
+        <span class="nt">build</span><span class="p">:</span>
+            <span class="nt">context</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mauro-data-mapper</span>
+            <span class="nt">args</span><span class="p">:</span>
+                <span class="nt">ADDITIONAL_PLUGINS</span><span class="p">:</span> <span class="s">&quot;uk.ac.ox.softeng.maurodatamapper.plugins:mdm-plugin-authentication-keycloak:1.0.1&quot;</span>
 </code></pre></div>
 </td></tr></table></p>
 <p>Will add the keycloak plugin to the <code>dependencies.gradle</code> file:
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>runtimeOnly uk.ac.ox.softeng.maurodatamapper.plugins:mdm-plugin-authentication-keycloak:1.0.1
 </code></pre></div>
 </td></tr></table></p>
+<h3 id="theme">Theme<a class="headerlink" href="#theme" title="Permanent link">&para;</a></h3>
+<p>Mauro comes with a default user interface theme - with the standard blue branding, and default text on the home page.  This can be overridden in 
+the <code>docker-compose.yml</code> file, with instructions provided in the <a href="../installing/branding/branding">Branding guide</a>.  The default theme is called 
+<code>default</code> and can be set with:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code> <span class="nt">MDM_UI_THEME_NAME</span><span class="p">:</span> <span class="s">&quot;default&quot;</span>
+</code></pre></div>
+</td></tr></table>
 <h3 id="running-multiple-instances">Running multiple instances<a class="headerlink" href="#running-multiple-instances" title="Permanent link">&para;</a></h3>
 <p>If running multiple docker-compose instances then they will all make use of the same initial images, therefore you only need to run the <code>./make</code> 
 script once per server.</p>
@@ -1987,7 +2040,7 @@ You can do this if running in the foreground and its easier as it splits each of
 <p>If only starting a service when you stop, the service docker will <strong>not</strong> stop the dependencies that were started to allow the named service to start.</p>
 <p>The default compose file will pull the correct version images from Bintray, or a locally defined docker repository.</p>
 <hr />
-<p>For more information about administration of your running Docker instance, </p>
+<p>For more information about administration of your running Docker instance, please see the <a href="../administration">Administration guide</a></p>
 <!--  LocalWords:  maurodatamapper Postgres postgres arg mdm ui args
  -->
 <!--  LocalWords:  yml mauro Backend Plugins plugins runtimeOnly FQ

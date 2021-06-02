@@ -431,6 +431,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../user-guides/how-to-search/how-to-search/" class="md-nav__link">
         How to search
       </a>
@@ -1202,6 +1214,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#handling-responses" class="md-nav__link">
+    Handling Responses
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1403,6 +1422,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#handling-responses" class="md-nav__link">
+    Handling Responses
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1424,7 +1450,7 @@ JavaScript and TypeScript developers to interact with a Mauro instance. </p>
 <p>The TypeScript library that implements communication with the back-end 
 server is available as a stand alone repository for incorporation into other applications. For example other web interfaces, or back-end 
 functionality using <code>node.js</code>. This is in fact the client library that the <strong>Mauro Data Mapper</strong> user interface uses.</p>
-<p>The GitHub repository is called <code>mdm-resources</code> and is available within the <a href="https://github.com/MauroDataMapper">Mauro Data Mapper organisation</a>.</p>
+<p>The GitHub repository is called <a href="https://github.com/MauroDataMapper/mdm-resources"><code>mdm-resources</code></a> and is available within the <a href="https://github.com/MauroDataMapper">Mauro Data Mapper organisation</a>.</p>
 <hr />
 <h2 id="api-documentation">API documentation<a class="headerlink" href="#api-documentation" title="Permanent link">&para;</a></h2>
 <p>The API is documented using <a href="https://typedoc.org/">TypeDoc</a> and the complete documentation can be <a href="../typedoc/">found here</a>.</p>
@@ -1432,7 +1458,7 @@ functionality using <code>node.js</code>. This is in fact the client library tha
 <h2 id="layout">Layout<a class="headerlink" href="#layout" title="Permanent link">&para;</a></h2>
 <p>Methods to call API functions are roughly broken down by resource type, with filenames conforming to the pattern:</p>
 <p><code>mdm-{resourceType}.resource.ts</code></p>
-<p>There are additional utility functions available in <code>mdm-validator.ts</code> and <code>mdm-resource.ts</code>.  An <code>index.ts</code> file lists all files for inclusion.</p>
+<p>There are additional utility functions available in <code>mdm-resource.ts</code>. There are also type definitions to assist with requests and responses, which can be found in filenames of the format <code>mdm-{resourceType}.model.ts</code>.  An <code>index.ts</code> file lists all files for inclusion.</p>
 <hr />
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
 <p>Each <code>mdm-{resourceType}.resource.ts</code> file defines a new class extending the super class <a href="../typedoc/classes/mdmresource.html">MdmResource</a>, and provides 
@@ -1442,7 +1468,7 @@ methods for each endpoint.  These make use of the <a href="../typedoc/classes/md
 <a href="../typedoc/classes/mdmresource.html#constructor">constructor</a>:</p>
 <ul>
 <li><a href="../typedoc/classes/mdmresourcesconfiguration.html">MdmResourcesConfiguration</a> - object to define configuration options for every HTTP request.</li>
-<li><a href="../typedoc/interfaces/imdmresthandler.html">IMdmRestHandler</a> - object to the REST handler that will process the requests. If not provided, the
+<li><a href="./typedoc/interfaces/mdmresthandler.html">MdmRestHandler</a> - object to the REST handler that will process the requests. If not provided, the
 <a href="../typedoc/classes/defaultmdmresthandler.html">DefaultMdmRestHandler</a> will be used - see the <a href="#rest-handlers">REST Handlers</a> section for further 
 details.</li>
 </ul>
@@ -1468,10 +1494,10 @@ details.</li>
 </code></pre></div>
 </td></tr></table>
 <p>Or, as illustrated in the Mauro UI application, create a custom service to pull all the classes into a single location (see 
-<code>mdm-resources.service.ts</code> within the <code>mdm-ui</code> project).</p>
+<a href="https://github.com/MauroDataMapper/mdm-ui/blob/main/src/app/modules/resources/mdm-resources.service.ts"><code>mdm-resources.service.ts</code></a> within the <a href="https://github.com/MauroDataMapper/mdm-ui"><code>mdm-ui</code></a> project).</p>
 <hr />
 <h2 id="rest-handlers">REST Handlers<a class="headerlink" href="#rest-handlers" title="Permanent link">&para;</a></h2>
-<p><code>mdm-resources</code> provides a default implementation of the <a href="../typedoc/interfaces/imdmresthandler.html">IMdmRestHandler</a> called 
+<p><code>mdm-resources</code> provides a default implementation of the <a href="./typedoc/interfaces/mdmresthandler.html">MdmRestHandler</a> called 
 <a href="../typedoc/classes/defaultmdmresthandler.html">DefaultMdmRestHandler</a>. This implementation uses the 
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch</a> API to complete HTTP requests and return 
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">promises</a> on each response.</p>
@@ -1515,6 +1541,71 @@ Reasons why you might want to do this are:</p>
 </code></pre></div>
 </td></tr></table>
 <hr />
+<h2 id="handling-responses">Handling Responses<a class="headerlink" href="#handling-responses" title="Permanent link">&para;</a></h2>
+<p>All endpoints have type definitions that explicitly state their inputs for requests but generalise their response outputs. This is due to the ability to customise the <a href="#rest-handlers">REST handler</a>, which may return different wrapper objects around the core response definitions. Nonetheless, <code>mdm-resources</code> does provide type definitions for responses and will include them in the documentation comments and <a href="../typedoc/">type reference documentation</a> for the use of the downstream developer.</p>
+<p>As an example, given this endpoint function type definition:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">export</span> <span class="kr">class</span> <span class="nx">MdmDataModelResource</span> <span class="kr">extends</span> <span class="nx">MdmResource</span> <span class="p">{</span>
+  <span class="nx">get</span><span class="p">(</span><span class="nx">dataModelId</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">query?</span>: <span class="kt">QueryParameters</span><span class="p">,</span> <span class="nx">options?</span>: <span class="kt">RequestSettings</span><span class="p">)</span><span class="o">:</span> <span class="nx">any</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Response types can be explicitly added to return results so that further type checking can be performed, as in these examples:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">fetch</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">dataModels</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MdmDataModelResource</span><span class="p">();</span>
+<span class="nx">dataModels</span>
+  <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;679d582c-9f6c-4ce5-99c7-7fad79374637&#39;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span>: <span class="kt">DataModelDetailResponse</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// MdmDataModelResponse.get() states it will return `any` but will actually return</span>
+    <span class="c1">// Promise&lt;DataModelDetailResponse&gt;.</span>
+
+    <span class="c1">// Adding explicit type information will resolve further code that uses the response.</span>
+
+    <span class="c1">// Do something here with the response...</span>
+  <span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Angular</label><div class="tabbed-content"></div>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kr">const</span> <span class="nx">dataModels</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MdmDataModelResource</span><span class="p">();</span>
+<span class="nx">dataModels</span>
+  <span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;679d582c-9f6c-4ce5-99c7-7fad79374637&#39;</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">response</span>: <span class="kt">DataModelDetailResponse</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// MdmDataModelResponse.get() states it will return `any` but will actually return</span>
+    <span class="c1">// Observable&lt;DataModelDetailResponse&gt;.</span>
+
+    <span class="c1">// Adding explicit type information will resolve further code that uses the response.</span>
+
+    <span class="c1">// Do something here with the response...</span>
+  <span class="p">})</span>
+</code></pre></div>
+</td></tr></table>
                 
               
               

@@ -64,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#getting-information" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -416,6 +421,18 @@
     <li class="md-nav__item">
       <a href="../../../user-guides/import-data-model-from-excel/import-data-model-from-excel/" class="md-nav__link">
         Import a Data Model from Excel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
       </a>
     </li>
   
@@ -888,9 +905,50 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Data element
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Data element
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-information" class="md-nav__link">
+    Getting information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-update-delete" class="md-nav__link">
+    Create / Update / Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying" class="md-nav__link">
+    Copying
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1281,6 +1339,49 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-information" class="md-nav__link">
+    Getting information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-update-delete" class="md-nav__link">
+    Create / Update / Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copying" class="md-nav__link">
+    Copying
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1289,13 +1390,68 @@
                 
                   <h1>Data element</h1>
                 
-                <p><endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataTypes/<strong>{dataTypeId}</strong>/dataElements</endpoint>
-<endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements</endpoint>
-<endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements</endpoint>
-<endpoint class="delete">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements/<strong>{id}</strong></endpoint>
-<endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements/<strong>{id}</strong></endpoint>
-<endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements/<strong>{otherDataModelId}</strong>/<strong>{otherDataClassId}</strong>/<strong>{dataElementId}</strong></endpoint></p>
+                <p>A DataElement can be represented as follows:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Response body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;81d00110-40e3-4ec0-b279-6004fa1b9b52&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;domainType&quot;</span><span class="p">:</span> <span class="s2">&quot;DataElement&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;element&quot;</span><span class="p">,</span>        
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Description of the Data Element.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-28T10:10:13.945Z&quot;</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;20b1fd65-a7bf-4a39-a14b-c80b0174b03e&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;dataClass&quot;</span><span class="p">:</span> <span class="s2">&quot;afb3dcda-fd7d-40b9-857c-23fb5af8cbbf&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;dataType&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;c85d78d3-cac8-449b-a22b-52da144b9a8f&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;domainType&quot;</span><span class="p">:</span> <span class="s2">&quot;PrimitiveType&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>The fields are as follows:</p>
+<ul>
+<li><strong>id</strong> (UUID): The unique identifier of this data element</li>
+<li><strong>domainType</strong> (Type): The domain type of this catalogue object. This is always <code>DataElement</code> in this case.</li>
+<li><strong>label</strong> (String): The human-readable identifier of this element.</li>
+<li><strong>description</strong> (String): A long description of the data element, and any important characteristics of the data.  This field may include HTML, or 
+MarkDown.</li>
+<li><strong>lastUpdated</strong> (DateTime): The date/time when this DataElement was last modified</li>
+<li><strong>model</strong> (UUID): The unique identifier of the parent data model</li>
+<li><strong>dataClass</strong> (UUID): The unique identifier of the parent data class</li>
+<li><strong>dataType</strong> (Object): The type definition of this data element. The object returned matches the JSON defined in <a href="../data-type">Data type</a></li>
+</ul>
+<p>As well as the endpoints listed below, a DataElement is also a CatalogueItem, and so a DataElement identifier can also be used as the parameter to any 
+of <a href="../catalogue-item/">those endpoints</a></p>
+<h2 id="getting-information">Getting information<a class="headerlink" href="#getting-information" title="Permanent link">&para;</a></h2>
+<p>The following endpoint returns a <a href="../../pagination/">paginated</a> list of all the DataElements within a particular DataClass.</p>
+<p><endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements</endpoint></p>
+<p>This endpoint provides the detailed information about a particular DataElement under a DataClass.</p>
+<p><endpoint class="get">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements/<strong>{id}</strong></endpoint></p>
+<h2 id="create-update-delete">Create / Update / Delete<a class="headerlink" href="#create-update-delete" title="Permanent link">&para;</a></h2>
+<p>To create a new DataElement from scratch, use the following <em>post</em> endpoint.</p>
+<p><endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements</endpoint></p>
+<p>To edit the properties of a DataElement, use the following endpoint, with a body similar to the JSON described at the top of this page:</p>
+<p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements/<strong>{id}</strong></endpoint></p>
+<p>To delete a DataElement, use the following endpoint.</p>
+<p><endpoint class="delete">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements/<strong>{id}</strong></endpoint></p>
+<h2 id="copying">Copying<a class="headerlink" href="#copying" title="Permanent link">&para;</a></h2>
+<p>Instead of creating a new DataElement from scratch, it is also possible to copy an existing DataElement from another DataClass. Use the following endpoint to accomplish this. The <strong>dataModelId</strong> and <strong>dataClassId</strong> refers to the target DataClass to copy to; <strong>otherDataModelId</strong>, <strong>otherDataClassId</strong> and <strong>dataElementId</strong> refer to the source DataModel/Class/Element to copy from.</p>
+<p><endpoint class="post">/api/dataModels/<strong>{dataModelId}</strong>/dataClasses/<strong>{dataClassId}</strong>/dataElements/<strong>{otherDataModelId}</strong>/<strong>{otherDataClassId}</strong>/<strong>{dataElementId}</strong></endpoint></p>
                 
               
               

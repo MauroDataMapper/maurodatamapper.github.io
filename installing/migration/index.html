@@ -431,6 +431,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../user-guides/how-to-search/how-to-search/" class="md-nav__link">
         How to search
       </a>
@@ -1415,18 +1427,20 @@
                   <h1>Migrating Old Data</h1>
                 
                 <p>A tool has been built to migrate data from old instances of Metadata Catalogue to Mauro Data Mapper.  This is a docker-based tool which applies a 
-number of SQL scripts to move data into a new database schema, and transform the data into a new format suitable for Mauro.</p>
+number of SQL scripts to move data into a new database schema and transform the data into a new format suitable for Mauro.</p>
 <p>The GitHub repository for the migration is here: 
 <a href="https://github.com/MauroDataMapper/mc-to-mdm-migration">https://github.com/MauroDataMapper/mc-to-mdm-migration</a>.</p>
+<hr />
 <h2 id="manual-process">Manual Process<a class="headerlink" href="#manual-process" title="Permanent link">&para;</a></h2>
 <p>Please see the documents in the <code>guide</code> folder for further information.</p>
+<hr />
 <h2 id="automated-process">Automated Process<a class="headerlink" href="#automated-process" title="Permanent link">&para;</a></h2>
-<p>You can use one of the 2 available scripts in the top of the repository to run the migration from start to finish</p>
-<p>You have 2 options as with the manual process documents, depending on if you're running Metadata Catalogue and Mauro Data Mapper inside or
+<p>You can use one of the two available scripts in the top of the repository to run the migration from start to finish.</p>
+<p>You have two options as with the manual process documents, depending on if you're running Metadata Catalogue and Mauro Data Mapper inside or
 outside Docker.</p>
 <p>The scripts execute the stages described in the guide, so if you're unsure as to what parameters you should feed in then please read the guides
 to find out more.</p>
-<p>The scripts all execute using the defaults as if you have built the system using Docker</p>
+<p>The scripts all execute using the defaults as if you have built the system using Docker.</p>
 <h3 id="docker-based-postgresql">Docker Based PostgreSQL<a class="headerlink" href="#docker-based-postgresql" title="Permanent link">&para;</a></h3>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
@@ -1447,8 +1461,10 @@ to find out more.</p>
 ./run-complete-migration-remote.sh
 </code></pre></div>
 </td></tr></table>
+<hr />
 <h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
-<p>Please be aware that DataFlows are currently not migrated using this system, and may need to be manually migrated, or exported / imported.</p>
+<p>Please be aware that <a href="../../glossary/dataflow/dataflow/">DataFlows</a>  are currently not migrated using this system, and may need to be manually migrated, or exported / imported.</p>
+<hr />
                 
               
               

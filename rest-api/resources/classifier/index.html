@@ -64,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#child-classifiers" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -416,6 +421,18 @@
     <li class="md-nav__item">
       <a href="../../../user-guides/import-data-model-from-excel/import-data-model-from-excel/" class="md-nav__link">
         Import a Data Model from Excel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
       </a>
     </li>
   
@@ -852,9 +869,57 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Classifier
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Classifier
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#child-classifiers" class="md-nav__link">
+    Child Classifiers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-information" class="md-nav__link">
+    Getting information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-update-delete" class="md-nav__link">
+    Create / Update / Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1281,6 +1346,56 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#child-classifiers" class="md-nav__link">
+    Child Classifiers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-information" class="md-nav__link">
+    Getting information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-update-delete" class="md-nav__link">
+    Create / Update / Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1289,34 +1404,63 @@
                 
                   <h1>Classifier</h1>
                 
-                <p><endpoint class="post">/api/features/<strong>{featureComponentId}</strong>/classifiers</endpoint>
-<endpoint class="get">/api/features/<strong>{featureComponentId}</strong>/classifiers</endpoint>
-<endpoint class="delete">/api/classifiers/<strong>{classifierId}</strong>/readByAuthenticated</endpoint>
+                <p>A Classifier is a <em>container</em> type and can be represented as follows:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Response body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;81d00110-40e3-4ec0-b279-6004fa1b9b52&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;domainType&quot;</span><span class="p">:</span> <span class="s2">&quot;Classification&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;classifier&quot;</span><span class="p">,</span>        
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Represents a classifier.&quot;</span><span class="p">,</span>        
+    <span class="nt">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-28T10:10:13.945Z&quot;</span>        
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>The fields are as follows:</p>
+<ul>
+<li><strong>id</strong> (UUID): The unique identifier of this classifier</li>
+<li><strong>domainType</strong> (Type): The domain type of this catalogue object. Will always be <code>Classification</code> in this case.</li>
+<li><strong>label</strong> (String): The human-readable identifier of this classifier.</li>
+<li><strong>description</strong> (String): A long description of the classifier, and any important characteristics of the data.  This field may include HTML, or 
+MarkDown.</li>
+<li><strong>lastUpdated</strong> (DateTime): The date/time when this Classifier was last modified</li>
+</ul>
+<p>As well as the endpoints listed below, a Classifier is also a CatalogueItem, and so a Classifier identifier can also be used as the parameter to any 
+of <a href="../catalogue-item/">those endpoints</a></p>
+<h2 id="child-classifiers">Child Classifiers<a class="headerlink" href="#child-classifiers" title="Permanent link">&para;</a></h2>
+<p>A classifier may contain child classifiers. Endpoints are provided to differentiate between parent and child classifiers.</p>
+<h2 id="getting-information">Getting information<a class="headerlink" href="#getting-information" title="Permanent link">&para;</a></h2>
+<p>The following endpoints returns a <a href="../../pagination/">paginated</a> list of all the Classifiers. The first requests all root classifiers in Mauro, the second requests the classifiers for a parent classifier.</p>
+<p><endpoint class="get">/api/classifiers</endpoint></p>
+<p><endpoint class="get">/api/classifiers/<strong>{classifierId}</strong>/classifiers</endpoint></p>
+<p>These endpoints provide the detailed information about a particular Classifier; the first requests a root classifier in Mauro, the second requests a classifier from a parent classifier.</p>
+<p><endpoint class="get">/api/classifiers/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="get">/api/classifiers/<strong>{classifierId}</strong>/classifiers/<strong>{id}</strong></endpoint></p>
+<p>Finally, these endpoints request a list of catalogue items mapped to a classifier, and the inverse to list all classifiers mapped to a catalogue item, respectively.</p>
+<p><endpoint class="get">/api/classifiers/<strong>{classifierId}</strong>/catalogueItems</endpoint></p>
+<p><endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/classifiers</endpoint></p>
+<h2 id="create-update-delete">Create / Update / Delete<a class="headerlink" href="#create-update-delete" title="Permanent link">&para;</a></h2>
+<p>To create a new Classifier from scratch, use the following <em>post</em> endpoints, depending on whether to create one with or without a parent.</p>
+<p><endpoint class="post">/api/classifiers</endpoint></p>
+<p><endpoint class="post">/api/classifiers/<strong>{classifierId}</strong>/classifiers</endpoint></p>
+<p>To edit the properties of a Classifier, use the following endpoints, with a body similar to the JSON described at the top of this page. Use the appropriate endpoint depending on whether to edit one with or without a parent.</p>
+<p><endpoint class="put">/api/classifiers/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="put">/api/classifiers/<strong>{classifierId}</strong>/classifiers/<strong>{id}</strong></endpoint></p>
+<p>To delete a Classifier, use the following endpoint, depending on whether to delete one with or without a parent. The <strong>permanent</strong> parameter is a boolean value that controls whether a 'hard' or 'soft' delete is used if the user is an administrator.</p>
+<p><endpoint class="delete">/api/classifiers/<strong>{id}</strong>?permanent=<strong>{true/false}</strong></endpoint></p>
+<p><endpoint class="delete">/api/classifiers/<strong>{classifierId}</strong>/classifiers/<strong>{id}</strong>?permanent=<strong>{true/false}</strong></endpoint></p>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<p><endpoint class="delete">/api/classifiers/<strong>{classifierId}</strong>/readByAuthenticated</endpoint>
 <endpoint class="put">/api/classifiers/<strong>{classifierId}</strong>/readByAuthenticated</endpoint>
 <endpoint class="delete">/api/classifiers/<strong>{classifierId}</strong>/readByEveryone</endpoint>
-<endpoint class="put">/api/classifiers/<strong>{classifierId}</strong>/readByEveryone</endpoint>
-<endpoint class="delete">/api/features/<strong>{featureComponentId}</strong>/classifiers/<strong>{id}</strong></endpoint>
-<endpoint class="post">/api/classifiers</endpoint>
-<endpoint class="get">/api/classifiers</endpoint>
-<endpoint class="delete">/api/classifiers/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/classifiers/<strong>{id}</strong></endpoint>
-<endpoint class="get">/api/classifiers/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/classifiers/<strong>{classifierId}</strong>/<strong>{type}</strong>/<strong>{share}</strong>/<strong>{shareId}</strong>?</endpoint>
-<endpoint class="delete">/api/classifiers/<strong>{classifierId}</strong>/<strong>{type}</strong>/<strong>{share}</strong>/<strong>{shareId}</strong></endpoint></p>
-<p><endpoint class="post">/api/features/<strong>{featureComponentId}</strong>/classifiers</endpoint>
-<endpoint class="get">/api/features/<strong>{featureComponentId}</strong>/classifiers</endpoint>
-<endpoint class="delete">/api/classifiers/<strong>{classifierId}</strong>/readByAuthenticated</endpoint>
-<endpoint class="put">/api/classifiers/<strong>{classifierId}</strong>/readByAuthenticated</endpoint>
-<endpoint class="delete">/api/classifiers/<strong>{classifierId}</strong>/readByEveryone</endpoint>
-<endpoint class="put">/api/classifiers/<strong>{classifierId}</strong>/readByEveryone</endpoint>
-<endpoint class="delete">/api/features/<strong>{featureComponentId}</strong>/classifiers/<strong>{id}</strong></endpoint>
-<endpoint class="post">/api/classifiers</endpoint>
-<endpoint class="get">/api/classifiers</endpoint>
-<endpoint class="delete">/api/classifiers/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/classifiers/<strong>{id}</strong></endpoint>
-<endpoint class="get">/api/classifiers/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/classifiers/<strong>{classifierId}</strong>/<strong>{type}</strong>/<strong>{share}</strong>/<strong>{shareId}</strong>?</endpoint>
-<endpoint class="delete">/api/classifiers/<strong>{classifierId}</strong>/<strong>{type}</strong>/<strong>{share}</strong>/<strong>{shareId}</strong></endpoint></p>
+<endpoint class="put">/api/classifiers/<strong>{classifierId}</strong>/readByEveryone</endpoint></p>
                 
               
               

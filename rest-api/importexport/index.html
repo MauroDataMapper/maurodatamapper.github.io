@@ -431,6 +431,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../user-guides/how-to-search/how-to-search/" class="md-nav__link">
         How to search
       </a>
@@ -1076,8 +1088,6 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Import / Export
@@ -1092,8 +1102,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1102,6 +1110,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    Data Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#import" class="md-nav__link">
     Import
   </a>
@@ -1127,10 +1143,29 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#export" class="md-nav__link">
     Export
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-flow" class="md-nav__link">
+    Data Flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    Terminology
   </a>
   
 </li>
@@ -1350,8 +1385,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1360,6 +1393,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#data-model" class="md-nav__link">
+    Data Model
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#import" class="md-nav__link">
     Import
   </a>
@@ -1385,10 +1426,29 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#export" class="md-nav__link">
     Export
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-flow" class="md-nav__link">
+    Data Flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminology" class="md-nav__link">
+    Terminology
   </a>
   
 </li>
@@ -1406,10 +1466,12 @@
               
                 
                 
+                  <h1>Import / Export</h1>
+                
                 <p>A number of plugins exist for importing and exporting Data Models, Data Flows, and Terminologies.  The endpoint for each import / export contains
  the details of the plugin to be used, which includes the namespace, the name, and the version number. </p>
-<h1 id="data-model">Data Model<a class="headerlink" href="#data-model" title="Permanent link">&para;</a></h1>
-<h2 id="import">Import<a class="headerlink" href="#import" title="Permanent link">&para;</a></h2>
+<h2 id="data-model">Data Model<a class="headerlink" href="#data-model" title="Permanent link">&para;</a></h2>
+<h3 id="import">Import<a class="headerlink" href="#import" title="Permanent link">&para;</a></h3>
 <p>The endpoint for importing one or more models is as follows:</p>
 <p><endpoint class="post">/api/dataModels/import/<strong>{importerNamespace}</strong>/<strong>{importerName}</strong>/<strong>{importerVersion}</strong></endpoint></p>
 <p>Each importer defines its own set of parameters, relating to the method of import.  For example, an XML or JSON import will require a file 
@@ -1460,7 +1522,7 @@ allows the attachment of files.     </p>
 </table>
 <p>These fall into two basic categories - simple file-based importers, or simple database-connection importers.  The parameters for each of these
  types are detailed in the sections below.</p>
-<h3 id="simple-file-based-importers">Simple file-based importers<a class="headerlink" href="#simple-file-based-importers" title="Permanent link">&para;</a></h3>
+<h4 id="simple-file-based-importers">Simple file-based importers<a class="headerlink" href="#simple-file-based-importers" title="Permanent link">&para;</a></h4>
 <p>The simple file-based importers include the Excel, XML and JSON importers.  These take the following parameters:</p>
 <table>
 <thead>
@@ -1489,7 +1551,7 @@ allows the attachment of files.     </p>
 </tbody>
 </table>
 <p>All fields are mandatory.</p>
-<h3 id="simple-database-connection-importers-example">Simple database-connection importers (example)<a class="headerlink" href="#simple-database-connection-importers-example" title="Permanent link">&para;</a></h3>
+<h4 id="simple-database-connection-importers-example">Simple database-connection importers (example)<a class="headerlink" href="#simple-database-connection-importers-example" title="Permanent link">&para;</a></h4>
 <p>In order to connect to a database, fields are required to build the connection string, as well as handle the resulting generated model.  Each SQL
 importer is slightly different, but the SQL Server importer serves as an adequate example:</p>
 <table>
@@ -1555,9 +1617,9 @@ importer is slightly different, but the SQL Server importer serves as an adequat
 </tbody>
 </table>
 <p>Other database-connecting import plugins provide a similar list of parameters, to be documented later.</p>
-<h2 id="export">Export<a class="headerlink" href="#export" title="Permanent link">&para;</a></h2>
-<h1 id="data-flow">Data Flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h1>
-<h1 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">&para;</a></h1>
+<h3 id="export">Export<a class="headerlink" href="#export" title="Permanent link">&para;</a></h3>
+<h2 id="data-flow">Data Flow<a class="headerlink" href="#data-flow" title="Permanent link">&para;</a></h2>
+<h2 id="terminology">Terminology<a class="headerlink" href="#terminology" title="Permanent link">&para;</a></h2>
                 
               
               

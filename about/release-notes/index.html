@@ -339,70 +339,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#client-libraries" class="md-nav__link">
-    Client Libraries
+  <a href="#plugins-client-libraries-others" class="md-nav__link">
+    Plugins, client libraries, others
   </a>
-  
-    <nav class="md-nav" aria-label="Client Libraries">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#net" class="md-nav__link">
-    .NET
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#typescript" class="md-nav__link">
-    Typescript
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#plugins" class="md-nav__link">
-    Plugins
-  </a>
-  
-    <nav class="md-nav" aria-label="Plugins">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#importers-exporters" class="md-nav__link">
-    Importers / Exporters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#profiles" class="md-nav__link">
-    Profiles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#technical" class="md-nav__link">
-    Technical
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -532,6 +471,18 @@
     <li class="md-nav__item">
       <a href="../../user-guides/import-data-model-from-excel/import-data-model-from-excel/" class="md-nav__link">
         Import a Data Model from Excel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
       </a>
     </li>
   
@@ -1414,70 +1365,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#client-libraries" class="md-nav__link">
-    Client Libraries
+  <a href="#plugins-client-libraries-others" class="md-nav__link">
+    Plugins, client libraries, others
   </a>
-  
-    <nav class="md-nav" aria-label="Client Libraries">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#java" class="md-nav__link">
-    Java
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#net" class="md-nav__link">
-    .NET
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#typescript" class="md-nav__link">
-    Typescript
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#plugins" class="md-nav__link">
-    Plugins
-  </a>
-  
-    <nav class="md-nav" aria-label="Plugins">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#importers-exporters" class="md-nav__link">
-    Importers / Exporters
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#profiles" class="md-nav__link">
-    Profiles
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#technical" class="md-nav__link">
-    Technical
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1498,8 +1388,8 @@
                 
                 <p>This page describes the changes for each component: 'core', 'ui', and the various centrally-maintained plugins and client libraries. For each, a table
 is presented with version number, notable new features, notable pull requests, and any dependencies.</p>
-<p>For more information about the structure and architecture of the code, please see our <a href="/resources/architecture/">system architecture</a> pages.</p>
-<p>In general, we try to use <a href="https://semver.org">Semantic Versioning.</a> In particular note that any version tagged as <code>0.x.y</code> should be considered
+<p>For more information about the structure and architecture of the code, please see our <a href="/resources/architecture/">technical architecture</a> pages.</p>
+<p>In general, we try to use <a href="https://semver.org">Semantic Versioning</a>. In particular note that any version tagged as <code>0.x.y</code> should be considered
 'beta' or for testing purposes only. </p>
 <p>In our code repositories, we use <a href="https://nvie.com/posts/a-successful-git-branching-model/">Git Flow</a>, and so the 'main / <a href="https://github.com/github/renaming">master</a>' branch may be considered stable, but 'bleeding edge' features may be available within 'develop' or any feature branch.</p>
 <p>Please see our <a href="/installing/plugins">Installing Plugins</a> pages for details about build artefacts and dependencies.</p>
@@ -1515,6 +1405,40 @@ is presented with version number, notable new features, notable pull requests, a
         </tr>
     </thead>
     <tbody>
+        <tr>
+            <td><b>4.5.0</b><br/><a href="https://github.com/MauroDataMapper/mdm-core/releases/tag/4.5.0">(GitHub Link)</a></td>
+            <td>18th May 2021</td>
+            <td>
+                <ul>
+                    <li>Dynamic Profiles</li>
+                    <li>Initial endpoints for Versioned Folders</li>
+                    <li>Add Facets to all containers</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><b>4.4.1</b><br/><a href="https://github.com/MauroDataMapper/mdm-core/releases/tag/4.4.1">(GitHub Link)</a></td>
+            <td>22nd April 2021</td>
+            <td>
+                <ul>
+                    <li>Hidden / internal importer parameters</li>
+                    <li>ATOM feed for known models</li>
+                    <li>Bug fixes</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><b>4.3.0</b><br/><a href="https://github.com/MauroDataMapper/mdm-core/releases/tag/4.3.0">(GitHub Link)</a></td>
+            <td>26th Mar 2021</td>
+            <td>
+                <ul>
+                    <li>Multiple bug fixes</li>
+                    <li>More control over admin system properties</li>
+                    <li>Add change notes to the edit history</li>
+                    <li>Custom tag names on model branches</li>
+                </ul>
+            </td>
+        </tr>
         <tr>
             <td><b>4.2.0</b><br/><a href="https://github.com/MauroDataMapper/mdm-core/releases/tag/4.2.0">(GitHub Link)</a></td>
             <td>4th Mar 2021</td>
@@ -1570,6 +1494,38 @@ is presented with version number, notable new features, notable pull requests, a
     </thead>
     <tbody>
         <tr>
+            <td><b>6.1.0</b><br/><a href="https://github.com/MauroDataMapper/mdm-ui/releases/tag/6.1.0">(GitHub Link)</a></td>
+            <td>18th May 2021</td>
+            <td>
+                <ul>
+                    <li>Properties, annotations and rules available on folders</li>
+                    <li>Bug fix for default datatypes</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><b>6.0.0</b><br/><a href="https://github.com/MauroDataMapper/mdm-ui/releases/tag/6.0.0">(GitHub Link)</a></td>
+            <td>22nd April 2021</td>
+            <td>
+                <ul>
+                    <li>Refresh of most model view screens, maximizing screen usage</li>
+                    <li>Support for structured profiles</li>
+                    <li>Publish / subscribe functionality</li>
+                    <li>Support for user-provided themes</li>
+                    <li>Many other bug fixes</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><b>5.2.0</b><br/><a href="https://github.com/MauroDataMapper/mdm-ui/releases/tag/5.2.0">(GitHub Link)</a></td>
+            <td>26th Mar 2021</td>
+            <td>
+                <ul>
+                    <li>New screens for administrator system properties</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
             <td><b>5.1.0</b><br/><a href="https://github.com/MauroDataMapper/mdm-ui/releases/tag/5.1.0">(GitHub Link)</a></td>
             <td>4th Mar 2021</td>
             <td>
@@ -1600,281 +1556,10 @@ is presented with version number, notable new features, notable pull requests, a
 </table>
 
 <hr />
-<h2 id="client-libraries">Client Libraries<a class="headerlink" href="#client-libraries" title="Permanent link">&para;</a></h2>
-<h3 id="java">Java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h3>
-<p><a href="https://github.com/MauroDataMapper/mdm-api-java-restful">GitHub</a></p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>2.0.0</b><br/><a href="">(GitHub Link)</a></td>
-            <td>TBC</td>
-            <td>First major Mauro Data Mapper release</td>
-        </tr>
-    </tbody>
-</table>
-
-<h3 id="net">.NET<a class="headerlink" href="#net" title="Permanent link">&para;</a></h3>
-<p><a href="https://github.com/MauroDataMapper/mdm-api-dotnet-restful">GitHub</a></p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>TBC</b><br/><a href="">(GitHub Link)</a></td>
-            <td>TBC</td>
-            <td>First major Mauro Data Mapper release</td>
-        </tr>
-    </tbody>
-</table>
-
-<h3 id="typescript">Typescript<a class="headerlink" href="#typescript" title="Permanent link">&para;</a></h3>
-<p><a href="https://github.com/MauroDataMapper/mdm-resources">GitHub</a></p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>4.2.0</b><br/><a href="">(GitHub Link)</a></td>
-            <td>5th Feb 2021</td>
-            <td>First major Mauro Data Mapper release</td>
-        </tr>
-    </tbody>
-</table>
-
-<hr />
-<h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
-<h3 id="importers-exporters">Importers / Exporters<a class="headerlink" href="#importers-exporters" title="Permanent link">&para;</a></h3>
-<p><strong>AWS Glue</strong> (<a href="https://github.com/MauroDataMapper-Plugins/mdm-plugin-awsglue">GitHub</a>)</p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>1.3.0</b><br/></td>
-            <td>4th Mar 2021</td>
-            <td>Add parameter to filter particular databases</td>
-        </tr>
-        <tr>
-            <td><b>1.2.0</b><br/></td>
-            <td>11th Feb 2021</td>
-            <td>Update dependencies</td>
-        </tr>
-        <tr>
-            <td><b>1.1.1</b><br/></td>
-            <td>10th Feb 2021</td>
-            <td>Fix regression bug relating to saving Data Models</td>
-        </tr>
-        <tr>
-            <td><b>1.0.1</b><br/></td>
-            <td>8th Feb 2021</td>
-            <td>Fix dependencies</td>
-        </tr>
-        <tr>
-            <td><b>1.0.0</b></td>
-            <td>5th Feb 2021</td>
-            <td>First major Mauro Data Mapper release</td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>CSV</strong> (<a href="https://github.com/MauroDataMapper-Plugins/mdm-plugin-csv">GitHub</a>)</p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>2.1.0</b></td>
-            <td>4th Mar 2021</td>
-            <td>Update core dependency to fix exception on import</td>
-        </tr>
-        <tr>
-            <td><b>2.0.0</b></td>
-            <td>5th Feb 2021</td>
-            <td>First major Mauro Data Mapper release</td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>MySQL</strong> (<a href="https://github.com/MauroDataMapper-Plugins/mdm-plugin-database-mysql">GitHub</a>)</p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>2.1.0</b></td>
-            <td>4th Mar 2021</td>
-            <td>Update core dependency to fix exception on import</td>
-        </tr>
-        <tr>
-            <td><b>2.0.0</b></td>
-            <td>5th Feb 2021</td>
-            <td>First major Mauro Data Mapper release</td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>Oracle DB</strong> (<a href="https://github.com/MauroDataMapper-Plugins/mdm-plugin-database-oracle">GitHub</a>)</p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>3.1.0</b></td>
-            <td>4th Mar 2021</td>
-            <td>Update core dependency to fix exception on import</td>
-        </tr>
-        <tr>
-            <td><b>3.0.0</b></td>
-            <td>5th Feb 2021</td>
-            <td>First major Mauro Data Mapper release</td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>PostgreSQL</strong> (<a href="https://github.com/MauroDataMapper-Plugins/mdm-plugin-database-postgresql">GitHub</a>)</p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>3.1.0</b></td>
-            <td>4th Mar 2021</td>
-            <td>Update core dependency to fix exception on import</td>
-        </tr>
-        <tr>
-            <td><b>3.0.0</b></td>
-            <td>5th Feb 2021</td>
-            <td>First major Mauro Data Mapper release</td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>MS SQL Server</strong> (<a href="https://github.com/MauroDataMapper-Plugins/mdm-plugin-database-sqlserver">GitHub</a>)</p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>3.1.0</b></td>
-            <td>4th Mar 2021</td>
-            <td>Update core dependency to fix exception on import</td>
-        </tr>
-        <tr>
-            <td><b>3.0.0</b></td>
-            <td>5th Feb 2021</td>
-            <td>First major Mauro Data Mapper release</td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>MS Excel</strong> (<a href="https://github.com/MauroDataMapper-Plugins/mdm-plugin-excel">GitHub</a>)</p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>2.1.0</b></td>
-            <td>4th Mar 2021</td>
-            <td>Update core dependency to fix exception on import</td>
-        </tr>
-        <tr>
-            <td><b>2.0.0</b></td>
-            <td>5th Feb 2021</td>
-            <td>First major Mauro Data Mapper release</td>
-        </tr>
-    </tbody>
-</table>
-
-<h3 id="profiles">Profiles<a class="headerlink" href="#profiles" title="Permanent link">&para;</a></h3>
-<h3 id="technical">Technical<a class="headerlink" href="#technical" title="Permanent link">&para;</a></h3>
-<p><strong>Apache Freemarker</strong> (<a href="https://github.com/MauroDataMapper-Plugins/mdm-plugin-freemarker">GitHub</a>)</p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>1.0.0</b></td>
-            <td>5th Feb 2021</td>
-            <td>First major Mauro Data Mapper release</td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>SPARQL</strong> (<a href="https://github.com/MauroDataMapper-Plugins/mdm-plugin-sparql">GitHub</a>)</p>
-<table width="100%">
-    <thead>
-        <tr>
-            <th width="25%"><b>Version</b></th>
-            <th width="25%"><b>Release Date</b></th>
-            <th width="50%"><b>Major Changes</b><img height="1px" width="500px"/></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>1.1.0</b></td>
-            <td>4th Mar 2021</td>
-            <td>First release - SPARQL API endpoint</td>
-        </tr>
-    </tbody>
-</table>
-<hr />
+<h2 id="plugins-client-libraries-others">Plugins, client libraries, others<a class="headerlink" href="#plugins-client-libraries-others" title="Permanent link">&para;</a></h2>
+<p>Release notes for plugins, client libraries, and other Mauro repositories are not formally listed here for ease of maintenance.  However, you can 
+view the latest versions of each plugin on the <a href="../../installing/plugins">Plugins page</a>.  More details about tagged releases and issues addressed 
+can be found on the individual GitHub repos (see the 'tags' section to view all releases).</p>
                 
               
               

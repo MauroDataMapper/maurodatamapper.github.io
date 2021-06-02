@@ -431,6 +431,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../user-guides/how-to-search/how-to-search/" class="md-nav__link">
         How to search
       </a>
@@ -1555,12 +1567,16 @@ of <a href="../catalogue-item/">those endpoints</a></p>
 <h2 id="create-data-model">Create data model<a class="headerlink" href="#create-data-model" title="Permanent link">&para;</a></h2>
 <p>To create a new data model from scratch, use the following <em>post</em> endpoint.  Within the body of this call, you should include a folder identifier.</p>
 <p><endpoint class="post">/api/dataModels</endpoint></p>
-<p>There are two types of versioning in the catalogue.  To create an entirely new version of a model, please use the following endpoint:</p>
-<p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/newVersion</endpoint></p>
+<p>There are two ways of versioning Data Models in the catalogue.  To create an entirely new version of a model, please use the following endpoint:</p>
+<p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/newModelVersion</endpoint></p>
 <p>The name must be different to the original model.</p>
 <p>To create a new 'documentation version', use the following endpoint:</p>
 <p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/newDocumentationVersion</endpoint></p>
 <p>By default, this will supersede the original data model.</p>
+<p>It is also possible to <em>branch</em> and <em>fork</em> Data Models to create drafts before finalising them. To create a new <em>branch</em> from an existing Data Model:</p>
+<p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/newBranchModelVersion</endpoint></p>
+<p>To create a <em>fork</em> of the original data model:</p>
+<p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/newForkModel</endpoint></p>
 <h2 id="update-data-model">Update data model<a class="headerlink" href="#update-data-model" title="Permanent link">&para;</a></h2>
 <p>To edit the primitive properties of a data model, use the following endpoint, with a body similar to the JSON described at the top of this page:</p>
 <p><endpoint class="put">/api/dataModels/<strong>{id}</strong></endpoint></p>
@@ -1571,25 +1587,21 @@ of <a href="../catalogue-item/">those endpoints</a></p>
 <p>To move a data model from a draft state to 'finalised', use the following endpoint:</p>
 <p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/finalise</endpoint></p>
 <h3 id="sharing">Sharing<a class="headerlink" href="#sharing" title="Permanent link">&para;</a></h3>
-<p>To allow a user or user group to view or edit a model, use the following endpoint.  Here, the <strong>type</strong> parameter should be one of 'readable' or
- 'writeable'; the <strong>share</strong> parameter should be one of either 'user' or 'group', and the <strong>shareId</strong> parameter should be the identifier of either
-  the user or group in question.</p>
-<p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/<strong>{type}</strong>/<strong>{share}</strong>/<strong>{shareId}</strong>?</endpoint></p>
-<p>Similarly, to remove the user/group, use the following <em>delete</em> endpoint:</p>
-<p><endpoint class="delete">/api/dataModels/<strong>{dataModelId}</strong>/<strong>{type}</strong>/<strong>{share}</strong>/<strong>{shareId}</strong></endpoint></p>
 <p>To allow a model to be read by any authenticated user of the system, use the following endpoint:</p>
-<p><endpoint class="delete">/api/dataModels/<strong>{dataModelId}</strong>/readByAuthenticated</endpoint></p>
-<p>... and to remove this flag, use the following:</p>
 <p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/readByAuthenticated</endpoint></p>
+<p>... and to remove this flag, use the following:</p>
+<p><endpoint class="delete">/api/dataModels/<strong>{dataModelId}</strong>/readByAuthenticated</endpoint></p>
 <p>Similarly, to allow the model to be publicly readable - ie. readable by any unauthenticated user of the system, 
 use the following endpoint: </p>
-<p><endpoint class="delete">/api/dataModels/<strong>{dataModelId}</strong>/readByEveryone</endpoint></p>
-<p>... and the following to remove this flag:</p>
 <p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/readByEveryone</endpoint></p>
+<p>... and the following to remove this flag:</p>
+<p><endpoint class="delete">/api/dataModels/<strong>{dataModelId}</strong>/readByEveryone</endpoint></p>
 <h2 id="delete-data-model">Delete data model<a class="headerlink" href="#delete-data-model" title="Permanent link">&para;</a></h2>
 <p>To delete a data model, use the following endpoint.  The <strong>permanent</strong> parameter is a boolean value that controls whether a 'hard' or 'soft' delete
  is used if the user is an administrator.</p>
-<p><endpoint class="delete">/api/dataModels/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="delete">/api/dataModels/<strong>{id}</strong>?permanent=<strong>{true/false}</strong></endpoint></p>
+<p>An administrator is able to restore a 'soft' deleted code set using the following endpoint:</p>
+<p><endpoint class="put">/api/admin/dataModels/<strong>{id}</strong>/undoSoftDelete</endpoint></p>
 <h2 id="import-export-a-data-model">Import / export a data model<a class="headerlink" href="#import-export-a-data-model" title="Permanent link">&para;</a></h2>
 <p>To export a data model using a particular export plugin, you will need to know the namespace, the name, and the version of the plugin.  The
  following endpoint can be used to export multiple data models: </p>

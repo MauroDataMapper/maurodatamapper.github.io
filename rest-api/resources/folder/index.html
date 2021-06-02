@@ -64,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#child-folders" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -416,6 +421,18 @@
     <li class="md-nav__item">
       <a href="../../../user-guides/import-data-model-from-excel/import-data-model-from-excel/" class="md-nav__link">
         Import a Data Model from Excel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
       </a>
     </li>
   
@@ -960,9 +977,57 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Folder
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Folder
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#child-folders" class="md-nav__link">
+    Child Folders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-information" class="md-nav__link">
+    Getting information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-update-delete" class="md-nav__link">
+    Create / Update / Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1281,6 +1346,56 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#child-folders" class="md-nav__link">
+    Child Folders
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-information" class="md-nav__link">
+    Getting information
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-update-delete" class="md-nav__link">
+    Create / Update / Delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    Security
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1289,22 +1404,63 @@
                 
                   <h1>Folder</h1>
                 
-                <p><endpoint class="post">/api/folders/<strong>{folderId}</strong>/folders</endpoint>
-<endpoint class="get">/api/folders/<strong>{folderId}</strong>/folders</endpoint>
-<endpoint class="delete">/api/folders/<strong>{folderId}</strong>/readByAuthenticated</endpoint>
+                <p>A Folder is a <em>container</em> type and can be represented as follows:</p>
+<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Response body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;81d00110-40e3-4ec0-b279-6004fa1b9b52&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;domainType&quot;</span><span class="p">:</span> <span class="s2">&quot;Folder&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;folder&quot;</span><span class="p">,</span>        
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Represents a folder.&quot;</span><span class="p">,</span>        
+    <span class="nt">&quot;lastUpdated&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-04-28T10:10:13.945Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;hasChildFolders&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>The fields are as follows:</p>
+<ul>
+<li><strong>id</strong> (UUID): The unique identifier of this folder</li>
+<li><strong>domainType</strong> (Type): The domain type of this catalogue object. Will always be <code>Folder</code> in this case.</li>
+<li><strong>label</strong> (String): The human-readable identifier of this folder.</li>
+<li><strong>description</strong> (String): A long description of the folder, and any important characteristics of the data.  This field may include HTML, or 
+MarkDown.</li>
+<li><strong>lastUpdated</strong> (DateTime): The date/time when this folder was last modified</li>
+<li><strong>hasChildFolders</strong> (Boolean): Determines if this folder contains child folders.</li>
+</ul>
+<p>As well as the endpoints listed below, a Folder is also a CatalogueItem, and so a Folder identifier can also be used as the parameter to any 
+of <a href="../catalogue-item/">those endpoints</a></p>
+<h2 id="child-folders">Child Folders<a class="headerlink" href="#child-folders" title="Permanent link">&para;</a></h2>
+<p>A folder may contain child folders. Endpoints are provided to differentiate between parent and child folders.</p>
+<h2 id="getting-information">Getting information<a class="headerlink" href="#getting-information" title="Permanent link">&para;</a></h2>
+<p>The following endpoints returns a <a href="../../pagination/">paginated</a> list of all the folders. The first requests all root folders in Mauro, the second requests the folders for a parent folder.</p>
+<p><endpoint class="get">/api/folders</endpoint></p>
+<p><endpoint class="get">/api/folders/<strong>{folderId}</strong>/folders</endpoint></p>
+<p>These endpoints provide the detailed information about a particular folder; the first requests a root folder in Mauro, the second requests a folder from a parent folder.</p>
+<p><endpoint class="get">/api/folders/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="get">/api/folders/<strong>{folderId}</strong>/folders/<strong>{id}</strong></endpoint></p>
+<h2 id="create-update-delete">Create / Update / Delete<a class="headerlink" href="#create-update-delete" title="Permanent link">&para;</a></h2>
+<p>To create a new folder from scratch, use the following <em>post</em> endpoints, depending on whether to create one with or without a parent.</p>
+<p><endpoint class="post">/api/folders</endpoint></p>
+<p><endpoint class="post">/api/folders/<strong>{folderId}</strong>/folders</endpoint></p>
+<p>To edit the properties of a folder, use the following endpoints, with a body similar to the JSON described at the top of this page. Use the appropriate endpoint depending on whether to edit one with or without a parent.</p>
+<p><endpoint class="put">/api/folders/<strong>{id}</strong></endpoint></p>
+<p><endpoint class="put">/api/folders/<strong>{folderId}</strong>/folders/<strong>{id}</strong></endpoint></p>
+<p>To delete a folder, use the following endpoint, depending on whether to delete one with or without a parent. The <strong>permanent</strong> parameter is a boolean value that controls whether a 'hard' or 'soft' delete is used if the user is an administrator.</p>
+<p><endpoint class="delete">/api/folders/<strong>{id}</strong>?permanent=<strong>{true/false}</strong></endpoint></p>
+<p><endpoint class="delete">/api/folders/<strong>{folderId}</strong>/folders/<strong>{id}</strong>?permanent=<strong>{true/false}</strong></endpoint></p>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>
+<p><endpoint class="delete">/api/folders/<strong>{folderId}</strong>/readByAuthenticated</endpoint>
 <endpoint class="put">/api/folders/<strong>{folderId}</strong>/readByAuthenticated</endpoint>
 <endpoint class="delete">/api/folders/<strong>{folderId}</strong>/readByEveryone</endpoint>
-<endpoint class="put">/api/folders/<strong>{folderId}</strong>/readByEveryone</endpoint>
-<endpoint class="delete">/api/folders/<strong>{folderId}</strong>/folders/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/folders/<strong>{folderId}</strong>/folders/<strong>{id}</strong></endpoint>
-<endpoint class="get">/api/folders/<strong>{folderId}</strong>/folders/<strong>{id}</strong></endpoint>
-<endpoint class="post">/api/folders</endpoint>
-<endpoint class="get">/api/folders</endpoint>
-<endpoint class="delete">/api/folders/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/folders/<strong>{id}</strong></endpoint>
-<endpoint class="get">/api/folders/<strong>{id}</strong></endpoint>
-<endpoint class="put">/api/folders/<strong>{folderId}</strong>/<strong>{type}</strong>/<strong>{share}</strong>/<strong>{shareId}</strong>?</endpoint>
-<endpoint class="delete">/api/folders/<strong>{folderId}</strong>/<strong>{type}</strong>/<strong>{share}</strong>/<strong>{shareId}</strong></endpoint></p>
+<endpoint class="put">/api/folders/<strong>{folderId}</strong>/readByEveryone</endpoint></p>
                 
               
               

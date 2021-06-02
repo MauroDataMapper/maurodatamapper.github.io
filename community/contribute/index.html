@@ -431,6 +431,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
+        How to version and merge Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../user-guides/how-to-search/how-to-search/" class="md-nav__link">
         How to search
       </a>
@@ -1323,61 +1335,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#docker-installation" class="md-nav__link">
-    Docker installation
-  </a>
-  
-    <nav class="md-nav" aria-label="Docker installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#building-images" class="md-nav__link">
-    Building images
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#make-use-of-the-wait_scripts" class="md-nav__link">
-    Make use of the wait_scripts.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-entrypoint-cmd" class="md-nav__link">
-    Use ENTRYPOINT &amp; CMD
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#copy-over-add" class="md-nav__link">
-    COPY over ADD
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    docker-compose
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#releases" class="md-nav__link">
-    Releases
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#share-your-models" class="md-nav__link">
     Share your models
   </a>
@@ -1457,61 +1414,6 @@
         <li class="md-nav__item">
   <a href="#plugin-development" class="md-nav__link">
     Plugin development
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-installation" class="md-nav__link">
-    Docker installation
-  </a>
-  
-    <nav class="md-nav" aria-label="Docker installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#building-images" class="md-nav__link">
-    Building images
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#make-use-of-the-wait_scripts" class="md-nav__link">
-    Make use of the wait_scripts.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-entrypoint-cmd" class="md-nav__link">
-    Use ENTRYPOINT &amp; CMD
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#copy-over-add" class="md-nav__link">
-    COPY over ADD
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    docker-compose
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#releases" class="md-nav__link">
-    Releases
   </a>
   
 </li>
@@ -1607,36 +1509,6 @@ existing code <strong>'hooks'</strong>, such as importers, exporters, and profil
 for the development of a new plugin.  </p>
 <p>If your plugin has universal appeal, we'd be happy to host it within our organisation so that other users can find it.  Otherwise we can advertise 
 it through these pages, or keep a pinned list within Zulip.</p>
-<hr />
-<h2 id="docker-installation">Docker installation<a class="headerlink" href="#docker-installation" title="Permanent link">&para;</a></h2>
-<p>There is an extra override docker-compose file for development, this currently opens up the ports in the Postgres container for manual connection</p>
-<h3 id="building-images">Building images<a class="headerlink" href="#building-images" title="Permanent link">&para;</a></h3>
-<p>The <code>.dev</code> compose file builds all of the images,
-the standard compose file and <code>.prod</code> versions <strong>do not</strong> build new images.</p>
-<p><strong>Try to keep images as small as possible</strong></p>
-<h3 id="make-use-of-the-wait_scripts">Make use of the wait_scripts.<a class="headerlink" href="#make-use-of-the-wait_scripts" title="Permanent link">&para;</a></h3>
-<p>While <code>-links</code> and <code>depends_on</code> make sure the services a service requires are brought up first Docker only waits till they are running NOT till they
-are actually ready.
-The wait scripts allow testing to make sure the service is actually available.</p>
-<p><strong>Note</strong>: If requiring postgres and using any of the Alpine Linux base images then the Dockerfile  will need to add the following:</p>
-<p><code>RUN apk add postgresql-client</code></p>
-<h3 id="use-entrypoint-cmd">Use <code>ENTRYPOINT</code> &amp; <code>CMD</code><a class="headerlink" href="#use-entrypoint-cmd" title="Permanent link">&para;</a></h3>
-<ul>
-<li>If not requiring any dependencies then just set <code>CMD ["arg1", ...]</code> and the args will be passed to the <code>ENTRYPOINT</code></li>
-<li>If requiring dependencies then set the <code>ENTRYPOINT</code> to the wait script and the <code>CMD</code> to <code>CMD ["process", "arg1", ...]</code></li>
-</ul>
-<p><strong>Note</strong>: We should be able to override the <code>ENTRYPOINT</code> in the docker-compose but for some reason its not then passing the CMD args through.</p>
-<h3 id="copy-over-add"><code>COPY</code> over <code>ADD</code><a class="headerlink" href="#copy-over-add" title="Permanent link">&para;</a></h3>
-<p>Docker recommends using COPY instead of ADD unless the source is a URL or a tar file which ADD can retrieve and/or unzip.,=</p>
-<h3 id="docker-compose"><code>docker-compose</code><a class="headerlink" href="#docker-compose" title="Permanent link">&para;</a></h3>
-<p>Careful thought about what is required and what ports need to be passed through.
-If the port only needs to be available to other docker services then use <code>expose</code>.
-If the port needs to be open outside (e.g. the LabKey port 8080) then use <code>ports</code>.</p>
-<p>If the <code>ports</code> option is used this opens the port from the service to the outside world,
-it does not affect <code>exposed</code> ports between services, so if a service (e.g. postgres with port 5432) exposes a port
-then any service which used <code>link</code> to <code>postgres</code> will be able to find the database at <code>postgresql://postgres:5432</code></p>
-<h2 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h2>
-<p>All work should be done on the <code>develop</code> branch.</p>
 <h2 id="share-your-models">Share your models<a class="headerlink" href="#share-your-models" title="Permanent link">&para;</a></h2>
 <p>The development team would be pleased to receive details of any models that we might be able to re-use - either for sharing with the community,
 or example models that can be used for demo purposes.</p>
