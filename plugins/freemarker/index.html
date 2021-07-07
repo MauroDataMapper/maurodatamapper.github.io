@@ -64,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#introduction" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -488,6 +493,18 @@
     <li class="md-nav__item">
       <a href="../../user-guides/admin-functionality/admin-functionality/" class="md-nav__link">
         Admin functionality
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guides/feature-switches/feature-switches/" class="md-nav__link">
+        Feature switches
       </a>
     </li>
   
@@ -1222,9 +1239,85 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Freemarker Templating
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Freemarker Templating
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warning" class="md-nav__link">
+    Warning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    Basic usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template-language-reference" class="md-nav__link">
+    Template language reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-1-a-simple-web-page" class="md-nav__link">
+    Example 1: A simple web page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2-a-csv-file-of-terms-in-a-terminology" class="md-nav__link">
+    Example 2: A CSV file of terms in a terminology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#templating-diffs" class="md-nav__link">
+    Templating Diffs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-3-listing-differences" class="md-nav__link">
+    Example 3: Listing differences
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1315,6 +1408,84 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#warning" class="md-nav__link">
+    Warning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basic-usage" class="md-nav__link">
+    Basic usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#template-language-reference" class="md-nav__link">
+    Template language reference
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-1-a-simple-web-page" class="md-nav__link">
+    Example 1: A simple web page
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-2-a-csv-file-of-terms-in-a-terminology" class="md-nav__link">
+    Example 2: A CSV file of terms in a terminology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#templating-diffs" class="md-nav__link">
+    Templating Diffs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-3-listing-differences" class="md-nav__link">
+    Example 3: Listing differences
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -1323,7 +1494,166 @@
                 
                   <h1>Freemarker Templating</h1>
                 
-                
+                <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>The Freemarker plugin provides additional API endpoints that allow custom queries to be run and templates to be applied to the result. This can be
+used as a lightweight way to create custom exporters, or provides an easy way to allow interchange between different systems. The functionality makes
+use of a popular and powerful templating engine: <a href="https://freemarker.apache.org">Apache FreeMarker</a>.</p>
+<h2 id="warning">Warning<a class="headerlink" href="#warning" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Allowing users to execute their own code on the server is, in general, bad practice. Badly-written templates could result in the server
+becoming unresponsive, or consuming additional resources. The template framework has also been carefully configured to ensure a minimal amount of 
+data is accessible, but malicious templates may be able to access more data than intended.</p>
+</div>
+<p>To mitigate this risk, the Freemarker templating plugin is an optional extra, and when installed, the API endpoints are only accessible by registered
+users with administrator access. It is recommended that template developers test on a local instance of Mauro in the first instance, and carefully
+iterate on templates to ensure any complex queries or loops do not accidentally cause a denial of service to the Mauro instance.</p>
+<p>We have plans to improve the templating plugin in the future to provide greater levels of safety as well as allowing non-administrators to have access
+to the functionality in a safe manner.</p>
+<h2 id="basic-usage">Basic usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
+<p>The main API endpoint provided by the plugin is as follows:</p>
+<p><endpoint class="post">/api/<strong>{domainType}</strong>/<strong>{id}</strong>/template</endpoint></p>
+<p>In order to call this endpoint, the user must be authenticated as a user with an administrator role, either through a login call and a persistent
+session cookie, or using an API key. The body of the call must be text corresponding to a valid Apache FreeMarker template. The <code>domainType</code> and <code>id</code>
+parameters will point to a particular ‘resource’, that will be queried and have the template applied. </p>
+<p>Within the template, the resulting resource will be accessible through a variable with the same name as the domain type. See the examples below 
+for more details. Successful return of the API call will have, as body text, the result of applying the given template to the queried resource. </p>
+<p>Any errors in the template will result in an error being thrown, with a <code>message</code> field indicating the nature of the error and the line number of 
+the template in which the error was found.</p>
+<h2 id="template-language-reference">Template language reference<a class="headerlink" href="#template-language-reference" title="Permanent link">&para;</a></h2>
+<p>The <a href="https://freemarker.apache.org">Apache FreeMarker pages</a> contain a general-purpose 
+<a href="https://freemarker.apache.org/docs/dgui_template_overallstructure.html">introduction to the FreeMarker Template Language</a> (FTL), as well as a 
+<a href="https://freemarker.apache.org/docs/ref.html">detailed reference manual</a> for the syntax. </p>
+<p>Other online tutorials are provided by <a href="https://www.vogella.com/tutorials/FreeMarker/article.html">Lars Vogel</a> and some useful tricks are given in 
+<a href="https://www.baeldung.com/freemarker-operations">this article by Baeldung</a> </p>
+<p>You may also wish to visit our <a href="https://maurodatamapper.zulipchat.com/">Zulip community</a> for help and advice - we would also like to publish 
+reusable templates donated by the community on these pages. </p>
+<h2 id="example-1-a-simple-web-page">Example 1: A simple web page<a class="headerlink" href="#example-1-a-simple-web-page" title="Permanent link">&para;</a></h2>
+<p>In this first simple example, a basic template will be applied to a data model in order to generate a simple HTML page for a given data model.</p>
+<p>The API call:</p>
+<p><endpoint class="post">/api/dataModel/<strong>{id}</strong>/template</endpoint></p>
+<p>Is made with an appropriate API key, and the post body:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>&lt;html&gt;
+&lt;body&gt;
+  &lt;h1&gt;
+    ${dataModel.label}
+  &lt;/h1&gt;
+  &lt;p&gt;
+    ${(dataModel.description)!}
+  &lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+</td></tr></table>
+<p>Note in the template, the variable <code>dataModel</code> represents the Data Model object with the <code>id</code> given as the URL parameter. Note also, the use of <code>!</code>
+when accessing the description o the Data Model - this is to guard against the case where the description is unset (null).</p>
+<p>The body of the API call response is as follows:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>
+    Simple Data Model
+  <span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+    This is the description of a simple data model
+  <span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Note that this example also illustrates some shortcomings of the approach for complex transformations:  if the description were to be html
+formatted already - for example, starting with a <code>&lt;p&gt;</code> tag - the resulting html may be invalid. Some simple transformations are possible within the
+templating language - particularly with the use of complex macros - but the use of this plugin should be reserved for simple textual templating.<br />
+More complex algorithms should be implemented within a custom plugin or external script, where programmatic functions and libraries are more 
+easily accessible.</p>
+<h2 id="example-2-a-csv-file-of-terms-in-a-terminology">Example 2: A CSV file of terms in a terminology<a class="headerlink" href="#example-2-a-csv-file-of-terms-in-a-terminology" title="Permanent link">&para;</a></h2>
+<p>This second example uses a slightly more complex template to iterate over the terms of a terminology, printing the code and definition for each.</p>
+<p>The API call:</p>
+<p><endpoint class="post">/api/terminology/<strong>{id}</strong>/template</endpoint></p>
+<p>Is made with an appropriate API key, and with the following text in the body:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Code,Definition
+&lt;#list terminology.terms?sort_by(&quot;code&quot;) as term&gt;
+${term.code},${term.definition}
+&lt;/#list&gt;
+</code></pre></div>
+</td></tr></table>
+<p>The <code>&lt;#list&gt;</code> tag indicates a template chunk that is to be repeated for each item in the list - in this case the list of terms given by 
+<code>terminology.term</code>.  The <code>?sort_by</code> annotation indicates that the set of terms should be ordered before iteration.  Within these tags, the Term in 
+question is given the variable name <code>term</code>.</p>
+<p>The result is a CSV file of terms - for example:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Code,Definition
+CTT00,Complex Test Term 00
+CTT1,Complex Test Term 1
+CTT10,Complex Test Term 10
+CTT100,Complex Test Term 100
+</code></pre></div>
+</td></tr></table>
+<h2 id="templating-diffs">Templating Diffs<a class="headerlink" href="#templating-diffs" title="Permanent link">&para;</a></h2>
+<p>The plugin also provides an endpoint for templating the difference between two models.  The API endpoint:</p>
+<p><endpoint class="post">/api/<strong>{domainType}</strong>/<strong>{sourceId}</strong>/diff/<strong>{targetId}</strong>/template</endpoint></p>
+<p>compares two objects and allows the result to be templated.  The method provides the following variables for use within the template:</p>
+<dl>
+<dt><code>sourceModel</code></dt>
+<dd>The model to be used as the source of the diff (left-hand side), identified by <code>sourceId</code></dd>
+<dt><code>targetModel</code></dt>
+<dd>The model to be used as the target of the diff (right-hand-side), identified by <code>targetId</code></dd>
+<dt><code>diff</code></dt>
+<dd>The result of the comparison between the two models, stored as a set of <code>diffs</code></dd>
+</dl>
+<p>The structure of the <code>diff</code> object is still to be described in more detail, but a simple example is given below.</p>
+<h2 id="example-3-listing-differences">Example 3: Listing differences<a class="headerlink" href="#example-3-listing-differences" title="Permanent link">&para;</a></h2>
+<p>This third example gives a flavour of the templating required to examine the differences between two data models.  A more detailed example is 
+needed here, but we illustrate for a very simple template, comparing two very simple (and similar) models.</p>
+<p>Given the API call:</p>
+<p><endpoint class="post">/api/dataModel/<strong>{sourceId}</strong>/diff/<strong>{targetId}</strong>/template</endpoint></p>
+<p>with appropriate authentication, and the POST body:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>${sourceModel.label}
+${targetModel.label}
+&lt;#list diff.diffs as fieldDifference&gt; 
+  ${fieldDifference.getFieldName()} :: ${fieldDifference.left} &lt;&gt; ${fieldDifference.right}
+&lt;/#list&gt;
+</code></pre></div>
+</td></tr></table>
+<p>This will print first the label of the source model, then the label of the target model.  For each basic difference between the two models, it 
+will print the field name, the value of that field in the left-hand model, and the value of that field in the right-hand model.</p>
+<p>For two very simple models this might give an output such as:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Example DataModel 1
+Example DataModel 2
+label :: Example DataModel 1 &lt;&gt; Example DataModel 2
+description :: My first description &lt;&gt; My second description
+</code></pre></div>
+</td></tr></table>
                 
               
               

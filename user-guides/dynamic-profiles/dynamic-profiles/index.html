@@ -505,6 +505,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../feature-switches/feature-switches/" class="md-nav__link">
+        Feature switches
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -548,8 +560,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-add-classes-and-elements" class="md-nav__link">
-    3. Add classes and elements
+  <a href="#3-add-data-classes-and-data-elements" class="md-nav__link">
+    3. Add Data Classes and Data Elements
   </a>
   
 </li>
@@ -1412,8 +1424,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-add-classes-and-elements" class="md-nav__link">
-    3. Add classes and elements
+  <a href="#3-add-data-classes-and-data-elements" class="md-nav__link">
+    3. Add Data Classes and Data Elements
   </a>
   
 </li>
@@ -1454,96 +1466,119 @@
                 
                   <h1>Dynamic profiles</h1>
                 
-                <p>Profiles are a way to store additional information about models or their components.  You can read more about profiles in our tutorial: 
-<a href="../../../tutorials/properties-profiles/">Properties and profiles</a>.  This user guide walks through the steps for creating and managing 'dynamic 
-profiles': profiles which are defined by a model elsewhere in the system.  We begin by creating this definition model.</p>
+                <p>Profiles are a way to store additional information about <a href="../../../glossary/data-model/data-model/">Data Models</a> or their components.  You can read more about profiles in our
+<a href="../../../tutorials/properties-profiles/">Properties and profiles tutorial</a>.  This user guide walks through the steps for creating and managing <strong>dynamic 
+profiles</strong>. These are profiles which are defined by a model elsewhere in the system.  The first stage is to create a definition model.</p>
+<hr />
 <h2 id="1-creating-a-profile-definition-model">1. Creating a profile definition model<a class="headerlink" href="#1-creating-a-profile-definition-model" title="Permanent link">&para;</a></h2>
 <p>In this user guide, we'll create a dynamic profile for storing organisation data inventory information.</p>
 <p>You may decide to create a folder specifically for storing dynamic profile models, but alternatively you may store them within the folder they'll 
-be used.   <a href="#6-admin-dashboard-for-dynamic-profiles">Section 6</a> describes the admin dashboard which allows these specifications to be easily found 
+be used.   <a href="#6-admin-dashboard-for-dynamic-profiles">Section 6. 'Admin dashboard for dynamic profiles'</a> describes the admin dashboard which allows these specifications to be easily found 
 at a later date.</p>
-<p>We first create a data model in the usual way (for example, right-clicking in the tree-view on the folder in which we wish the model to be created).<br />
-Add a label, an author, and an organisation, and select 'Data Standard' as the Data Model Type.</p>
+<p>First, create a <strong>Data Model</strong> as explained in <a href="../../create-a-data-model/create-a-data-model/#add-new-data-model">Section 2. 'Add Data Model'</a> of our <a href="../../create-a-data-model/create-a-data-model/">'Create a Data Model' user guide</a>. Add a <a href="../../../glossary/label/label/">Label</a>, author and organisation. Select <a href="../../../glossary/data-standard/data-standard/">Data Standard</a> from the <strong>'Data Model Type'</strong> dropdown and select any relevant classifications. Once completed, click <strong>'Next step'</strong>.</p>
 <p><img alt="Create a new Data Model" src="../new-data-model.png" /></p>
-<p>In the next step, you must choose to import the default set of Profile Specification Data Types (see image below).  These define the supported 
-basic data types for profile fields, and you'll be choosing from these when adding data elements to your profile definition model.</p>
+<p>Next, you must choose to import the default set of <strong>'Profile Specification Data Types'</strong> from the dropdown list.  These define the supported 
+basic data types for profile fields which you'll be choosing from when adding <a href="../../../glossary/data-element/data-element/">Data Elements</a> to your profile definition model. Once finished, click <strong>'Submit Data Model'</strong> to create this new <strong>Data Model</strong>. </p>
 <p><img alt="Adding Profile Default Data Types to your model" src="../add-default-data-types.png" /></p>
-<p>You can click 'Submit Data Model' to create this new data model.  In the next step you will add technical information to assist the server in 
+<p>In the next step you will add technical information to assist the server in 
 storing properties against your profile.</p>
+<hr />
 <h2 id="2-apply-the-profile-specification-profile">2. Apply the Profile Specification Profile<a class="headerlink" href="#2-apply-the-profile-specification-profile" title="Permanent link">&para;</a></h2>
-<p>From the description page, use the profile drop-down to select "Add new profile", and choose the "Profile Specification Profile (Data Model)", as 
-shown in the image below.</p>
+<p>From the description page, use the profile dropdown to select <strong>'Add New Profile'</strong>. Then choose <strong>'Profile Specification Profile (Data Model)'</strong> from the dropdown menu. </p>
 <p><img alt="Add the Profile Specification Profile" src="../add-profile-spec-profile.png" /></p>
-<p>This will bring up the form for editing the Profile fields, as shown below.</p>
+<p>Click <strong>'Save Changes'</strong> and this will bring up the form for editing the profile fields. There are two fields for completion:</p>
+<ul>
+<li>
+<p><strong>Metadata Namespace</strong><br />
+    This mandatory field defines the namespace that separates the properties in this profile from others in other profiles.  You should try and 
+choose a unique name that is based on a URL and the purpose of this profile model. For more information about namespaces, see <a href="https://en.wikipedia.org/wiki/Namespace">this article</a>.</p>
+</li>
+<li>
+<p><strong>Applicable for domains</strong><br />
+    This optional field determines which types of catalogue item can be profiled using this profile. For example, <strong>'DataModel'</strong>.  You should separate 
+multiple domains with a semi-colon (';'). Leave this field blank to allow this profile to be applicable to any catalogue item. </p>
+</li>
+</ul>
+<p>Click <strong>'Save'</strong> to finish editing the dynamic profile model details.</p>
 <p><img alt="Edit the Profile Specification Profile fields" src="../edit-datamodel-fields.png" /></p>
-<p>There are two fields for completion:</p>
-<dl>
-<dt><strong>Metadata Namespace</strong></dt>
-<dd>This mandatory field defines the namespace that separates the properties in this profile from others in other profiles.  You should try and 
-choose a unique name here - see <a href="https://en.wikipedia.org/wiki/Namespace">this article</a> for more information about namespaces - you should 
-construct something based on a URL, and the purpose of this profile model. </dd>
-<dt><strong>Applicable for domains</strong></dt>
-<dd>This optional field determines which types of catalogue item can be profiled using this profile. For example, 'DataModel'.  You should separate 
-multiple domains with a semi-colon (';'). Leave this field blank to allow this profile to be applicable to any catalogue item.</dd>
-</dl>
-<p>Click save to finish editing the dynamic profile model details.</p>
-<h2 id="3-add-classes-and-elements">3. Add classes and elements<a class="headerlink" href="#3-add-classes-and-elements" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="3-add-data-classes-and-data-elements">3. Add Data Classes and Data Elements<a class="headerlink" href="#3-add-data-classes-and-data-elements" title="Permanent link">&para;</a></h2>
 <p>Once you've created your profile model, you can start adding fields that will be stored for those catalogue items that use the profile.  You should 
-create one or more data classes to group your data elements, and any description you give to those classes will be visible in the editing 
+create one or more <a href="../../../glossary/data-class/data-class/">Data Classes</a> to group your <strong>Data Elements</strong>. Any description you give to those <strong>Data Classes</strong> will be visible in the editing 
 interface for that profile.</p>
-<p>In this example, we'll create classes for "Basic Information", "Data Source Owner", and "Physical Location".  Create the data classes as usual, 
-adding a label and description.  You do not need to add multiplicities to the classes: repeated groups are not currently supported in profile 
-definitions.  The model outline is as shown below:</p>
+<p>In this example, we'll create classes for <strong>'Basic Information'</strong>, <strong>'Data Source Owner'</strong>, and <strong>'Physical Location'</strong>.  Create each <strong>Data Class</strong> as explained in <a href="../../document-a-dataset/document-a-dataset/#create-a-data-class"> Section 3. 'Create a Data Class'</a> of our <a href="../../document-a-dataset/document-a-dataset/">'Document a Dataset' user guide</a>. </p>
+<p>Add a <strong>Label</strong> and a description. You do not need to add <a href="../../../glossary/multiplicity/multiplicity/">Multiplicities</a> to the classes as repeated groups are not currently supported in profile definitions. The structure of the <strong>Data Model</strong> (red), along with it's <strong>Data Classes</strong> (blue) is shown below.</p>
 <p><img alt="Model Structure" src="../model-structure.png" /></p>
-<p>Within each class you can add elements for the fields you wish to store.  Again, create these in the usual way, supplying the follwoing details:</p>
-<dl>
-<dt><strong>Label</strong></dt>
-<dd>The name of this field in the profile.  The 'key' of properties corresponding to this field 
-(<a href="../../../tutorials/properties-profiles">See tutorial</a>) will be derived from this name unless overridden (See <a href="#5-customise-properties">section 5</a>).</dd>
-<dt><strong>Description</strong></dt>
-<dd>The description of this property: this will be presented to users as they view or edit profile fields, so is a good opportunity to better 
-describe the information you'd like collected, or how you expect this field to be interpreted.</dd>
-<dt><strong>Data Type</strong></dt>
-<dd>For the data type you should choose one of the existing primitive types, as imported in 
-<a href="#1-creating-a-profile-definition-model">Section 1</a>.  Alternatively, you can create a new 
-<a href="../../../glossary/enumeration-data-type/enumeration-data-type">Enumeration Type</a> and define a list of allowable values.</dd>
-<dt><strong>Multiplicity</strong></dt>
-<dd>The multiplicity will add validation constraints to the field - i.e. <code>0..1</code> defines an optional field; <code>1..1</code> defines a mandatory field.</dd>
-</dl>
-<p>The screenshot below shows the process of adding a data element to one of our example classes</p>
+<p>Within each <strong>Data Class</strong> you can add <strong>Data Elements</strong> for the fields you wish to store.  Again, create these in the usual way, as explained in <a href="../../document-a-dataset/document-a-dataset/#add-data-elements">Section 5. 'Add Data Elements'</a> of our <a href="../../document-a-dataset/document-a-dataset/">'Document a Dataset' user guide</a>. You will need to enter the following details for each element:</p>
+<ul>
+<li>
+<p><strong>Label</strong><br />
+    The name of this field in the profile.  The <strong>'key'</strong> of properties corresponding to this field 
+(<a href="../../../tutorials/properties-profiles">See tutorial</a>) will be derived from this name unless overridden (See <a href="#4-customise-the-fields">Section 4. 'Customise the fields'</a>).</p>
+</li>
+<li>
+<p><strong>Description</strong><br />
+    The description of this property. This will be presented to users as they view or edit profile fields, so is a good opportunity to better 
+describe the information you'd like collected, or how you expect this field to be interpreted.</p>
+</li>
+<li>
+<p><strong>Multiplicity</strong><br />
+    The multiplicity will add validation constraints to the field, i.e. <code>0..1</code> defines an optional field; <code>1..1</code> defines a mandatory field.</p>
+</li>
+<li>
+<p><strong>Data Type</strong><br />
+    For the data type you should choose one of the existing primitive types, as imported in 
+<a href="#1-creating-a-profile-definition-model">Section 1. 'Creating a profile definition model'</a>.  Alternatively, you can create a new 
+<a href="../../../glossary/enumeration-data-type/enumeration-data-type">Enumeration Data Type</a> and define a list of allowable values.</p>
+</li>
+</ul>
 <p><img alt="Adding a Data Element" src="../add-data-element.png" /></p>
+<hr />
 <h2 id="4-customise-the-fields">4. Customise the fields<a class="headerlink" href="#4-customise-the-fields" title="Permanent link">&para;</a></h2>
-<p>You can further add to the definition of a property by using another profile on the Data Element - the <code>Profile Specification Profile (Data 
-Element)</code> profile.  Add this to the element you've just created, and you'll be able to enter the following information:</p>
+<p>You can further add to the definition of a property by using another profile on the <strong>Data Element</strong> - the <code>Profile Specification Profile (Data 
+Element)</code> profile.  Add this to the element you've just created and you'll be able to enter the following information:</p>
+<ul>
+<li>
+<p><strong>Metadata Property Name</strong><br />
+    This will override the key used to store against the property in the database and is accessible through the APIs.  You should set this field if 
+your <strong>Data Element</strong> label has special characters, or if you require the APIs to provide a particular output format.</p>
+</li>
+<li>
+<p><strong>Default Value</strong><br />
+    This indicates the value that will be shown in the interface when a user starts entering data for this profile.</p>
+</li>
+<li>
+<p><strong>Regular expression</strong><br />
+    This field allows you to specify a validation constraint against data entered for the field in question.  We use 
+<a href="https://www.w3schools.com/java/java_regex.asp">standard Java syntax</a> for these.</p>
+</li>
+<li>
+<p><strong>May be edited after finalisation</strong><br />
+    This functionality is still under construction, but ticking the box will allow this value to be edited on a profile after the containing model has been 
+finalised.  This is suitable for fields such as <strong>'Contact email'</strong> which may change without affecting the semantics of the model.</p>
+</li>
+</ul>
 <p><img alt="Customizing a data type" src="../customize-data-element.png" /></p>
-<dl>
-<dt><strong>Metadata Property Name</strong></dt>
-<dd>This will override the key used to store against the property in the database, and accessible through the APIs.  You should set this field if 
-your Data Element label has special characters, or if you require the APIs to provide a particular output format.</dd>
-<dt><strong>Default Value</strong></dt>
-<dd>This indicates the value that will be shown in the interface when a user starts entering data for this profile</dd>
-<dt><strong>Regular expression</strong></dt>
-<dd>This field allows you to specify a validation constraint against data entered for the field in question.  We use 
-<a href="https://www.w3schools.com/java/java_regex.asp">standard Java syntax</a> for these.</dd>
-<dt><strong>May be edited after finalisation</strong></dt>
-<dd>This functionality is still under construction, but will allow this value to be edited on a profile after the containing model has been 
-finalised.  This is suitable for fields such as "Contact email" which may change without affecting the semantics of the model.</dd>
-</dl>
+<p>Once completed, click <strong>'Save'</strong> to confirm your changes.</p>
+<hr />
 <h2 id="5-use-the-dynamic-profile">5. Use the dynamic profile<a class="headerlink" href="#5-use-the-dynamic-profile" title="Permanent link">&para;</a></h2>
-<p>Once you've added all required Data Classes and Data Elements, the dynamic profile will be ready to use.  It is good practise to try using it with 
-a test model before finalising the specification - this will allow you to verify that the fields are defined correctly.  However, once you're 
-happy with the design, you should finalise the model: modifying a profile that has data collected against it may have unexpected consequences.</p>
-<p>You can add the profile to a data model and fill out the form provided - our example model is shown below.</p>
+<p>Once you've added all required <strong>Data Classes</strong> and <strong>Data Elements</strong>, the dynamic profile will be ready to use.  It is good practise to try using it with 
+a test model before finalising the specification. This will allow you to verify that the fields are defined correctly.  However, once you're 
+happy with the design, you should finalise the model as modifying a profile that has data collected against it may have unexpected consequences.</p>
+<p>You can add the profile to a <strong>Data Model</strong> and fill out the form provided, as shown in the example below.</p>
 <p><img alt="Using the new profile" src="../use-profile.png" /></p>
 <p>If you subsequently wish to revise the profile model, you can create a new version of it.  Using the same namespace will ensure that fields are 
-migrated, where possible; using a new namespace will allow the collection of new fields, with both profiles being maintained separately.</p>
+migrated, where possible. Using a new namespace will allow the collection of new fields, with both profiles being maintained separately.</p>
+<hr />
 <h2 id="6-admin-dashboard-for-dynamic-profiles">6. Admin dashboard for dynamic profiles<a class="headerlink" href="#6-admin-dashboard-for-dynamic-profiles" title="Permanent link">&para;</a></h2>
-<p>Profile specification models are normal models, and so it can be tricky to find and maintain them.  An admin dashboard has been created to help 
-keep track of those models used as profile specifications: From the administrator's drop-down select "Dashboard" and use the "Profiles" tab.  This 
-will show the namespace for each profile used, and provide a link to the defining model.  </p>
-<p>In the future, we intend to add to this page details of superseded profile models, and show validation status and other hints for ensuring 
-profiles are well-defined before use.</p>
+<p>Profile specification models are normal models and so it can be tricky to find and maintain them.  An admin dashboard has been created to help 
+keep track of those models used as profile specifications.</p>
+<p>To access your admin dashboard, log in to <strong>Mauro Data Mapper</strong> and click the white arrow by your user profile to the right of the menu header. From the dropdown menu under <strong>'Admin settings'</strong> select <strong>'Dashboard'</strong>.</p>
+<p><img alt="User profile menu showing dashboard option" src="../../admin-functionality/user-profile-menu-dashboard.png" /></p>
+<p>Click the <strong>'Profiles'</strong> tab and the namespace for each profile used along with the relevant link to the defining model will be displayed.  </p>
+<p>To ensure profiles are well defined before use, we intend to add details of superseded profile models as well as show validation status and other hints. </p>
 <p><img alt="Admin dashboard" src="../profile-dashboard.png" /></p>
+<hr />
                 
               
               
@@ -1562,7 +1597,7 @@ profiles are well-defined before use.</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../admin-functionality/admin-functionality/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../../feature-switches/feature-switches/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1571,7 +1606,7 @@ profiles are well-defined before use.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Admin functionality
+              Feature switches
             </div>
           </div>
         </a>
