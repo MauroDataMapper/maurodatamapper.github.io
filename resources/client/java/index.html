@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.1">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.1">
     
     
       
@@ -18,10 +18,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.9299cb39.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.1118c9be.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ba0d045b.min.css">
         
           
           
@@ -44,6 +44,8 @@
     
     
       
+
+
     
     
   </head>
@@ -148,14 +150,18 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -1176,6 +1182,7 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+      
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Groovy / Java
           <span class="md-nav__icon md-icon"></span>
@@ -1187,6 +1194,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
   
@@ -1410,6 +1418,7 @@
   
   
   
+  
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
       Table of contents
@@ -1494,16 +1503,16 @@ models from one instance to another.</p>
 <h2 id="add-dependency">Add dependency<a class="headerlink" href="#add-dependency" title="Permanent link">&para;</a></h2>
 <p>In order to include the Mauro client library in your Java / Groovy project, use the following dependency in Gradle or Maven:</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Gradle</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>repositories {
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>repositories {
     ...
     maven {url &quot;https://jenkins.cs.ox.ac.uk/artifactory/libs-release&quot;}
     ...
@@ -1517,20 +1526,20 @@ dependencies {
 </td></tr></table>
 </div>
 <input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Maven</label><div class="tabbed-content">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;distributionManagement&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;distributionManagement&gt;</span>
     <span class="nt">&lt;snapshotRepository&gt;</span>
         <span class="nt">&lt;id&gt;</span>snapshots<span class="nt">&lt;/id&gt;</span>
         <span class="nt">&lt;name&gt;</span>jenkins.cs.ox.ac.uk-snapshots<span class="nt">&lt;/name&gt;</span>
@@ -1556,21 +1565,21 @@ dependencies {
 </div>
 <p>The simplest way to get started is by creating a client manually - using the url of the server that the instance is hosted on, and a username /
 password.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">uk.ac.ox.softeng.maurodatamapper.api.restful.client.MauroDataMapperClient</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">uk.ac.ox.softeng.maurodatamapper.api.restful.client.MauroDataMapperClient</span>
 
 <span class="kd">class</span> <span class="nc">TestConnection</span> <span class="o">{</span>
 
@@ -1578,7 +1587,7 @@ password.</p>
         <span class="n">String</span> <span class="n">baseUrl</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8080&quot;</span>
         <span class="n">String</span> <span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;...&quot;</span>
         <span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;...&quot;</span>
-        <span class="k">new</span> <span class="nf">DataMapperClient</span><span class="o">(</span><span class="n">baseUrl</span><span class="o">,</span> <span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">).</span><span class="na">withCloseable</span> <span class="o">{</span> <span class="n">client</span> <span class="o">-&gt;</span>
+        <span class="k">new</span> <span class="n">DataMapperClient</span><span class="o">(</span><span class="n">baseUrl</span><span class="o">,</span> <span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">).</span><span class="na">withCloseable</span> <span class="o">{</span> <span class="n">client</span> <span class="o">-&gt;</span>
             <span class="c1">// client is now connected with a session to a Mauro instance</span>
             <span class="c1">// Now we can do things with our client</span>
             <span class="n">client</span><span class="o">.</span><span class="na">createFolder</span><span class="o">(</span><span class="s2">&quot;Test Folder&quot;</span><span class="o">)</span>
@@ -1596,21 +1605,21 @@ and this will be passed in the parameters for every call.</p>
 <p>It's usually more convenient to pass arguments such as usernames, passwords or API keys in as parameters, rather than hard-coding them into the 
 application.  We take advantage of <a href="https://picocli.info">PicoCli</a> to provide options for passing these parameters to an application.</p>
 <p>In the most basic case, consider the following application:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">uk.ac.ox.softeng.maurodatamapper.api.restful.client.MauroDataMapperClient</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">uk.ac.ox.softeng.maurodatamapper.api.restful.client.MauroDataMapperClient</span>
 
 <span class="kd">class</span> <span class="nc">TestConnection2</span> <span class="kd">extends</span> <span class="n">MdmCommandLineTool</span><span class="o">&lt;</span><span class="n">MdmConnectionOptions</span><span class="o">&gt;</span> <span class="o">{</span>
 
@@ -1649,8 +1658,8 @@ line.  This class contains definitions for the following options:</p>
 </dl>
 <p>The final option allows these properties to be passed in a standard java properties file.  Properties should be provided using the format provided 
 in the final options above - for example:</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="na">client.baseUrl</span><span class="o">=</span><span class="s">http://localhost:8080/</span>
+<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="na">client.baseUrl</span><span class="o">=</span><span class="s">http://localhost:8080/</span>
 <span class="na">client.apiKey</span><span class="o">=</span><span class="s">767c6e02-4ad6-4480-8b42-a36160143a24</span>
 </code></pre></div>
 </td></tr></table>
@@ -1661,19 +1670,19 @@ extend the <code>MdmCommandLineTool</code> class.</p>
 <p>Occasionally, it's useful to deal with multiple connections to a single catalogue, or connections to more than one catalogue instance.  The client 
 can store multiple named connections and all methods have an optional final parameter to choose which connection to use.</p>
 <p>For example, the following code connects to two instances of Mauro, naming the connections as 'source' and 'target':</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">BindingMauroDataMapperClient</span> <span class="n">bindingMauroDataMapperClient</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BindingMauroDataMapperClient</span><span class="o">()</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">BindingMauroDataMapperClient</span> <span class="n">bindingMauroDataMapperClient</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BindingMauroDataMapperClient</span><span class="o">()</span>
 <span class="n">bindingMauroDataMapperClient</span><span class="o">.</span><span class="na">openConnection</span><span class="o">(</span><span class="s2">&quot;source&quot;</span><span class="o">,</span> <span class="n">sourceProperties</span><span class="o">)</span>
 <span class="n">bindingMauroDataMapperClient</span><span class="o">.</span><span class="na">openConnection</span><span class="o">(</span><span class="s2">&quot;target&quot;</span><span class="o">,</span> <span class="n">targetProperties</span><span class="o">)</span>
 </code></pre></div>
 </td></tr></table>
 <p>Subsequent method calls can pass the name of the connection as a final argument - for example the following code copies a DataModel from the 
 "source" instance of Mauro to the "target":</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">DataModel</span> <span class="n">dataModel</span> <span class="o">=</span> <span class="n">bindingMauroDataMapperClient</span><span class="o">.</span><span class="na">exportAndBindDataModelById</span><span class="o">(</span><span class="n">dataModelId</span><span class="o">,</span> <span class="s2">&quot;source&quot;</span><span class="o">)</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">DataModel</span> <span class="n">dataModel</span> <span class="o">=</span> <span class="n">bindingMauroDataMapperClient</span><span class="o">.</span><span class="na">exportAndBindDataModelById</span><span class="o">(</span><span class="n">dataModelId</span><span class="o">,</span> <span class="s2">&quot;source&quot;</span><span class="o">)</span>
 
 <span class="n">bindingMauroDataMapperClient</span><span class="o">.</span><span class="na">importDataModel</span><span class="o">(</span>
         <span class="n">dataModel</span><span class="o">,</span> <span class="n">folderId</span><span class="o">,</span> <span class="n">dataModelName</span><span class="o">,</span> <span class="n">finalised</span><span class="o">,</span> <span class="n">importAsNewDocumentationVersion</span><span class="o">,</span> <span class="s2">&quot;target&quot;</span><span class="o">)</span>
@@ -1716,7 +1725,8 @@ binding client has additional methods for manually binding results of calls afte
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../../rest-api/admin/" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../../../rest-api/admin/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Admin functions" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1731,7 +1741,8 @@ binding client has additional methods for manually binding results of calls afte
         </a>
       
       
-        <a href="../typescript/" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../typescript/" class="md-footer__link md-footer__link--next" aria-label="Next: TypeScript" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1770,10 +1781,10 @@ binding client has additional methods for manually binding results of calls afte
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.7353b375.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.716f8af4.min.js"></script>
       
         <script src="../../../assets/javascripts/extra.js"></script>
       
