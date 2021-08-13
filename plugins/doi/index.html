@@ -1681,10 +1681,10 @@
 <p>The Digital Object Identifier (DOI) plugin provides additional API endpoints that allow the integration of any Mauro <a href="../../glossary/multi-facet-aware/multi-facet-aware">multi-facet aware</a> catalogue item to be recorded in a DOI system; this then allows unique, permanent identifiers to those catalogue items that can then be distributed across documents or articles over the web to act as links back to the Mauro content. The DOI system always ensures that a DOI name will always refer to a Mauro catalogue item as long as the DOI name is known. The plugin uses <a href="https://datacite.org/index.html">DataCite</a> as the repository of Mauro DOI names; more information can be found at the DataCite website.</p>
 <p>In order to use Digital Object Identifiers, the Mauro instance must:</p>
 <ol>
-<li>Have the <a href="../../installing/plugins">Mauro Digital Object Identifier plugin</a> installed.</li>
+<li>Have the <strong>Mauro Digital Object Identifier plugin</strong> installed.</li>
 <li>Set up and configure DataCite to acts as the DOI system.</li>
 </ol>
-<p>The full details of this set up can be viewed in the user guide <a href="../../user-guides/introduction">Using Digital Object Identifiers</a>.</p>
+<p>The full details of this set up can be viewed in the user guide <a href="../../user-guides/digital-object-identifiers/digital-object-identifiers">Using Digital Object Identifiers</a>.</p>
 <h2 id="profile">Profile<a class="headerlink" href="#profile" title="Permanent link">&para;</a></h2>
 <h3 id="profile-summary">Profile summary<a class="headerlink" href="#profile-summary" title="Permanent link">&para;</a></h3>
 <p>The plugin automatically exposes a <a href="../../glossary/profile/profile">profile</a> called <strong>Digital Object Identifiers DataCite Dataset Schema</strong>. Depending on whether the profile is used or unused on a catalogue item, the summary of the profile can be found with one of these endpoints:</p>
@@ -2234,6 +2234,7 @@
 <h3 id="get-doi-status">Get DOI status<a class="headerlink" href="#get-doi-status" title="Permanent link">&para;</a></h3>
 <p>For any catalogue item, the current status of the DOI name on that item can be queried as follows:</p>
 <p><endpoint class="get">/api/<strong>{multiFacetAwareDomainType}</strong>/<strong>{id}</strong>/doi</endpoint></p>
+<p>If a status exists, a <code>200 OK</code> response will be returned with this response body:</p>
 <div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Response body (JSON)</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -2257,6 +2258,7 @@
 </ul>
 </li>
 </ul>
+<p>If a status does not exist on the catalogue item yet, a <code>404 Not Found</code> response will be returned.</p>
 <h3 id="submit-doi-status">Submit DOI status<a class="headerlink" href="#submit-doi-status" title="Permanent link">&para;</a></h3>
 <p>Submitting the catalogue item and its DOI profile can only be done for <strong>publicly readable</strong> and <strong>finalised</strong> catalogue items. This is to ensure that:</p>
 <ol>
@@ -2266,7 +2268,7 @@
 <div class="admonition information">
 <p class="admonition-title">Information</p>
 <p>It may be possible to not have assigned the <strong>Digital Object Identifiers DataCite Dataset Schema</strong> to a catalogue item before it was finalised. To solve this issue, the DOI profile has special permissions to allow it to be edited post-finalisation, so long as the DOI is not yet in the <strong>Final</strong> state.</p>
-<p>Therefore, you may use the <code>POST /api/**{multiFacetAwareDomainType}**/**{id}**/profiles/**{namespace}**/**{name}**</code> endpoint as many times as necessary to make alterations to the profile before continuing further.</p>
+<p>Therefore, you may use the <code>POST /api/{multiFacetAwareDomainType}/{id}/profiles/{namespace}/{name}</code> endpoint as many times as necessary to make alterations to the profile before continuing further.</p>
 </div>
 <p>To submit the catalogue item's profile to the DOI system to obtain a DOI name, use this endpoint.</p>
 <p><endpoint class="post">/api/<strong>{multiFacetAwareDomainType}</strong>/<strong>{id}</strong>/doi?submissionType={type}</endpoint></p>

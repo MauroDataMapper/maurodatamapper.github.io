@@ -1622,7 +1622,7 @@
                   <h1>OpenID Connect Client</h1>
                 
                 <h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
-<p>Using an optional plugin for Mauro security, it is possible to extend authentication of users in Mauro to also include OpenID Connect authentication. This allows administrators to:</p>
+<p>Using an optional plugin for Mauro security, it is possible to extend authentication of users in Mauro to also include <a href="https://openid.net/">OpenID Connect</a> authentication. This allows administrators to:</p>
 <ul>
 <li>Configure external providers that support the OpenID Connect standard, such as Google, Microsoft, etc, to be included as <strong>'sign-in'</strong> options for Mauro</li>
 <li>Manage users of different account types to still be authenticated and authorized to use Mauro, using the existing user groups and permissions features</li>
@@ -1630,9 +1630,10 @@
 <p>This allows users of Mauro to sign in, or register, using a non-Mauro account, such as a user's existing Google/Microsoft account, and still get access to the Mauro catalogue with suitable Mauro permissions assigned.</p>
 <hr />
 <h2 id="2-administrator-setup">2. Administrator setup<a class="headerlink" href="#2-administrator-setup" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>Note: This section applies to administrators of Mauro only.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This section applies to administrators of Mauro only.</p>
+</div>
 <p>There are a number of steps an administrator must carry out before the OpenID Connect authentication can be used by users.</p>
 <h3 id="21-install-the-plugin">2.1 Install the plugin<a class="headerlink" href="#21-install-the-plugin" title="Permanent link">&para;</a></h3>
 <p>The Mauro OpenID Connect Authentication must be installed on the Mauro instance. See the <a href="https://maurodatamapper.github.io/installing/docker/#additional-backend-plugins">instructions for installing plugins</a>, as well as the <a href="https://github.com/MauroDataMapper-Plugins/mdm-plugin-authentication-openid-connect">GitHub repo README file</a>.</p>
@@ -1651,7 +1652,7 @@
 <ul>
 <li>
 <p><strong>Keycloak</strong><br />
-    Using <span><span class="MathJax_Preview">{openidConnectConfig.baseUrl}/realms/</span><script type="math/tex">{openidConnectConfig.baseUrl}/realms/</script></span>{openidConnectConfig.realm}/.well-known/openid-configuration</p>
+    Using <code>${openidConnectConfig.baseUrl}/realms/${openidConnectConfig.realm}/.well-known/openid-configuration</code></p>
 </li>
 <li>
 <p><strong>Google</strong><br />
