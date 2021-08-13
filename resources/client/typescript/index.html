@@ -401,6 +401,54 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../user-guides/organising-data-models/organising-data-models/" class="md-nav__link">
+        Organising Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/finalising-data-models/finalising-data-models/" class="md-nav__link">
+        Finalising Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/branch-version-fork/branch-version-fork/" class="md-nav__link">
+        Branching, versioning and forking Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/merging-data-models/merging-data-models/" class="md-nav__link">
+        Merging Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../user-guides/document-a-dataset/document-a-dataset/" class="md-nav__link">
         Document a Dataset
       </a>
@@ -427,18 +475,6 @@
     <li class="md-nav__item">
       <a href="../../../user-guides/import-data-model-from-excel/import-data-model-from-excel/" class="md-nav__link">
         Import a Data Model from Excel
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
-        How to version and merge Data Models
       </a>
     </li>
   
@@ -509,6 +545,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../user-guides/permissions/permissions/" class="md-nav__link">
+        Permissions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../user-guides/feature-switches/feature-switches/" class="md-nav__link">
         Feature switches
       </a>
@@ -523,6 +571,18 @@
     <li class="md-nav__item">
       <a href="../../../user-guides/dynamic-profiles/dynamic-profiles/" class="md-nav__link">
         Dynamic profiles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/digital-object-identifiers/digital-object-identifiers/" class="md-nav__link">
+        Digital Object Identifiers
       </a>
     </li>
   
@@ -721,6 +781,18 @@
     <li class="md-nav__item">
       <a href="../../../installing/migration/" class="md-nav__link">
         Migrating Old Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/openid-connect/openid-connect/" class="md-nav__link">
+        OpenID Connect Client
       </a>
     </li>
   
@@ -1100,6 +1172,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/versioned-folder/" class="md-nav__link">
+        Versioned folder
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1317,8 +1401,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../plugins/doi/" class="md-nav__link">
+        Digital Object Identifier (DOI)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../plugins/freemarker/" class="md-nav__link">
         Freemarker Templating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/openid-connect/" class="md-nav__link">
+        OpenID Connect
       </a>
     </li>
   
@@ -1493,7 +1601,7 @@
 <p>The TypeScript client library wraps the <a href="../../../rest-api/introduction/">REST API</a> in TypeScript classes/functions to make it easy for 
 JavaScript and TypeScript developers to interact with a Mauro instance. </p>
 <p>The TypeScript library that implements communication with the back-end 
-server is available as a stand alone repository for incorporation into other applications. For example other web interfaces, or back-end 
+server is available as a standalone repository for incorporation into other applications. For example other web interfaces, or back-end 
 functionality using <code>node.js</code>. This is in fact the client library that the <strong>Mauro Data Mapper</strong> user interface uses.</p>
 <p>The GitHub repository is called <a href="https://github.com/MauroDataMapper/mdm-resources"><code>mdm-resources</code></a> and is available within the <a href="https://github.com/MauroDataMapper">Mauro Data Mapper organisation</a>.</p>
 <hr />
@@ -1513,7 +1621,7 @@ methods for each endpoint.  These make use of the <a href="../typedoc/classes/md
 <a href="../typedoc/classes/mdmresource.html#constructor">constructor</a>:</p>
 <ul>
 <li><a href="../typedoc/classes/mdmresourcesconfiguration.html">MdmResourcesConfiguration</a> - object to define configuration options for every HTTP request.</li>
-<li><a href="./typedoc/interfaces/mdmresthandler.html">MdmRestHandler</a> - object to the REST handler that will process the requests. If not provided, the
+<li><a href="../typedoc/interfaces/imdmresthandler.html">MdmRestHandler</a> - object to the REST handler that will process the requests. If not provided, the
 <a href="../typedoc/classes/defaultmdmresthandler.html">DefaultMdmRestHandler</a> will be used - see the <a href="#rest-handlers">REST Handlers</a> section for further 
 details.</li>
 </ul>
@@ -1527,7 +1635,7 @@ details.</li>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&quot;dependencies&quot;</span> <span class="p">:</span> <span class="p">{</span>
   <span class="err">...</span>  
   <span class="nt">&quot;@maurodatamapper/mdm-resources&quot;</span><span class="p">:</span> <span class="s2">&quot;github:MauroDataMapper/mdm-resources#{version}&quot;</span>
 <span class="p">}</span>
@@ -1542,7 +1650,7 @@ details.</li>
 <a href="https://github.com/MauroDataMapper/mdm-ui/blob/main/src/app/modules/resources/mdm-resources.service.ts"><code>mdm-resources.service.ts</code></a> within the <a href="https://github.com/MauroDataMapper/mdm-ui"><code>mdm-ui</code></a> project).</p>
 <hr />
 <h2 id="rest-handlers">REST Handlers<a class="headerlink" href="#rest-handlers" title="Permanent link">&para;</a></h2>
-<p><code>mdm-resources</code> provides a default implementation of the <a href="./typedoc/interfaces/mdmresthandler.html">MdmRestHandler</a> called 
+<p><code>mdm-resources</code> provides a default implementation of the <a href="../typedoc/interfaces/imdmresthandler.html">MdmRestHandler</a> called 
 <a href="../typedoc/classes/defaultmdmresthandler.html">DefaultMdmRestHandler</a>. This implementation uses the 
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch</a> API to complete HTTP requests and return 
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">promises</a> on each response.</p>

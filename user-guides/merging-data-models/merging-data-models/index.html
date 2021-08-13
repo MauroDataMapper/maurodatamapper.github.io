@@ -1,0 +1,1918 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>Merging Data Models - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,700%7CNunito+Sans&display=fallback">
+        <style>:root{--md-text-font-family:"Nunito Sans";--md-code-font-family:"Nunito Sans"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="primary" data-md-color-accent="accent">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-overview" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Header -->
+<header class="md-header" data-md-component="header">
+    <nav
+            class="md-header-nav md-header__inner md-grid"
+            aria-label="Header"
+    >
+
+        <!-- Link to home -->
+        <a href="../../.." title="Documentation" class="md-header-nav__button md-logo" aria-label="Documentation">
+            
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+        </a>
+
+        <!-- Button to open drawer -->
+        <label class="md-header__button md-icon" for="__drawer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+        </label>
+
+        <!-- Header title -->
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+          <span class="md-ellipsis">
+            <!-- Documentation -->
+          </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            <!-- 
+              Merging Data Models
+             -->
+          </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color palette -->
+        
+
+        <!-- Site language selector -->
+        
+
+        <!-- Button to open search modal -->
+        
+        <label class="md-header__button md-icon" for="__search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+
+        <!-- Repository information -->
+        
+    </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        About
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/history/" class="md-nav__link">
+        History
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/research/" class="md-nav__link">
+        Research
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/mauro/" class="md-nav__link">
+        Mauro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/release-notes/" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/development-roadmap/" class="md-nav__link">
+        Development Roadmap
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Using Mauro
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Using Mauro" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Using Mauro
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        User Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="User Guides" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          User Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-a-data-model/create-a-data-model/" class="md-nav__link">
+        Create a Data Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../organising-data-models/organising-data-models/" class="md-nav__link">
+        Organising Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../finalising-data-models/finalising-data-models/" class="md-nav__link">
+        Finalising Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../branch-version-fork/branch-version-fork/" class="md-nav__link">
+        Branching, versioning and forking Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Merging Data Models
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Merging Data Models
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    1. Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-terminology" class="md-nav__link">
+    2. Terminology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-visualise-branches" class="md-nav__link">
+    2. Visualise branches
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-how-to-merge" class="md-nav__link">
+    3. How to merge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-the-merge-interface" class="md-nav__link">
+    4. The merge interface
+  </a>
+  
+    <nav class="md-nav" aria-label="4. The merge interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-merge-controls" class="md-nav__link">
+    4.1 Merge controls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-changes-list" class="md-nav__link">
+    4.2 Changes list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-committing-list" class="md-nav__link">
+    4.3 Committing list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-path-names" class="md-nav__link">
+    4.4 Path names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-comparison-view" class="md-nav__link">
+     4.5 Comparison view
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-resolving-conflicts" class="md-nav__link">
+    5. Resolving conflicts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-commit-your-changes" class="md-nav__link">
+    6. Commit your changes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../document-a-dataset/document-a-dataset/" class="md-nav__link">
+        Document a Dataset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporting-data-models/exporting-data-models/" class="md-nav__link">
+        Exporting Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../import-data-model-from-excel/import-data-model-from-excel/" class="md-nav__link">
+        Import a Data Model from Excel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-search/how-to-search/" class="md-nav__link">
+        How to search
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../add-a-semantic-link/semantic-links/" class="md-nav__link">
+        Semantic links
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../publish-subscribe/publish-subscribe/" class="md-nav__link">
+        Publish / Subscribe
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-profile/user-profile/" class="md-nav__link">
+        User profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin-functionality/admin-functionality/" class="md-nav__link">
+        Admin functionality
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../permissions/permissions/" class="md-nav__link">
+        Permissions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../feature-switches/feature-switches/" class="md-nav__link">
+        Feature switches
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamic-profiles/dynamic-profiles/" class="md-nav__link">
+        Dynamic profiles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../digital-object-identifiers/digital-object-identifiers/" class="md-nav__link">
+        Digital Object Identifiers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Tutorials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/semantic-links/" class="md-nav__link">
+        Semantic Links
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/properties-profiles/" class="md-nav__link">
+        Properties and profiles
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Installing and Administration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Installing and Administration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Installing and Administration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        Installation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Installation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Installation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/docker/" class="md-nav__link">
+        Docker Install
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/administration/" class="md-nav__link">
+        Administration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/branding/branding/" class="md-nav__link">
+        Branding
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/plugins/" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/migration/" class="md-nav__link">
+        Migrating Old Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/openid-connect/openid-connect/" class="md-nav__link">
+        OpenID Connect Client
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Developer Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Developer Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Developer Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/architecture/" class="md-nav__link">
+        Technical Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        REST API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="REST API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          REST API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/apikeys/" class="md-nav__link">
+        API Keys
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/errors/" class="md-nav__link">
+        Errors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/pagination/" class="md-nav__link">
+        Pagination
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/postman/" class="md-nav__link">
+        Postman Library
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2_7" type="checkbox" id="__nav_5_2_7" >
+      
+      <label class="md-nav__link" for="__nav_5_2_7">
+        Core resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Core resources" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Core resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/catalogue-item/" class="md-nav__link">
+        Catalogue item
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/classifier/" class="md-nav__link">
+        Classifier
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/codeset/" class="md-nav__link">
+        Codeset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-class/" class="md-nav__link">
+        Data class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-element/" class="md-nav__link">
+        Data element
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-flow/" class="md-nav__link">
+        Data flow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-flow-component/" class="md-nav__link">
+        Data flow component
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-model/" class="md-nav__link">
+        Data model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-type/" class="md-nav__link">
+        Data type
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/enumeration-value/" class="md-nav__link">
+        Enumeration value
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/folder/" class="md-nav__link">
+        Folder
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/plugin/" class="md-nav__link">
+        Plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/semantic-link/" class="md-nav__link">
+        Semantic link
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/term/" class="md-nav__link">
+        Term
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/term-relationship/" class="md-nav__link">
+        Term relationship
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/terminology/" class="md-nav__link">
+        Terminology
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/user/" class="md-nav__link">
+        User
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/user-group/" class="md-nav__link">
+        User group
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/versioned-folder/" class="md-nav__link">
+        Versioned folder
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/trees/" class="md-nav__link">
+        Trees
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/importexport/" class="md-nav__link">
+        Import / Export
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/admin/" class="md-nav__link">
+        Admin functions
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      <label class="md-nav__link" for="__nav_5_3">
+        Client Libraries
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Client Libraries" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Client Libraries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/client/java/" class="md-nav__link">
+        Groovy / Java
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/client/typescript/" class="md-nav__link">
+        TypeScript
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/client/net/" class="md-nav__link">
+        .NET
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4">
+        Technical Plugins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Technical Plugins" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Technical Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/doi/" class="md-nav__link">
+        Digital Object Identifier (DOI)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/freemarker/" class="md-nav__link">
+        Freemarker Templating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/openid-connect/" class="md-nav__link">
+        OpenID Connect
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/sparql/" class="md-nav__link">
+        SPARQL
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Community
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Community
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/support/" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-overview" class="md-nav__link">
+    1. Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-terminology" class="md-nav__link">
+    2. Terminology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-visualise-branches" class="md-nav__link">
+    2. Visualise branches
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-how-to-merge" class="md-nav__link">
+    3. How to merge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-the-merge-interface" class="md-nav__link">
+    4. The merge interface
+  </a>
+  
+    <nav class="md-nav" aria-label="4. The merge interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-merge-controls" class="md-nav__link">
+    4.1 Merge controls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-changes-list" class="md-nav__link">
+    4.2 Changes list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-committing-list" class="md-nav__link">
+    4.3 Committing list
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-path-names" class="md-nav__link">
+    4.4 Path names
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-comparison-view" class="md-nav__link">
+     4.5 Comparison view
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-resolving-conflicts" class="md-nav__link">
+    5. Resolving conflicts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-commit-your-changes" class="md-nav__link">
+    6. Commit your changes
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Merging Data Models</h1>
+                
+                <p>This user guide explains how to merge <a href="../../../glossary/data-model/data-model/">Data Models</a> including comparing and committing changes as well as how to successfully resolve conflicts.</p>
+<hr />
+<h2 id="1-overview">1. Overview<a class="headerlink" href="#1-overview" title="Permanent link">&para;</a></h2>
+<p>When working with multiple <strong>Branches</strong> on the same model, it is likely that these multiple branch versions will have modifications such as additions, deletions and edits. Eventually, it will be necessary to <strong>merge</strong> all these back into one single draft version of the model. This is why every model has a <strong>main</strong> branch which acts as a single branching point and is also where models are <strong>Finalised</strong> from.</p>
+<p><strong>Merging</strong> models is quite a complex task as it's important not to lose any potential changes during the merge process. This is why a special user interface has been designed for you to:</p>
+<ul>
+<li>Review all changes that have occurred</li>
+<li>Assist in resolving <strong>conflicts</strong> which are any changes that have occurred in two models that do not automatically align</li>
+<li>Commit the changes you wish to make to a model</li>
+</ul>
+<p><strong>Merging</strong> can be applied to <strong>Data Models</strong> or <strong>Versioned Folders</strong> and includes merging changes within the model hierarchy as well. For example, changes made to <a href="../../../glossary/data-class/data-class/">Data Classes</a> also count as modifications to a <strong>Data Model</strong>, and so on.</p>
+<hr />
+<h2 id="2-terminology">2. Terminology<a class="headerlink" href="#2-terminology" title="Permanent link">&para;</a></h2>
+<p>As <strong>merging</strong> is an advanced user concept, the following terms will be used throughout this user guide:</p>
+<ul>
+<li>
+<p><strong>Source</strong><br />
+    The model or folder where changes are coming <strong>from</strong>. For example, the source would typically be a branch that is not the <strong>main</strong> branch </p>
+</li>
+<li>
+<p><strong>Target</strong><br />
+    The model or folder where changes are going <strong>to</strong>. This is usually the <strong>main</strong> branch, but is not always the case </p>
+</li>
+<li>
+<p><strong>Change</strong><br />
+    Any field that has changed between <strong>Source</strong> and <strong>Target</strong>. These will be:</p>
+<ul>
+<li><strong>Addition</strong> - something has been added to <strong>Source</strong> which will then be added to <strong>Target</strong></li>
+<li><strong>Deletion</strong> - something has been removed from <strong>Source</strong>, or has been added to <strong>Target</strong></li>
+<li><strong>Modification</strong> - something exists in both <strong>Source</strong> and <strong>Target</strong>, but has different values</li>
+</ul>
+</li>
+<li>
+<p><strong>Conflicts</strong><br />
+    When a <strong>modification</strong> exists which cannot automatically be resolved. This typically happens when a piece of text has been changed and the same sentence has been modified. A user must manually resolve such conflicts to avoid losing important information or context</p>
+</li>
+<li>
+<p><strong>Paths</strong><br />
+    A <strong>fully qualified path</strong> is the full name of a model field (or a field within the model hierarchy). Paths are used as full unique identifiers to list all the changes within a model or folder</p>
+</li>
+<li>
+<p><strong>Commit</strong><br />
+    Saving all changes gathered together, from both <strong>Source</strong> and <strong>Target</strong>, and updating the end <strong>Target</strong> model or folder</p>
+</li>
+</ul>
+<hr />
+<h2 id="2-visualise-branches">2. Visualise branches<a class="headerlink" href="#2-visualise-branches" title="Permanent link">&para;</a></h2>
+<p>It can be difficult to keep track of all branches in the <strong>Model Tree</strong>, especially if there are multiple branches. Therefore, Mauro allows you to visualise the branches as well as previous versions or forks in a <strong>merge graph</strong>.</p>
+<p>To find out how to access this <strong>merge graph</strong> see section <a href="../../branch-version-fork/branch-version-fork/#merge-graph">'4. Merge graph'</a> of our <a href="../../branch-version-fork/branch-version-fork/">'Branching, versioning and forking Data Models' user guide</a>.</p>
+<hr />
+<h2 id="3-how-to-merge">3. How to merge<a class="headerlink" href="#3-how-to-merge" title="Permanent link">&para;</a></h2>
+<p>Firstly, select the relevant draft <strong>Data Model</strong> or <strong>Versioned Folder</strong> that has more than one branch in the <strong>Model Tree</strong>. Once the item's details panel is displayed on the right, click the three vertical dot menu at the top right of the details panel. Select <strong>'Merge...'</strong> from the dropdown menu and this will navigate you to the merge interface. </p>
+<p><img alt="Merge option in vertical dot dropdown menu" src="../merge-menu-option.png" /></p>
+<hr />
+<h2 id="4-the-merge-interface">4. The merge interface<a class="headerlink" href="#4-the-merge-interface" title="Permanent link">&para;</a></h2>
+<p>The interface for merging is split into several parts:</p>
+<h3 id="41-merge-controls">4.1 Merge controls<a class="headerlink" href="#41-merge-controls" title="Permanent link">&para;</a></h3>
+<p>The top of the interface lists:</p>
+<ul>
+<li>The label of the catalogue item that is being merged</li>
+<li>The <strong>Source</strong> branch to get changes from</li>
+<li>
+<p>The <strong>Target</strong> branch to merge changes into. You are able to select from any available branch, typically <strong>main</strong> is initially selected</p>
+<blockquote>
+<p>Note: This is disabled if there are any changes being <strong>committed</strong>, which locks the target. To change the target branch again, cancel all changes being committed, start again and re-calculate the differences</p>
+</blockquote>
+</li>
+<li>
+<p>The <strong>Commit Changes</strong> button. Clicking this will finish the merge operation (see below)</p>
+</li>
+<li>The <strong>Cancel</strong> button. Click this to cancel the merge operation and return to the catalogue without saving any changes</li>
+</ul>
+<p><img alt="The merge interface" src="../merge-interface.png" /></p>
+<h3 id="42-changes-list">4.2 Changes list<a class="headerlink" href="#42-changes-list" title="Permanent link">&para;</a></h3>
+<p>The <strong>'Changes'</strong> tab lists all the changes made between the chosen <strong>Source</strong> and <strong>Target</strong>. All changes use <strong>path names</strong> to fully explain where they are in relation to the model hierarchy (see below for more details).</p>
+<p>The changes list displays all the changes that have been made, but each change must be moved to the <strong>'Committing'</strong> list in order to actually save the change to the <strong>Target</strong>. See section <a href="./#comparison-view">'4.5 Comparison view'</a> below.</p>
+<p><img alt="Changes list section on the merge interface" src="../merge-interface-changes-list.png" /></p>
+<p>The changes list also allows you to:</p>
+<ul>
+<li>Filter the list by typing in a name</li>
+<li>Use all changes taken from the <strong>Source</strong> branch</li>
+<li>Use all changes taken from the <strong>Target</strong> branch</li>
+</ul>
+<h3 id="43-committing-list">4.3 Committing list<a class="headerlink" href="#43-committing-list" title="Permanent link">&para;</a></h3>
+<p>The <strong>'Committing'</strong> tab lists all the changes that are going to be committed to the <strong>Target</strong> branch when saved. This is similar to the <strong>'Changes'</strong> list, but also displays where the committed changes have come from. For example, from <strong>Source</strong>, <strong>Target</strong>, or a mixture of both.</p>
+<blockquote>
+<p>Note: After an initial comparison, the <strong>'Committing'</strong> list may include some changes automatically. This is because Mauro has determined that these changes have no conflicts and so can be included by default, however you can undo these changes manually.</p>
+</blockquote>
+<p><img alt="Committing list section on the merge interface" src="../merge-interface-committing-list.png" /></p>
+<h3 id="44-path-names">4.4 Path names<a class="headerlink" href="#44-path-names" title="Permanent link">&para;</a></h3>
+<p>Fully qualified paths are used to describe the field changes that have occurred in a model hierarchy. You can hover the mouse over each section of the path name to find out what they mean, but in summary:</p>
+<ul>
+<li>The first few capital letters represent the <strong>domain type</strong>. For example <strong>'DM'</strong> is for <strong>'Data Model'</strong>, <strong>'DC'</strong> is for <strong>'Data Class'</strong>, <strong>'MD'</strong> is for <strong>'Metadata'</strong> etc</li>
+<li>This prefix is followed by the label of that item</li>
+<li>Anything after a <strong>'$'</strong> represents the branch name the item is for</li>
+<li>Anything after a <strong>'@'</strong> represents the name of the field that has changed</li>
+<li>These then repeat if hierarchical, split by a <strong>'»'</strong> separator</li>
+</ul>
+<p><img alt="Breakdown of different sections of a path name" src="../path-name.png" /></p>
+<h3 id="45-comparison-view"><a name="comparison-view"></a> 4.5 Comparison view<a class="headerlink" href="#45-comparison-view" title="Permanent link">&para;</a></h3>
+<p>You can click on any item from the <strong>'Changes'</strong> or <strong>'Committing'</strong> lists to display a comparison view below. There are three types of comparison views that can be shown and this will depend on the change you have selected. </p>
+<p>If you have selected an addition change, as highlighted by a green <strong>'+'</strong> symbol, then the comparison view will display what will be <strong>added</strong> to the <strong>Target</strong> in its entirety.</p>
+<p><img alt="Comparison view showing an addition change" src="../comparison-view-addition.png" /></p>
+<p>If you have selected a deletion change, as highlighted by a red <strong>'-'</strong> symbol, then the comparison view will display what will be <strong>removed</strong> from the <strong>Target</strong> in its entirety.</p>
+<p><img alt="Comparison view showing a deletion change" src="../comparison-view-deletion.png" /></p>
+<p>If you have selected an edit change, as highlighted by a dark blue pencil symbol, then the comparison view will display the values in both <strong>Source</strong> and <strong>Target</strong>, highlighting the differences between the two.</p>
+<p><img alt="Comparison view showing an edit change" src="../comparison-view-edit.png" /></p>
+<p>Using the comparison view you must then choose how this change should be committed. If the only option that appears at the top of the comparison view is an <strong>'Accept'</strong> button, then clicking this will move the change to the <strong>Committing</strong> list. </p>
+<p>However, if there are changes to consider, then a range of options will appear at the top of the comparison view:</p>
+<ul>
+<li>
+<p><strong>'Use "Source"'</strong><br />
+    Commit the value that is in the <strong>Source</strong> branch, ignoring the <strong>Target</strong> copy</p>
+</li>
+<li>
+<p><strong>'Use "Target"'</strong><br />
+    Commit the value that is in the <strong>Target</strong> branch, ignoring the <strong>Source</strong> copy</p>
+</li>
+<li>
+<p><strong>'Open Editor'</strong><br />
+    Open an editor window to manually correct the value to commit to <strong>Target</strong>. See section <a href="./#resolving-conflicts">'5. Resolving conflicts'</a> below</p>
+</li>
+<li>
+<p><strong>'Link Scrolls'</strong><br />
+    This will synchronise the scroll bars of the two values to better visualise the changes between them. To switch this off, click this button again</p>
+</li>
+</ul>
+<hr />
+<h2 id="5-resolving-conflicts"><a name="resolving-conflicts"></a>5. Resolving conflicts<a class="headerlink" href="#5-resolving-conflicts" title="Permanent link">&para;</a></h2>
+<p>Sometimes Mauro is unable to determine exactly which change from which branch is required. Or there may be cases where you want some changes from <strong>Source</strong> and <strong>Target</strong> included together. To make these decisions, click on the <strong>'Open Editor'</strong> button in the top right of the comparison view, this will bring up the <strong>Conflict Editor</strong>.</p>
+<p><img alt="Conflict Editor view" src="../conflict-editor.png" /></p>
+<p>The <strong>Conflict Editor</strong> will display:</p>
+<ul>
+<li>The full path to the field being reviewed</li>
+<li>The entire value from the <strong>Source</strong> branch, with differences highlighted (left)</li>
+<li>The entire value from the <strong>Target</strong> branch, with differences highlighted (right)</li>
+<li>The <strong>'Resolved'</strong> value (initially the value from <strong>Source</strong>) which can be manually edited and is located at the bottom of the <strong>Conflict Editor</strong>. </li>
+</ul>
+<p>You can click the differences highlighted in green in the <strong>Source</strong> and <strong>Target</strong> views to automatically add them to the <strong>Resolved</strong> editor, replacing any red highlighted <strong>'---'</strong> sections.</p>
+<p>Alternatively, you can manually remove all the red <strong>'---'</strong> sections from the <strong>Resolved</strong> editor and adjust any text as you wish. Use the <strong>Source</strong> and <strong>Target</strong> views as a guide for how your content should look.</p>
+<p>Once you are happy with how the resolved text looks, click on the <strong>'Resolve Conflict'</strong> button. The text entered in the <strong>Resolved</strong> editor will now be the committed value for the <strong>Target</strong> branch. In the <strong>'Committed'</strong> list, the field will be tagged with the <strong>'Mixed'</strong> suffix to show that the change was manually modified.</p>
+<p><img alt="A committed change featuring mixed content" src="../committed-mixed-content.png" /></p>
+<hr />
+<h2 id="6-commit-your-changes">6. Commit your changes<a class="headerlink" href="#6-commit-your-changes" title="Permanent link">&para;</a></h2>
+<p>When you are happy with your <strong>'Committing'</strong> list, you can save and commit all changes to the <strong>Target</strong> branch.</p>
+<blockquote>
+<p>Note: Not every listed change has to be pushed to the <strong>'Committing'</strong> list, but there must be at least one change to commit. This allows you to perform partial merges, for example to keep track of <strong>work in progress</strong>.</p>
+</blockquote>
+<p>Click on <strong>'Commit Changes'</strong> which will display a <strong>'Check in Branch'</strong> dialogue box. Here you will find a list of all the changes you are committing for a final review. You can enter an optional comment in the <strong>'Commit Comment'</strong> box for this merge change. This will be tracked in the history of the <strong>Target</strong> catalogue item.</p>
+<p>You can also select the option to <strong>'Delete Source Branch'</strong> once the merge has finished. This can be useful to tidy up remaining branches which are no longer needed once merged back into <strong>main</strong>.</p>
+<p>Once you have checked everything, click on the <strong>'Commit'</strong> button to save all the selected changes to the <strong>Target</strong> catalogue item.</p>
+<p><img alt="Check in branch dialogue box" src="../check-in-branch.png" /></p>
+<hr />
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../branch-version-fork/branch-version-fork/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Branching, versioning and forking Data Models" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Branching, versioning and forking Data Models
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../document-a-dataset/document-a-dataset/" class="md-footer__link md-footer__link--next" aria-label="Next: Document a Dataset" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Document a Dataset
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021 University of Oxford and Health and Social Care Information Centre, also known as NHS Digital
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+        <script src="../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>

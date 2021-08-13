@@ -401,6 +401,54 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../user-guides/organising-data-models/organising-data-models/" class="md-nav__link">
+        Organising Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/finalising-data-models/finalising-data-models/" class="md-nav__link">
+        Finalising Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/branch-version-fork/branch-version-fork/" class="md-nav__link">
+        Branching, versioning and forking Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/merging-data-models/merging-data-models/" class="md-nav__link">
+        Merging Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../user-guides/document-a-dataset/document-a-dataset/" class="md-nav__link">
         Document a Dataset
       </a>
@@ -427,18 +475,6 @@
     <li class="md-nav__item">
       <a href="../../../user-guides/import-data-model-from-excel/import-data-model-from-excel/" class="md-nav__link">
         Import a Data Model from Excel
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../user-guides/version-data-models/version-data-models/" class="md-nav__link">
-        How to version and merge Data Models
       </a>
     </li>
   
@@ -509,6 +545,18 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../user-guides/permissions/permissions/" class="md-nav__link">
+        Permissions
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../user-guides/feature-switches/feature-switches/" class="md-nav__link">
         Feature switches
       </a>
@@ -523,6 +571,18 @@
     <li class="md-nav__item">
       <a href="../../../user-guides/dynamic-profiles/dynamic-profiles/" class="md-nav__link">
         Dynamic profiles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../user-guides/digital-object-identifiers/digital-object-identifiers/" class="md-nav__link">
+        Digital Object Identifiers
       </a>
     </li>
   
@@ -721,6 +781,18 @@
     <li class="md-nav__item">
       <a href="../../../installing/migration/" class="md-nav__link">
         Migrating Old Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/openid-connect/openid-connect/" class="md-nav__link">
+        OpenID Connect Client
       </a>
     </li>
   
@@ -1067,6 +1139,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#finalise-a-data-model" class="md-nav__link">
+    Finalise a data model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merging-data-models" class="md-nav__link">
+    Merging data models
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1190,6 +1276,18 @@
     <li class="md-nav__item">
       <a href="../user-group/" class="md-nav__link">
         User group
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../versioned-folder/" class="md-nav__link">
+        Versioned folder
       </a>
     </li>
   
@@ -1332,8 +1430,32 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../plugins/doi/" class="md-nav__link">
+        Digital Object Identifier (DOI)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../plugins/freemarker/" class="md-nav__link">
         Freemarker Templating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/openid-connect/" class="md-nav__link">
+        OpenID Connect
       </a>
     </li>
   
@@ -1502,6 +1624,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#finalise-a-data-model" class="md-nav__link">
+    Finalise a data model
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merging-data-models" class="md-nav__link">
+    Merging data models
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1612,16 +1748,36 @@ of <a href="../catalogue-item/">those endpoints</a></p>
 <h2 id="create-data-model">Create data model<a class="headerlink" href="#create-data-model" title="Permanent link">&para;</a></h2>
 <p>To create a new data model from scratch, use the following <em>post</em> endpoint.  Within the body of this call, you should include a folder identifier.</p>
 <p><endpoint class="post">/api/dataModels</endpoint></p>
-<p>There are two ways of versioning Data Models in the catalogue.  To create an entirely new version of a model, please use the following endpoint:</p>
-<p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/newModelVersion</endpoint></p>
+<p>There are two ways of versioning Data Models in the catalogue.  To create an entirely new version of an existing model, please use the following endpoint with no request body:</p>
+<p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/newBranchModelVersion</endpoint></p>
 <p>The name must be different to the original model.</p>
 <p>To create a new 'documentation version', use the following endpoint:</p>
 <p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/newDocumentationVersion</endpoint></p>
 <p>By default, this will supersede the original data model.</p>
 <p>It is also possible to <em>branch</em> and <em>fork</em> Data Models to create drafts before finalising them. To create a new <em>branch</em> from an existing Data Model:</p>
 <p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/newBranchModelVersion</endpoint></p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Request body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;branchName&quot;</span><span class="p">:</span> <span class="s2">&quot;newBranch&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
 <p>To create a <em>fork</em> of the original data model:</p>
 <p><endpoint class="put">/api/dataModels/<strong>{dataModelId}</strong>/newForkModel</endpoint></p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Request body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;newForkLabel&quot;</span>        
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
 <h2 id="update-data-model">Update data model<a class="headerlink" href="#update-data-model" title="Permanent link">&para;</a></h2>
 <p>To edit the primitive properties of a data model, use the following endpoint, with a body similar to the JSON described at the top of this page:</p>
 <p><endpoint class="put">/api/dataModels/<strong>{id}</strong></endpoint></p>
@@ -1656,6 +1812,267 @@ use the following endpoint: </p>
 <p>Similarly, to import one or more data models, the namespace, name and version of the import plugin must be known.  The body of this method should
  be the parameters for the import, including any files that are required.</p>
 <p><endpoint class="post">/api/dataModels/import/<strong>{importerNamespace}</strong>/<strong>{importerName}</strong>/<strong>{importerVersion}</strong></endpoint></p>
+<h2 id="finalise-a-data-model">Finalise a data model<a class="headerlink" href="#finalise-a-data-model" title="Permanent link">&para;</a></h2>
+<p>To <em>finalise</em> a data model means to lock it to a particular version and make it read-only; only new versions can be created to make further modifications after that point. 
+Use this endpoint with a similar payloads described below to finalise a data model.</p>
+<p><endpoint class="put">/api/dataModels/<strong>{id}</strong>/finalise</endpoint></p>
+<p>To automatically let Mauro choose the next version number, set the <strong>versionChange</strong> property to either <code>'Major'</code>, <code>'Minor'</code> or <code>'Patch'</code>.</p>
+<div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Request body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;versionChange&quot;</span><span class="p">:</span> <span class="s2">&quot;Major&quot;</span> <span class="err">|</span> <span class="s2">&quot;Minor&quot;</span> <span class="err">|</span> <span class="s2">&quot;Patch&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>Mauro uses <a href="https://semver.org/">Semantic Versioning</a> rules to determine the next appropriate version number based on the <strong>versionChange</strong> value provided.</p>
+<p>To optionally choose your own version number, provide this payload. If <strong>versionChange</strong> is <code>'Custom'</code>, then <strong>version</strong> must also be provided.</p>
+<div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Request body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;versionChange&quot;</span><span class="p">:</span> <span class="s2">&quot;Custom&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.3.4&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>In all cases you may also supply an optional <em>tag name</em> to assign with the finalised version to help provide more context, as follows:</p>
+<div class="tabbed-set" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">Request body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;versionChange&quot;</span><span class="p">:</span> <span class="s2">&quot;Major&quot;</span> <span class="err">|</span> <span class="s2">&quot;Minor&quot;</span> <span class="err">|</span> <span class="s2">&quot;Patch&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;versionTag&quot;</span><span class="p">:</span> <span class="s2">&quot;My first version&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<h2 id="merging-data-models">Merging data models<a class="headerlink" href="#merging-data-models" title="Permanent link">&para;</a></h2>
+<p>If <a href="#create-data-model">creating branches</a> of data models, it is possible to merge the data values from one data model to another. The first step is to calculate the <em>differences</em> between two data models, as follows:</p>
+<p><endpoint class="get">/api/dataModels/<strong>{sourceId}</strong>/mergeDiff/<strong>{targetId}</strong>?isLegacy=false</endpoint></p>
+<div class="tabbed-set" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">Response body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;sourceId&quot;</span><span class="p">:</span> <span class="s2">&quot;f9a4e390-6259-4616-b725-d45524851a82&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;targetId&quot;</span><span class="p">:</span> <span class="s2">&quot;f5841f3f-7a63-4aa2-9c72-a64305d44dcf&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Model Version Tree DataModel&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+    <span class="nt">&quot;diffs&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;fieldName&quot;</span><span class="p">:</span> <span class="s2">&quot;author&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch@author&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sourceValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Mauro User&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;targetValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Dante&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;commonAncestorValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Dante&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;isMergeConflict&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;modification&quot;</span>
+        <span class="p">},</span>                        
+        <span class="p">{</span>
+            <span class="nt">&quot;fieldName&quot;</span><span class="p">:</span> <span class="s2">&quot;organisation&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch@organisation&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sourceValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Mauro&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;targetValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Baal&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;commonAncestorValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Baal&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;isMergeConflict&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;modification&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch|ann:Test Comment&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;isMergeConflict&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;isSourceModificationAndTargetDeletion&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;creation&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch|dc:Test Data Class&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;isMergeConflict&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;isSourceModificationAndTargetDeletion&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;creation&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch|md:v1Versioning.com.mdk1&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;isMergeConflict&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;isSourceDeletionAndTargetModification&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;deletion&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;fieldName&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch|md:org.datacite.creator@value&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sourceValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Peter Monks&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;targetValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Mauro Administrator&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;commonAncestorValue&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;isMergeConflict&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;modification&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;fieldName&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch|md:test.com.testProperty@value&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;sourceValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Oliver Freeman&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;targetValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Peter Monks&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;commonAncestorValue&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="nt">&quot;isMergeConflict&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;modification&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch|ru:Bootstrapped versioning V2Model Rule|rr:sql&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;isMergeConflict&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;isSourceModificationAndTargetDeletion&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;creation&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>The <strong>diffs</strong> collection will hold each change found between the two data models and how they relate.</p>
+<p>All changes need to be manually organised into <em>patches</em> so that they can be applied to the target data model. Then the following endpoint is used to commit:</p>
+<p><endpoint class="put">/api/dataModels/<strong>{sourceId}</strong>/mergeInto/<strong>{targetId}</strong>?isLegacy=false</endpoint></p>
+<div class="tabbed-set" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">Request body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;changeNotice&quot;</span><span class="p">:</span> <span class="s2">&quot;Change comment&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;deleteBranch&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;patch&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;sourceId&quot;</span><span class="p">:</span> <span class="s2">&quot;f9a4e390-6259-4616-b725-d45524851a82&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;targetId&quot;</span><span class="p">:</span> <span class="s2">&quot;f5841f3f-7a63-4aa2-9c72-a64305d44dcf&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;Model Version Tree DataModel&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nt">&quot;patches&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch|ru:Bootstrapped versioning V2Model Rule|rr:sql&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;isMergeConflict&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nt">&quot;isSourceModificationAndTargetDeletion&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;creation&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;fieldName&quot;</span><span class="p">:</span> <span class="s2">&quot;author&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch@author&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;sourceValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Mauro User&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;targetValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Mauro User&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;commonAncestorValue&quot;</span><span class="p">:</span> <span class="s2">&quot;Dante&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;isMergeConflict&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;modification&quot;</span>
+            <span class="p">},</span>  
+            <span class="p">{</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;dm:Model Version Tree DataModel$interestingBranch|md:v1Versioning.com.mdk1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;isMergeConflict&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nt">&quot;isSourceDeletionAndTargetModification&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;deletion&quot;</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
+<p>The key point is to set the <strong>targetValue</strong> of every patch item to change - this value is what will be written to the target data model when committing the merge.</p>
                 
               
               

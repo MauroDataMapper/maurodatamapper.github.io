@@ -1,0 +1,1931 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.1">
+    
+    
+      
+        <title>Permissions - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.1118c9be.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ba0d045b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,700%7CNunito+Sans&display=fallback">
+        <style>:root{--md-text-font-family:"Nunito Sans";--md-code-font-family:"Nunito Sans"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="primary" data-md-color-accent="accent">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-access-levels" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Header -->
+<header class="md-header" data-md-component="header">
+    <nav
+            class="md-header-nav md-header__inner md-grid"
+            aria-label="Header"
+    >
+
+        <!-- Link to home -->
+        <a href="../../.." title="Documentation" class="md-header-nav__button md-logo" aria-label="Documentation">
+            
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+        </a>
+
+        <!-- Button to open drawer -->
+        <label class="md-header__button md-icon" for="__drawer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+        </label>
+
+        <!-- Header title -->
+        <div class="md-header__title" data-md-component="header-title">
+            <div class="md-header__ellipsis">
+                <div class="md-header__topic">
+          <span class="md-ellipsis">
+            <!-- Documentation -->
+          </span>
+                </div>
+                <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            <!-- 
+              Permissions
+             -->
+          </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color palette -->
+        
+
+        <!-- Site language selector -->
+        
+
+        <!-- Button to open search modal -->
+        
+        <label class="md-header__button md-icon" for="__search">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+
+        <!-- Repository information -->
+        
+    </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        About
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/history/" class="md-nav__link">
+        History
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/research/" class="md-nav__link">
+        Research
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/mauro/" class="md-nav__link">
+        Mauro
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/release-notes/" class="md-nav__link">
+        Release Notes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/development-roadmap/" class="md-nav__link">
+        Development Roadmap
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Using Mauro
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Using Mauro" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Using Mauro
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        User Guides
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="User Guides" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          User Guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../create-a-data-model/create-a-data-model/" class="md-nav__link">
+        Create a Data Model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../organising-data-models/organising-data-models/" class="md-nav__link">
+        Organising Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../finalising-data-models/finalising-data-models/" class="md-nav__link">
+        Finalising Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../branch-version-fork/branch-version-fork/" class="md-nav__link">
+        Branching, versioning and forking Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../merging-data-models/merging-data-models/" class="md-nav__link">
+        Merging Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../document-a-dataset/document-a-dataset/" class="md-nav__link">
+        Document a Dataset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../exporting-data-models/exporting-data-models/" class="md-nav__link">
+        Exporting Data Models
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../import-data-model-from-excel/import-data-model-from-excel/" class="md-nav__link">
+        Import a Data Model from Excel
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how-to-search/how-to-search/" class="md-nav__link">
+        How to search
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../add-a-semantic-link/semantic-links/" class="md-nav__link">
+        Semantic links
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../publish-subscribe/publish-subscribe/" class="md-nav__link">
+        Publish / Subscribe
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-profile/user-profile/" class="md-nav__link">
+        User profile
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../admin-functionality/admin-functionality/" class="md-nav__link">
+        Admin functionality
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Permissions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Permissions
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-access-levels" class="md-nav__link">
+    1. Access levels
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Access levels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reader" class="md-nav__link">
+    Reader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reviewer" class="md-nav__link">
+    Reviewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#author" class="md-nav__link">
+    Author
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editor" class="md-nav__link">
+    Editor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-administrator" class="md-nav__link">
+    Container Administrator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-group-administrator" class="md-nav__link">
+    Container Group Administrator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-users" class="md-nav__link">
+    2. Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-groups" class="md-nav__link">
+    3. Groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-catalogue-items" class="md-nav__link">
+    4. Catalogue items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-manage-user-and-group-access" class="md-nav__link">
+    5. Manage User and Group Access
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Manage User and Group Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-publicly-readable" class="md-nav__link">
+    5.1 Publicly readable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-authenticated-users" class="md-nav__link">
+    5.2 Authenticated users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-group-access" class="md-nav__link">
+    5.3 Group access
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../feature-switches/feature-switches/" class="md-nav__link">
+        Feature switches
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dynamic-profiles/dynamic-profiles/" class="md-nav__link">
+        Dynamic profiles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../digital-object-identifiers/digital-object-identifiers/" class="md-nav__link">
+        Digital Object Identifiers
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        Tutorials
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/semantic-links/" class="md-nav__link">
+        Semantic Links
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/properties-profiles/" class="md-nav__link">
+        Properties and profiles
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glossary/glossary/" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Installing and Administration
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Installing and Administration" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Installing and Administration
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        Installation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Installation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Installation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/docker/" class="md-nav__link">
+        Docker Install
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/administration/" class="md-nav__link">
+        Administration
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/branding/branding/" class="md-nav__link">
+        Branding
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/plugins/" class="md-nav__link">
+        Plugins
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/migration/" class="md-nav__link">
+        Migrating Old Data
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installing/openid-connect/openid-connect/" class="md-nav__link">
+        OpenID Connect Client
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        Developer Resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Developer Resources" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Developer Resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/architecture/" class="md-nav__link">
+        Technical Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        REST API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="REST API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          REST API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/authentication/" class="md-nav__link">
+        Authentication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/apikeys/" class="md-nav__link">
+        API Keys
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/errors/" class="md-nav__link">
+        Errors
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/pagination/" class="md-nav__link">
+        Pagination
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/postman/" class="md-nav__link">
+        Postman Library
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2_7" type="checkbox" id="__nav_5_2_7" >
+      
+      <label class="md-nav__link" for="__nav_5_2_7">
+        Core resources
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Core resources" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Core resources
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/catalogue-item/" class="md-nav__link">
+        Catalogue item
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/classifier/" class="md-nav__link">
+        Classifier
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/codeset/" class="md-nav__link">
+        Codeset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-class/" class="md-nav__link">
+        Data class
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-element/" class="md-nav__link">
+        Data element
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-flow/" class="md-nav__link">
+        Data flow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-flow-component/" class="md-nav__link">
+        Data flow component
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-model/" class="md-nav__link">
+        Data model
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/data-type/" class="md-nav__link">
+        Data type
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/enumeration-value/" class="md-nav__link">
+        Enumeration value
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/folder/" class="md-nav__link">
+        Folder
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/plugin/" class="md-nav__link">
+        Plugin
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/semantic-link/" class="md-nav__link">
+        Semantic link
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/term/" class="md-nav__link">
+        Term
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/term-relationship/" class="md-nav__link">
+        Term relationship
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/terminology/" class="md-nav__link">
+        Terminology
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/user/" class="md-nav__link">
+        User
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/user-group/" class="md-nav__link">
+        User group
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/resources/versioned-folder/" class="md-nav__link">
+        Versioned folder
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/trees/" class="md-nav__link">
+        Trees
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/importexport/" class="md-nav__link">
+        Import / Export
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../rest-api/admin/" class="md-nav__link">
+        Admin functions
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      <label class="md-nav__link" for="__nav_5_3">
+        Client Libraries
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Client Libraries" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Client Libraries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/client/java/" class="md-nav__link">
+        Groovy / Java
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/client/typescript/" class="md-nav__link">
+        TypeScript
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../resources/client/net/" class="md-nav__link">
+        .NET
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4">
+        Technical Plugins
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Technical Plugins" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Technical Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/doi/" class="md-nav__link">
+        Digital Object Identifier (DOI)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/freemarker/" class="md-nav__link">
+        Freemarker Templating
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/openid-connect/" class="md-nav__link">
+        OpenID Connect
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../plugins/sparql/" class="md-nav__link">
+        SPARQL
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Community
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Community" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Community
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/support/" class="md-nav__link">
+        Support
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../community/contribute/" class="md-nav__link">
+        Contribute
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-access-levels" class="md-nav__link">
+    1. Access levels
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Access levels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reader" class="md-nav__link">
+    Reader
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reviewer" class="md-nav__link">
+    Reviewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#author" class="md-nav__link">
+    Author
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editor" class="md-nav__link">
+    Editor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-administrator" class="md-nav__link">
+    Container Administrator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#container-group-administrator" class="md-nav__link">
+    Container Group Administrator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-users" class="md-nav__link">
+    2. Users
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-groups" class="md-nav__link">
+    3. Groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-catalogue-items" class="md-nav__link">
+    4. Catalogue items
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-manage-user-and-group-access" class="md-nav__link">
+    5. Manage User and Group Access
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Manage User and Group Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-publicly-readable" class="md-nav__link">
+    5.1 Publicly readable
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-authenticated-users" class="md-nav__link">
+    5.2 Authenticated users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-group-access" class="md-nav__link">
+    5.3 Group access
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Permissions</h1>
+                
+                <p>This user guide explains the multiple levels of access to catalogue items and adminstration supported in <strong>Mauro Data Mapper</strong>. </p>
+<hr />
+<h2 id="1-access-levels"><a name="access-levels"></a>1. Access levels<a class="headerlink" href="#1-access-levels" title="Permanent link">&para;</a></h2>
+<p>In total there are nine different access levels within Mauro. These are divided into Model roles, Container roles and Application roles. </p>
+<p>Each level along with it's permissions are summarised below in ascending order. </p>
+<h3 id="reader">Reader<a class="headerlink" href="#reader" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Read models</li>
+</ul>
+<h3 id="reviewer">Reviewer<a class="headerlink" href="#reviewer" title="Permanent link">&para;</a></h3>
+<ul>
+<li>As <strong>Reader</strong> (above) plus:</li>
+<li>Add comments</li>
+</ul>
+<h3 id="author">Author<a class="headerlink" href="#author" title="Permanent link">&para;</a></h3>
+<ul>
+<li>As <strong>Reviewer</strong> (above) plus:</li>
+<li>Add and edit descriptions</li>
+</ul>
+<h3 id="editor">Editor<a class="headerlink" href="#editor" title="Permanent link">&para;</a></h3>
+<ul>
+<li>As <strong>Author</strong> (above) plus:</li>
+<li>Create models</li>
+<li>Edit model structures</li>
+<li>Mark models as 'deleted'</li>
+</ul>
+<h3 id="container-administrator">Container Administrator<a class="headerlink" href="#container-administrator" title="Permanent link">&para;</a></h3>
+<ul>
+<li>As <strong>Editor</strong> (above) plus:</li>
+<li>Permanently delete models</li>
+</ul>
+<h3 id="container-group-administrator">Container Group Administrator<a class="headerlink" href="#container-group-administrator" title="Permanent link">&para;</a></h3>
+<ul>
+<li>As <strong>Container Administrator</strong> (above) plus:</li>
+<li>Add container groups</li>
+<li>Assign groups to containers</li>
+<li>Add users to container groups</li>
+<li>Remove users from container groups</li>
+</ul>
+<hr />
+<h2 id="2-users">2. Users<a class="headerlink" href="#2-users" title="Permanent link">&para;</a></h2>
+<p>Users can be created in Mauro to control authenticated access to the catalogue. Some or all of the catalogue may be made publicly available, which means that anonymous users may view the contents. However, for any non-public content an authenticated user can only see that catalogue content.</p>
+<p>When a new Mauro instance is created, a default administrator account will be created to allow you administration access and manage further users. By default this account is:</p>
+<p><strong>Username:</strong> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#100;&#109;&#105;&#110;&#64;&#109;&#97;&#117;&#114;&#111;&#100;&#97;&#116;&#97;&#109;&#97;&#112;&#112;&#101;&#114;&#46;&#99;&#111;&#109;">&#97;&#100;&#109;&#105;&#110;&#64;&#109;&#97;&#117;&#114;&#111;&#100;&#97;&#116;&#97;&#109;&#97;&#112;&#112;&#101;&#114;&#46;&#99;&#111;&#109;</a></p>
+<p><strong>Password:</strong> password</p>
+<p><strong>Note:</strong> please change this password <strong>as soon as possible</strong> to avoid security issues. To find out how to change your password see section <a href="../../user-profile/user-profile/#change-password">'4. Change your password'</a> of our <a href="../../user-profile/user-profile/">'User profile' user guide</a>.</p>
+<p>An administrator is then able to manage and create further users in Mauro via the administrator dashboard. See section <a href="../../admin-functionality/admin-functionality/#manage-users">'4. Manage users'</a> of our <a href="../../admin-functionality/admin-functionality/">'Admin functionality' user guide</a> to find out how to do this.</p>
+<p>To differentiate user access levels and determine what each user is allowed to action, each user should be assigned to one of these groups:</p>
+<ul>
+<li><strong>Readers</strong></li>
+<li><strong>Editors</strong></li>
+<li><strong>Administrators</strong></li>
+</ul>
+<hr />
+<h2 id="3-groups">3. Groups<a class="headerlink" href="#3-groups" title="Permanent link">&para;</a></h2>
+<p>Groups are used to manage collections of users and their permissions as a whole. Each Mauro instance is created with the following core user groups defined:</p>
+<ul>
+<li>
+<p><strong>Readers</strong><br />
+    Users are only able to read the Mauro catalogue content and cannot modify anything.</p>
+</li>
+<li>
+<p><strong>Editors</strong><br />
+    Users can read and modify the Mauro catalogue content, but are not able to perform administrative actions, such as creating new users.</p>
+</li>
+<li>
+<p><strong>Administrators</strong><br />
+    Users are able to perform any action in Mauro, including reading and modifying content and administration tasks.</p>
+</li>
+</ul>
+<p>Each user should be placed into one of these groups initially to govern what <strong>permissions</strong> they have, such as:</p>
+<ul>
+<li>Read access</li>
+<li>Write access</li>
+<li>Delete access, etc</li>
+</ul>
+<p>A user can belong to more than one group, in which case the permissions for each group are then combined. Further groups can also be created to define logical collections of users together. To find out how to manage groups, see section <a href="../../admin-functionality/admin-functionality/#manage-groups">'6. Manage groups'</a> of our <a href="../../admin-functionality/admin-functionality/">'Admin functionality' user guide</a>.</p>
+<p>Groups can then be used to assign access to particular catalogue items for a collection of users as a whole, as explained in the next section.</p>
+<hr />
+<h2 id="4-catalogue-items">4. Catalogue items<a class="headerlink" href="#4-catalogue-items" title="Permanent link">&para;</a></h2>
+<p>Catalogue items can be restricted to be globally accessible to allow them to be either:</p>
+<ul>
+<li>Fully public </li>
+<li>Accessible to authenticated users only </li>
+<li>Accessible only to certain groups of users </li>
+</ul>
+<p>These restrictions can be placed on:</p>
+<ul>
+<li>Folders</li>
+<li><a href="../../../glossary/data-model/data-model/">Data Models</a></li>
+<li>Code Sets</li>
+<li>Terminologies</li>
+<li>Reference Data Models</li>
+</ul>
+<p>These permissions also propogate down the catalogue item hierarchy. For instance, if a folder were made <strong>'Publicly available'</strong>, then all models and sub-folders within it would automatically become <strong>'Publicly available'</strong> as well.</p>
+<hr />
+<h2 id="5-manage-user-and-group-access">5. Manage User and Group Access<a class="headerlink" href="#5-manage-user-and-group-access" title="Permanent link">&para;</a></h2>
+<p>Only <strong>Editors</strong> can manage the user and group access. To do this, select the relevant <strong>Data Model</strong> or <strong>Folder</strong> in the <strong>Model Tree</strong>. Then click the <strong>'User &amp; Group Access'</strong> button at the top right of the details panel.</p>
+<p><img alt="Data Model details panel with user group access icon highlighted" src="../user-group-access-icon.png" /></p>
+<p>This will bring up a <strong>'Restrict user access globally'</strong> dialogue box. Here you can select whether you would like the model or folder to be <strong>'Publicly readable'</strong>, <strong>'Readable by authenticated users'</strong> or <strong>'Restrict user access based on groups'</strong>.</p>
+<p><img alt="Dialogue box showing the global user access" src="../user-group-access-dialogue-box.png" /></p>
+<h3 id="51-publicly-readable">5.1 Publicly readable<a class="headerlink" href="#51-publicly-readable" title="Permanent link">&para;</a></h3>
+<p>Any catalogue item made publicly readable allows anyone to view it, whether they are an anonymous or registered user. This is useful when building a catalogue for public consumption.</p>
+<p>Note that although catalogue items may be publicly readable, only authenticated users in the <strong>Editors</strong> group or higher are able to modify those catalogue items.</p>
+<h3 id="52-authenticated-users">5.2 Authenticated users<a class="headerlink" href="#52-authenticated-users" title="Permanent link">&para;</a></h3>
+<p>Any catalogue item made readable by authenticated users guarantees that only registered users can view this item. This is useful when building an internal catalogue for an organisation and viewing access must be governed by an administrator to manage users.</p>
+<p>Again, only users in the <strong>Editors</strong> group or higher can modifiy these catalogue items.</p>
+<h3 id="53-group-access">5.3 Group access<a class="headerlink" href="#53-group-access" title="Permanent link">&para;</a></h3>
+<p>Zero or more user groups may be assigned to a catalogue item to control which collection(s) of users may view the catalogue item. This allows a further level of control compared to the <strong>'Authenticated users'</strong> option.</p>
+<p>To add group access to a catalogue item, click the <strong>'+Add Group'</strong> button on the <strong>'Restrict user access globally dialogue box'</strong>. This will add a row to the group list that you will then need to populate. </p>
+<p>First, you need to select a <strong>group name</strong> which determines the <strong>collection</strong> of users to allow. Click the <strong>'Search...'</strong> box under <strong>'Group name'</strong> and select the relevant group from the dropdown menu.</p>
+<p><img alt="Group access dialogue box showing Group name dropdown menu" src="../user-group-access-name.png" /></p>
+<p>You then need to select which <strong>access level</strong> you would like to assign to the group. This determines what the collection of users are capable of doing to this catalogue item. Available access levels are listed below, with the permissions of each detailed in <a href="#access-levels">'1. Access levels'</a>.</p>
+<ul>
+<li><strong>Reader</strong></li>
+<li><strong>Reviewer</strong></li>
+<li><strong>Author</strong></li>
+<li><strong>Editor</strong></li>
+<li><strong>Container Administrator</strong> (Folders only)</li>
+<li><strong>Container Group Administrator</strong> (Folders only)</li>
+</ul>
+<p>Once you've decided on a suitable <strong>access level</strong>, click the <strong>'Search...'</strong> box under <strong>'Access Level'</strong> and select the relevant access option. Then click the green tick to the right of the row to save your changes.</p>
+<p><img alt="Group access dialogue box showing Access level dropdown menu" src="../user-group-access-level.png" /></p>
+<p>You can remove group access from a catalogue item by clicking the red bin to the right of the group you wish to remove. </p>
+<p><img alt="Group access dialogue box showing a submitted group entry" src="../user-group-access-submitted.png" /></p>
+<hr />
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../admin-functionality/admin-functionality/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Admin functionality" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Admin functionality
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../feature-switches/feature-switches/" class="md-footer__link md-footer__link--next" aria-label="Next: Feature switches" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Feature switches
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright © 2021 University of Oxford and Health and Social Care Information Centre, also known as NHS Digital
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.53c85856.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.716f8af4.min.js"></script>
+      
+        <script src="../../../assets/javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
