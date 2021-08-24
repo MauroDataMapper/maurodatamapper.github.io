@@ -1693,15 +1693,35 @@ of <a href="../catalogue-item/">those endpoints</a></p>
 <p>To create a new code set from scratch, use the following <em>post</em> endpoint.  Within the body of this call, you should include a folder identifier.</p>
 <p><endpoint class="post">/api/codeSets</endpoint></p>
 <p>There are two ways of versioning code set in the catalogue.  To create an entirely new version of a model, please use the following endpoint:</p>
-<p><endpoint class="put">/api/codeSets/<strong>{codeSetId}</strong>/newModelVersion</endpoint></p>
+<p><endpoint class="put">/api/codeSets/<strong>{codeSetId}</strong>/newBranchModelVersion</endpoint></p>
 <p>The name must be different to the original model.</p>
 <p>To create a new 'documentation version', use the following endpoint:</p>
 <p><endpoint class="put">/api/codeSets/<strong>{codeSetId}</strong>/newDocumentationVersion</endpoint></p>
 <p>By default, this will supersede the original data model.</p>
 <p>It is also possible to <em>branch</em> and <em>fork</em> code sets to create drafts before finalising them. To create a new <em>branch</em> from an existing code set:</p>
 <p><endpoint class="put">/api/codeSets/<strong>{codeSetId}</strong>/newBranchModelVersion</endpoint></p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Request body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;branchName&quot;</span><span class="p">:</span> <span class="s2">&quot;newBranch&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
 <p>To create a <em>fork</em> of the original data model:</p>
 <p><endpoint class="put">/api/codeSets/<strong>{codeSetId}</strong>/newForkModel</endpoint></p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Request body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;newForkLabel&quot;</span>        
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
 <h2 id="update-code-set">Update code set<a class="headerlink" href="#update-code-set" title="Permanent link">&para;</a></h2>
 <p>To edit the primitive properties of a code set, use the following endpoint, with a body similar to the JSON described at the top of this page:</p>
 <p><endpoint class="put">/api/codeSets/<strong>{id}</strong></endpoint></p>

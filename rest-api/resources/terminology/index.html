@@ -1691,15 +1691,35 @@ of <a href="../catalogue-item/">those endpoints</a></p>
 <p><endpoint class="get">/api/terminologies/<strong>{id}</strong></endpoint></p>
 <h2 id="create-terminologies">Create terminologies<a class="headerlink" href="#create-terminologies" title="Permanent link">&para;</a></h2>
 <p>There are two ways of versioning terminologies in the catalogue.  To create an entirely new version of a model, please use the following endpoint:</p>
-<p><endpoint class="put">/api/terminology/<strong>{terminologyId}</strong>/newModelVersion</endpoint></p>
+<p><endpoint class="put">/api/terminology/<strong>{terminologyId}</strong>/newBranchModelVersion</endpoint></p>
 <p>The name must be different to the original model.</p>
 <p>To create a new 'documentation version', use the following endpoint:</p>
 <p><endpoint class="put">/api/terminology/<strong>{terminologyId}</strong>/newDocumentationVersion</endpoint></p>
 <p>By default, this will supersede the original terminology.</p>
 <p>It is also possible to <em>branch</em> and <em>fork</em> code sets to create drafts before finalising them. To create a new <em>branch</em> from an existing code set:</p>
 <p><endpoint class="put">/api/terminology/<strong>{terminologyId}</strong>/newBranchModelVersion</endpoint></p>
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Request body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;branchName&quot;</span><span class="p">:</span> <span class="s2">&quot;newBranch&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
 <p>To create a <em>fork</em> of the original terminology:</p>
 <p><endpoint class="put">/api/terminology/<strong>{terminologyId}</strong>/newForkModel</endpoint></p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Request body (JSON)</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;label&quot;</span><span class="p">:</span> <span class="s2">&quot;newForkLabel&quot;</span>        
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+</div>
+</div>
 <h2 id="update-terminology">Update terminology<a class="headerlink" href="#update-terminology" title="Permanent link">&para;</a></h2>
 <p>To edit the primitive properties of a terminology, use the following endpoint, with a body similar to the JSON described at the top of this page:</p>
 <p><endpoint class="put">/api/terminology/<strong>{id}</strong></endpoint></p>

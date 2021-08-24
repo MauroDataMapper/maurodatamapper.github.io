@@ -1523,9 +1523,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#announce-document" class="md-nav__link">
-    Announce &amp; Document
+  <a href="#document-announce" class="md-nav__link">
+    Document &amp; Announce
   </a>
+  
+    <nav class="md-nav" aria-label="Document &amp; Announce">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zulip-announce" class="md-nav__link">
+    Zulip Announce
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    Github
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1577,7 +1604,7 @@ git flow release start <span class="si">${</span><span class="nv">CORE_VERSION</
 <p>Update gradle.properties</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
+git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
 </code></pre></div>
 </td></tr></table>
 <p>Update gradle.properties to next minor snapshot</p>
@@ -1600,15 +1627,15 @@ git flow release start <span class="si">${</span><span class="nv">CORE_VERSION</
 </div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install <span class="o">&amp;&amp;</span> npm run build
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rm -rf lib <span class="o">&amp;&amp;</span> npm ci <span class="o">&amp;&amp;</span> npm run build
 git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
+git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
 </code></pre></div>
 </td></tr></table>
 <p>Update package.json version to next snapshot CORE_VERSION</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install <span class="o">&amp;&amp;</span> npm run build
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rm -rf lib <span class="o">&amp;&amp;</span> npm ci <span class="o">&amp;&amp;</span> npm run build
 git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
 git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
 </code></pre></div>
@@ -1638,7 +1665,7 @@ if NOT then delete all entries in the lock file for mdm-resources with a commit 
 </div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish <span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span>
+git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span>
 </code></pre></div>
 </td></tr></table>
 <p>Update package.json</p>
@@ -1695,7 +1722,7 @@ git flow release start <span class="si">${</span><span class="nv">CORE_VERSION</
 <p>Update gradle.properties</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
+git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
 </code></pre></div>
 </td></tr></table>
 <p>Update gradle.properties to next minor snapshot</p>
@@ -1753,7 +1780,7 @@ git flow release start <span class="si">${</span><span class="nv">PLUGIN_VERSION
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">PLUGIN_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish <span class="si">${</span><span class="nv">PLUGIN_VERSION</span><span class="si">}</span>
+git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">PLUGIN_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">PLUGIN_VERSION</span><span class="si">}</span>
 </code></pre></div>
 </td></tr></table>
 <ul>
@@ -1790,11 +1817,11 @@ docker-compose up
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git flow release finish -m <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
 git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
 </code></pre></div>
 </td></tr></table>
-<h2 id="announce-document">Announce &amp; Document<a class="headerlink" href="#announce-document" title="Permanent link">&para;</a></h2>
+<h2 id="document-announce">Document &amp; Announce<a class="headerlink" href="#document-announce" title="Permanent link">&para;</a></h2>
 <div class="admonition information">
 <p class="admonition-title">Information</p>
 <p>To be able to autogenerate the release documentation for plugins you will need to clone <a href="https://github.com/MauroDataMapper-Plugins/mdm-plugins">https://github.com/MauroDataMapper-Plugins/mdm-plugins</a>.
@@ -1808,19 +1835,18 @@ Then place all the plugins into this directory.</p>
 <li>Unreleased plugins</li>
 </ul>
 </div>
+<h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Run <code>./releases.sh</code> in mdm-plugins.</li>
-<li>Documentation<ul>
 <li>Remove the private repositories from the HTML format and copy into the <code>docs/installing/plugins.md</code> file</li>
 <li>Release the docs</li>
 </ul>
-</li>
-<li>Zulip<ul>
+<h3 id="zulip-announce">Zulip Announce<a class="headerlink" href="#zulip-announce" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Run <code>./releases.sh</code> in mdm-plugins.</li>
 <li>Copy the below markdown block into the <code>announce</code> stream of Zulip</li>
 <li>Update the versions for the applications</li>
 <li>Copy in the plain text format of the "releases" output underneath it</li>
-</ul>
-</li>
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
@@ -1837,6 +1863,51 @@ Then place all the plugins into this directory.</p>
 | UI | <span class="sb">`6.3.1`</span> |
 </code></pre></div>
 </td></tr></table>
+<h3 id="github">Github<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
+<p>Each of the repositories requires the tag to be released and links to the issues fixed supplied.</p>
+<ul>
+<li>Navigate to the supplied tags page</li>
+<li>Select the latest tag and choose "Create release"</li>
+<li>Copy in the appropriate text from the below list, making sure to update </li>
+<li>the stated YouTrack version to the tag being released</li>
+<li>the stated Github milestone</li>
+</ul>
+<dl>
+<dt><code>mdm-core</code></dt>
+<dd><a href="https://github.com/MauroDataMapper/mdm-core/tags">Tags Page</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See [<span class="nt">Issues fixed</span>](<span class="na">https://metadatacatalogue.myjetbrains.com/youtrack/issues/MC?q=%23Released%20%23B4.8.0</span>)
+and [<span class="nt">Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-core/issues?q=is%3Aissue+milestone%3A4.8.0</span>)
+</code></pre></div>
+</td></tr></table></dd>
+<dt><code>mdm-ui</code></dt>
+<dd><a href="https://github.com/MauroDataMapper/mdm-ui/tags">Tags Page</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See [<span class="nt">Issues fixed</span>](<span class="na">https://metadatacatalogue.myjetbrains.com/youtrack/issues/MC?q=%23Released%20%23F6.4.0</span>)
+and [<span class="nt">MileStones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-ui/issues?q=is%3Aissue+milestone%3A6.4.0</span>)
+</code></pre></div>
+</td></tr></table></dd>
+<dt><code>mdm-application</code></dt>
+<dd><a href="https://github.com/MauroDataMapper/mdm-core/tags">Tags Page</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See [<span class="nt">Issues fixed</span>](<span class="na">https://metadatacatalogue.myjetbrains.com/youtrack/issues/MC?q=%23Released%20%23B4.8.0</span>)
+and [<span class="nt">Core Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-core/issues?q=is%3Aissue+milestone%3A4.8.0</span>)
+and [<span class="nt">Application Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-application-build/issues?q=is%3Aissue+milestone%3A4.8.0</span>)
+</code></pre></div>
+</td></tr></table></dd>
+<dt><code>mdm-docker</code></dt>
+<dd><a href="https://github.com/MauroDataMapper/mdm-docker/tags">Tags Page</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See [<span class="nt">Issues fixed</span>](<span class="na">https://metadatacatalogue.myjetbrains.com/youtrack/issues/MC?q=%23Released%20%23B4.8.0%20%23F6.4.0</span>)
+and [<span class="nt">Core Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-core/issues?q=is%3Aissue+milestone%3A4.8.0</span>)
+and [<span class="nt">Application Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-application-build/issues?q=is%3Aissue+milestone%3A4.8.0</span>)
+and [<span class="nt">UI Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-ui/issues?q=is%3Aissue+milestone%3A6.4.0</span>)
+</code></pre></div>
+</td></tr></table></dd>
+</dl>
                 
               
               

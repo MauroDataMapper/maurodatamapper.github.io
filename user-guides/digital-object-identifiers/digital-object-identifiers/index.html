@@ -643,8 +643,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#23-doi-and-datacite-configuration" class="md-nav__link">
-    2.3 DOI and DataCite configuration
+  <a href="#23-datacite-membership" class="md-nav__link">
+    2.3 DataCite membership
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-mauro-configuration" class="md-nav__link">
+    2.4 Mauro configuration
   </a>
   
 </li>
@@ -1610,8 +1617,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#23-doi-and-datacite-configuration" class="md-nav__link">
-    2.3 DOI and DataCite configuration
+  <a href="#23-datacite-membership" class="md-nav__link">
+    2.3 DataCite membership
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-mauro-configuration" class="md-nav__link">
+    2.4 Mauro configuration
   </a>
   
 </li>
@@ -1724,14 +1738,27 @@
 <p><img alt="Properties tab in configuration panel" src="../properties-configuration-panel.png" /></p>
 <p>An <strong>'Add Property'</strong> form will appear which you will need to complete. Click the <strong>'Select the property to add'</strong> box and select <strong>'feature.use_digital_object_identifiers'</strong> from the dropdown menu, which will automatically fill in additional fields. Select <strong>'Yes'</strong> from the <strong>'Value'</strong> dropdown menu and then click the <strong>'Add property'</strong> button. A green notification box will appear at the bottom right of your screen confirming that the <strong>'Property was saved successfully'</strong>.</p>
 <p><img alt="Add property form" src="../add-property-form.png" /></p>
-<h3 id="23-doi-and-datacite-configuration">2.3 DOI and DataCite configuration<a class="headerlink" href="#23-doi-and-datacite-configuration" title="Permanent link">&para;</a></h3>
-<div class="admonition information">
-<p class="admonition-title">Information</p>
-<p>To be completed soon.</p>
+<h3 id="23-datacite-membership">2.3 DataCite membership<a class="headerlink" href="#23-datacite-membership" title="Permanent link">&para;</a></h3>
+<p>In order to create DOIs you will need to be a member (regular, or consortium-based) of DataCite. Please read the <a href="https://datacite.org/become.html">Become a Member</a> DataCite pages to understand how to do this.</p>
+<h3 id="24-mauro-configuration">2.4 Mauro configuration<a class="headerlink" href="#24-mauro-configuration" title="Permanent link">&para;</a></h3>
+<p>Once enabled and your DataCite API is configured, there are some additional API properties to configure in Mauro before using the plugin. These can be found in the <strong>Configuration</strong> &gt; <strong>Properties</strong> administration table, under the <strong>Digital Object Identifier Properties</strong> group.</p>
+<p><img alt="Mauro configuration" src="../mauro-configuration.png" /></p>
+<ul>
+<li><strong>username</strong> - the username to connect to the DataCite API for authentication.</li>
+<li><strong>password</strong> - the password to connect to the DataCite API for authentication.</li>
+<li><strong>prefix</strong> - the unique prefix identifier representing this organisation. DataCite will provide this.</li>
+<li><strong>endpoint</strong> - the base URL to the DataCite API.</li>
+</ul>
+<p>Initially, the plugin will automatically add these with the value of "NOT_SET"; change these values once you have them available.</p>
+<p>One final API property to ensure is set is the <strong>Site URL</strong> under the <strong>Site</strong> group. The <strong>Site URL</strong> property is used by the plugin to submit to DataCite, so that all links to the requested DOI get redirected back to the correct Mauro instance.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It is important to set the <strong>Site URL</strong> property, otherwise the Digital Object Identifier (DOI) plugin will be unable to submit profiles to DataCite correctly.</p>
 </div>
+<p><img alt="Site URL" src="../mauro-site-url.png" /></p>
 <hr />
 <h2 id="3-using-the-profile">3. Using the profile<a class="headerlink" href="#3-using-the-profile" title="Permanent link">&para;</a></h2>
-<p>Assuming all the setup steps were carried out above, catalogue items should now be able to use a new <a href="https://maurodatamapper.github.io/tutorials/properties-profiles/">profile</a> called <strong>'Digital Object Identifiers DataCite Dataset Schema</strong>'.</p>
+<p>Assuming all the setup steps were carried out above, catalogue items should now be able to use a new <a href="../../../tutorials/properties-profiles/">profile</a> called <strong>'Digital Object Identifiers DataCite Dataset Schema</strong>'.</p>
 <h3 id="31-add-the-profile">3.1 Add the profile<a class="headerlink" href="#31-add-the-profile" title="Permanent link">&para;</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1741,17 +1768,21 @@
 <p>Expand the <strong>'Default profile'</strong> list and click <strong>'Add new profile...'</strong>. Select <strong>'Digital Object Identifiers DataCite Dataset Schema</strong>' and click <strong>'Save Changes'</strong>. This will display the full DOI profile fields to enter. You can enter values into the fields now, or click <strong>'Save'</strong> to store the partially complete profile.</p>
 <h3 id="32-editing-the-profile">3.2 Editing the profile<a class="headerlink" href="#32-editing-the-profile" title="Permanent link">&para;</a></h3>
 <p>The DOI profile will present a number of fields which will be recorded as metadata against the catalogue item. These profile field values will also be submitted to the DOI system when a DOI name is requested, so it is important to ensure that the values entered into the profile are as accurate as possible.</p>
-<p>The profile fields are grouped into three sections:</p>
+<p>The profile fields are grouped into a number of sections:</p>
 <ol>
-<li>Mandatory DataCite DOI Fields</li>
-<li>Recommended DataCite DOI Fields</li>
-<li>Additional DataCite DOI Fields</li>
+<li>Predefined/Supplied Fields</li>
+<li>Primary Creator</li>
+<li>Additional Mandatory Fields</li>
+<li>Additional Optional Title Section</li>
+<li>Additional Optional Description Section</li>
+<li>Primary Contributor</li>
+<li>Additional Optional Fields</li>
 </ol>
-<p>Only <strong>'Mandatory DataCite DOI Fields'</strong> are required when submitting the catalogue item to register in the DOI system. Clicking on the help icons next to each field name will provide a description of what the field represents.</p>
-<p>The <strong>'Identifier'</strong> field is a special field which will store the DOI name once the DOI system has created one. Although this profile field is editable like all others, it should <strong>not</strong> be manually changed by a user, especially when it contains a value - Mauro will automatically populate this field for you.</p>
+<p>The <strong>Predefined/Supplied Fields</strong> are special, read-only fields in the profile. These are used and modified internally by Mauro to track important details about the DOI name, such as the state, identifier, and so on. These are provided in read-only view to the user but are automatically controlled during DOI submission.</p>
+<p>There are a number of sections and fields in the profile, though only a few a strictly mandatory to submit to the DOI system (marked with a "*" symbol next to their field name). Clicking on the help icons next to each field name will provide a description of what the field represents.</p>
 <p>The profile will appear in read-only form when viewing the catalogue item. If you want to edit the profile, first make sure the <strong>'Digital Object Identifiers DataCite Dataset Schema'</strong> profile is selected in the profile selection list and then click the <strong>'Edit'</strong> button. </p>
 <p><img alt="An example of a DOI profile" src="../doi-profile.png" /></p>
-<p>This will bring up a <strong>'Edit Profile'</strong> form which you will then be able to make changes to. Once you have finished, click <strong>'Save'</strong>. </p>
+<p>This will bring up an <strong>'Edit Profile'</strong> form which you will then be able to make changes to. Once you have finished, click <strong>'Save'</strong>. </p>
 <div class="admonition information">
 <p class="admonition-title">Information</p>
 <p>You are able to save changes to a profile without ensuring that the profile is fully valid. For example, some fields may say <strong>'This field is mandatory'</strong>, but changes can be saved temporarily without such fields being filled in. To test that the profile is valid, click on the <strong>'Validate'</strong> button, then review any validation alerts that appear in each field.</p>
@@ -1765,7 +1796,7 @@
 <hr />
 <h2 id="4-submit-and-create-a-doi-name">4. Submit and create a DOI name<a class="headerlink" href="#4-submit-and-create-a-doi-name" title="Permanent link">&para;</a></h2>
 <p>The <strong>'Identifier'</strong> profile field will store the DOI name once the catalogue item has been submitted to the DOI system, for instance <code>10.1109/5.771073</code>. To store this DOI name, the catalogue item must first be submitted to the DOI system. </p>
-<p>To do this, select the relevant catalogue item from the <strong>Model Tree</strong> that you want to submit. The item must be <strong>finalised</strong> and publicly readable to anyone. Once the details panel has appeared on the right of your screen, click the <strong>'Description'</strong> tab to view the profiles. Then click the three vertical dot menu to the right of the <strong>'Edit'</strong> button and select <strong>'DOI submission'</strong> from the dropdown menu. </p>
+<p>To do this, select the relevant catalogue item from the <strong>Model Tree</strong> that you want to submit. The item must be <a href="../../finalising-data-models/finalising-data-models/">finalised</a> and <a href="../../permissions/permissions/#5-manage-user-and-group-access">publicly readable</a> to anyone. Once the details panel has appeared on the right of your screen, click the <strong>'Description'</strong> tab to view the profiles. Then click the three vertical dot menu to the right of the <strong>'Edit'</strong> button and select <strong>'DOI submission'</strong> from the dropdown menu. </p>
 <p><img alt="DOI submission state options in dropdown menu" src="../doi-submission-options.png" /></p>
 <p>You will then have two possible states to generate the DOI name:</p>
 <ul>
@@ -1782,9 +1813,14 @@
 <p class="admonition-title">Information</p>
 <p>The <strong>'Digital Object Identifiers DataCite Dataset Schema'</strong> profile does not need to be selected to carry out this step, nor does it have to be created yet. Mauro will automatically handle the creation of the DOI profile if it does not already exist.</p>
 </div>
-<p>Before submitting, an <strong>'Edit Profile'</strong> form will appear which will allow you to review the profile fields and make any necessary changes before submitting to the DOI system. Once you are happy with the profile, click the <strong>'Submit'</strong> button and a green notification box will appear at the bottom right of your screen to confirm the change and the <strong>'Identifier'</strong> field will be populated with the newly created DOI name.</p>
-<p><img alt="Edit Profile form before DOI submission" src="../pre-submission-form.png" /></p>
+<p>Before submitting, an <strong>'Edit Profile'</strong> form will appear which will allow you to review the profile fields and make any necessary changes before submitting to the DOI system. </p>
+<div class="admonition information">
+<p class="admonition-title">Information</p>
+<p>It is recommended to use the <strong>Validate</strong> button to ensure that all profile fields are valid before submitting.</p>
+</div>
+<p>Once you are happy with the profile, click the <strong>'Submit'</strong> button and a green notification box will appear at the bottom right of your screen to confirm the change and the <strong>'Identifier'</strong> field will be populated with the newly created DOI name.</p>
 <p>You may continue making changes to any <strong>Draft</strong> DOI profiles by repeating the same steps above. However, once changing to the <strong>Final</strong> state, you will have one last opportunity to review/modify the profile before it is fixed in place forever.</p>
+<p><img alt="A submitted DOI" src="../doi-submitted.png" /></p>
 <hr />
 <h2 id="5-retire-a-doi-name">5. Retire a DOI name<a class="headerlink" href="#5-retire-a-doi-name" title="Permanent link">&para;</a></h2>
 <p>Once a DOI name is recorded in the profile, it is possible to retire that DOI name. When a DOI name is retired, any network links back to that catalogue item will no longer work.</p>
