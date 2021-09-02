@@ -1620,14 +1620,9 @@ git flow release start <span class="si">${</span><span class="nv">CORE_VERSION</
 </code></pre></div>
 </td></tr></table>
 <p>Update package.json version to CORE_VERSION</p>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>Remove the existing <code>lib</code> dir to ensure theres no code left over.
-(There's a ticket open to make sure the <code>build</code> command performs a clean first.)</p>
-</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rm -rf lib <span class="o">&amp;&amp;</span> npm ci <span class="o">&amp;&amp;</span> npm run build
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install <span class="o">&amp;&amp;</span> npm run build
 git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
 git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
 </code></pre></div>
@@ -1635,7 +1630,7 @@ git flow release finish -m <span class="s2">&quot;</span><span class="si">${</sp
 <p>Update package.json version to next snapshot CORE_VERSION</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rm -rf lib <span class="o">&amp;&amp;</span> npm ci <span class="o">&amp;&amp;</span> npm run build
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install <span class="o">&amp;&amp;</span> npm run build
 git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
 git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
 </code></pre></div>
@@ -1680,35 +1675,6 @@ git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
 git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
 </code></pre></div>
 </td></tr></table>
-<p>The next steps are required until we get Jenkins distributing the archive to artifactory</p>
-<p>Checkout the release</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout <span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
-<p>Perform a clean install</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm ci
-</code></pre></div>
-</td></tr></table>
-<p>Build the distribution</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm run dist
-</code></pre></div>
-</td></tr></table>
-<p>There will now be a <code>tgz</code> file in the <code>dist</code> folder with the name <code>mdm-ui-${UI_VERSION}.tgz</code>. This needs to be deployed to artifactory.</p>
-<ol>
-<li>Navigate to <a href="https://jenkins.cs.ox.ac.uk/ui/packages">https://jenkins.cs.ox.ac.uk/ui/packages</a> and log in.</li>
-<li>Navigate to <a href="https://jenkins.cs.ox.ac.uk/ui/repos/tree/General/libs-release-local%2Fuk%2Fac%2Fox%2Fsofteng%2Fmaurodatamapper">https://jenkins.cs.ox.ac.uk/ui/repos/tree/General/libs-release-local%2Fuk%2Fac%2Fox%2Fsofteng%2Fmaurodatamapper</a></li>
-<li>Click 'Deploy' in the top right</li>
-<li>Choose 'Single Deploy' and drop in the tgz file from the <code>dist</code> folder</li>
-<li>Check then "Deploy as Maven Artifact"<ul>
-<li>Group ID : <code>uk.ac.ox.softeng.maurodatamapper</code></li>
-<li>Artifact ID : <code>mdm-ui</code></li>
-<li>Version : UI_VERSION</li>
-<li>Classifier : LEAVE BLANK</li>
-<li>Type: <code>tgz</code></li>
-</ul>
-</li>
-<li>Click "Deploy"</li>
-</ol>
 <h2 id="mdm-application-build">mdm-application-build<a class="headerlink" href="#mdm-application-build" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1836,11 +1802,23 @@ Then place all the plugins into this directory.</p>
 </ul>
 </div>
 <h3 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
+<p>This should be performed inside the <code>docs</code> repository.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
+git flow release start <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</td></tr></table>
 <ul>
 <li>Run <code>./releases.sh</code> in mdm-plugins.</li>
-<li>Remove the private repositories from the HTML format and copy into the <code>docs/installing/plugins.md</code> file</li>
-<li>Release the docs</li>
+<li>Remove the private repositories from the HTML format and copy into the <code>installing/plugins.md</code> file</li>
 </ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git flow release finish -m <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
+</code></pre></div>
+</td></tr></table>
 <h3 id="zulip-announce">Zulip Announce<a class="headerlink" href="#zulip-announce" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Run <code>./releases.sh</code> in mdm-plugins.</li>
