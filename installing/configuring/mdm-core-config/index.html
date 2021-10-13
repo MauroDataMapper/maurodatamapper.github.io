@@ -1778,6 +1778,9 @@ hostname where the proxy sits, not the host of the server running the docker con
 <dt><code>maurodatamapper.authority.url</code></dt>
 <dd>The full URL to the location of the catalogue. This is considered a unique identifier to distinguish any instance from another and therefore no 2
 instances should use the same URL.</dd>
+<dt><code>maurodatamapper.email.from.address</code></dt>
+<dd>The email address to use when sending emails to let recipients know who sent the email. 
+This should be set to override the email address/username used in <code>simplejavamail.smtp.username</code>.</dd>
 <dt><code>simplejavamail.smtp.username</code></dt>
 <dd>To allow the catalogue to send emails this needs to be a valid username for the <code>simplejavamail.smtp.host</code>.</dd>
 <dt><code>simplejavamail.smtp.password</code></dt>
