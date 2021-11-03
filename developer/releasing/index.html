@@ -1908,9 +1908,9 @@ git flow release start <span class="si">${</span><span class="nv">UI_VERSION</sp
 <p>Update package.json</p>
 <ul>
 <li><code>version</code> to UI_VERSION</li>
-<li><code>"@maurodatamapper/mdm-resources": "git+https://github.com/MauroDataMapper/mdm-resources.git#CORE_VERSION",</code></li>
+<li><code>"@maurodatamapper/mdm-resources"</code> to CORE_VERSION</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rm package-lock.json <span class="o">&amp;&amp;</span> npm install
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install
 </code></pre></div>
 </td></tr></table>
 <div class="admonition caution">
@@ -1926,11 +1926,10 @@ git flow release finish -m <span class="s2">&quot;</span><span class="si">${</sp
 <p>Update package.json</p>
 <ul>
 <li><code>version</code> to next minor snapshot UI_VERSION</li>
-<li><code>"@maurodatamapper/mdm-resources": "git+https://github.com/MauroDataMapper/mdm-resources.git#develop",</code></li>
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>rm package-lock.json <span class="o">&amp;&amp;</span> npm install
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install
 git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
 git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
 </code></pre></div>
@@ -2071,29 +2070,22 @@ Then place all the plugins into this directory.</p>
 <li>the stated Github milestone</li>
 </ul>
 </li>
+<li>Click the "Auto-generate release notes" button</li>
 </ul>
 <dl>
 <dt><code>mdm-core</code></dt>
 <dd><a href="https://github.com/MauroDataMapper/mdm-core/tags">Tags Page</a>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See [<span class="nt">Issues fixed</span>](<span class="na">https://metadatacatalogue.myjetbrains.com/youtrack/issues/MC?q=%23Released%20%23B4.8.0</span>)
-and [<span class="nt">Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-core/issues?q=is%3Aissue+milestone%3A4.8.0</span>)
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See [<span class="nt">Issues fixed</span>](<span class="na">https://metadatacatalogue.myjetbrains.com/youtrack/issues/MC?q=%23Released%20%23B4.8.0</span>) and [<span class="nt">Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-core/issues?q=is%3Aissue+milestone%3A4.8.0</span>)
 </code></pre></div>
 </td></tr></table></dd>
 <dt><code>mdm-ui</code></dt>
 <dd><a href="https://github.com/MauroDataMapper/mdm-ui/tags">Tags Page</a>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See [<span class="nt">Issues fixed</span>](<span class="na">https://metadatacatalogue.myjetbrains.com/youtrack/issues/MC?q=%23Released%20%23F6.4.0</span>)
-and [<span class="nt">MileStones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-ui/issues?q=is%3Aissue+milestone%3A6.4.0</span>)
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See [<span class="nt">Issues fixed</span>](<span class="na">https://metadatacatalogue.myjetbrains.com/youtrack/issues/MC?q=%23Released%20%23F6.4.0</span>) and [<span class="nt">MileStones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-ui/issues?q=is%3Aissue+milestone%3A6.4.0</span>)
 </code></pre></div>
 </td></tr></table></dd>
 <dt><code>mdm-application</code></dt>
 <dd><a href="https://github.com/MauroDataMapper/mdm-application-build/tags">Tags Page</a>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See [<span class="nt">Issues fixed</span>](<span class="na">https://metadatacatalogue.myjetbrains.com/youtrack/issues/MC?q=%23Released%20%23B4.8.0</span>)
-and [<span class="nt">Core Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-core/issues?q=is%3Aissue+milestone%3A4.8.0</span>)
-and [<span class="nt">Application Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-application-build/issues?q=is%3Aissue+milestone%3A4.8.0</span>)
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>See [<span class="nt">Issues fixed</span>](<span class="na">https://metadatacatalogue.myjetbrains.com/youtrack/issues/MC?q=%23Released%20%23B4.8.0</span>), [<span class="nt">Core Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-core/issues?q=is%3Aissue+milestone%3A4.8.0</span>) and [<span class="nt">Application Milestones</span>](<span class="na">https://github.com/MauroDataMapper/mdm-application-build/issues?q=is%3Aissue+milestone%3A4.8.0</span>)
 </code></pre></div>
 </td></tr></table></dd>
 <dt><code>mdm-docker</code></dt>
