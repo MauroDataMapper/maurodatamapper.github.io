@@ -51,6 +51,19 @@
     
       
 
+  
+
+
+  
+
+  
+
+
+  <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-R16Z5NZY27"),document.addEventListener("DOMContentLoaded",function(){"undefined"!=typeof location$&&location$.subscribe(function(t){e("config","G-R16Z5NZY27",{page_path:t.pathname})})});var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-R16Z5NZY27",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
 
     
     
@@ -2681,6 +2694,8 @@ files have the following structure:</p>
 <endpoint class="get">/api/<strong>{catalogueItemDomainType}</strong>/<strong>{catalogueItemId}</strong>/summaryMetadata/<strong>{summaryMetadataId}</strong>/summaryMetadataReports/<strong>{id}</strong></endpoint></p>
                 
                   
+  
+
 
                 
                 
@@ -2740,7 +2755,7 @@ files have the following structure:</p>
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            Copyright © 2021 University of Oxford and Health and Social Care Information Centre, also known as NHS Digital
+            Copyright © 2021 University of Oxford and Health and Social Care Information Centre, also known as NHS Digital.  <a href="/privacy-policy/">Privacy Policy</a>
           </div>
         
         
@@ -2760,6 +2775,94 @@ files have the following structure:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+  
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input type="checkbox" class="md-toggle" id="__settings">
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        <label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  <label class="md-button" for="__settings">Manage settings</label>
+  <button class="md-button md-button--primary">Accept</button>
+</div>
+          </form>
+        </aside>
+      </div>
+      <!--
+  Copyright (c) 2016-2021 Martin Donath <martin.donath@squidfunk.com>
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+<!-- User-preference: consent -->
+<!-- Modification by JW to ensure when you manually open the cookie prefs window, it closes and
+doesn't immediately re-open -->
+
+<script>
+    var consent = __md_get("__consent")
+    if (consent) {
+        for (var input of document.forms.consent.elements)
+            if (input.name)
+                input.checked = consent[input.name] || false
+
+        /* Show consent with a small delay */
+    } else {
+        setTimeout(function() {
+            var el = document.querySelector("[data-md-component=consent]")
+            el.hidden = false
+        }, 250)
+    }
+    /* Intercept submission of consent form */
+    var form = document.forms.consent
+    form.addEventListener("submit", function(ev) {
+        ev.preventDefault()
+
+        /* Grab and serialize form data */
+        __md_set("__consent", Object.fromEntries(
+            Array.from(new FormData(form).keys())
+                .map(function(key) { return [key, true] })
+        ))
+
+        /* Reload window (for now) */
+        window.location.hash = '';
+        console.log(window.location);
+        location.reload();
+    })
+</script>
     
     <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.d5944110.min.js", "version": null}</script>
     
