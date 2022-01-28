@@ -17,7 +17,7 @@
     
     
       
-        <title>Releasing - Documentation</title>
+        <title>Release Process - Documentation</title>
       
     
     
@@ -145,7 +145,7 @@
                 <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             <!-- 
-              Releasing
+              Release Process
              -->
           </span>
                 </div>
@@ -1216,12 +1216,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -1874,6 +1876,247 @@
 
             
           
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5">
+          Releasing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Releasing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Releasing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Release Process
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Release Process
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jenkins-release" class="md-nav__link">
+    Jenkins Release
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mdm-plugins" class="md-nav__link">
+    MDM plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="MDM plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#release-order" class="md-nav__link">
+    Release Order
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#no-changes-waiting-to-be-released" class="md-nav__link">
+    No changes waiting to be released
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changes-waiting-to-be-released" class="md-nav__link">
+    Changes waiting to be released
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-announce" class="md-nav__link">
+    Document &amp; Announce
+  </a>
+  
+    <nav class="md-nav" aria-label="Document &amp; Announce">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    Github
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-release" class="md-nav__link">
+    Main Release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugins-release" class="md-nav__link">
+    Plugins Release
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zulip-announce" class="md-nav__link">
+    Zulip Announce
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-release-process" class="md-nav__link">
+    Manual Release Process
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Release Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mdm-core" class="md-nav__link">
+    mdm-core
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mdm-resources" class="md-nav__link">
+    mdm-resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mdm-ui" class="md-nav__link">
+    mdm-ui
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mdm-application-build" class="md-nav__link">
+    mdm-application-build
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mdm-docker" class="md-nav__link">
+    mdm-docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build_status/" class="md-nav__link">
+        System Build Status
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1970,29 +2213,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mdm-core" class="md-nav__link">
-    mdm-core
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mdm-resources" class="md-nav__link">
-    mdm-resources
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mdm-ui" class="md-nav__link">
-    mdm-ui
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mdm-application-build" class="md-nav__link">
-    mdm-application-build
+  <a href="#jenkins-release" class="md-nav__link">
+    Jenkins Release
   </a>
   
 </li>
@@ -2028,13 +2250,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mdm-docker" class="md-nav__link">
-    mdm-docker
-  </a>
   
 </li>
       
@@ -2092,6 +2307,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#manual-release-process" class="md-nav__link">
+    Manual Release Process
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Release Process">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mdm-core" class="md-nav__link">
+    mdm-core
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mdm-resources" class="md-nav__link">
+    mdm-resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mdm-ui" class="md-nav__link">
+    mdm-ui
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mdm-application-build" class="md-nav__link">
+    mdm-application-build
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mdm-docker" class="md-nav__link">
+    mdm-docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2109,6 +2372,11 @@
                 <h1 id="releasing">Releasing<a class="headerlink" href="#releasing" title="Permanent link">&para;</a></h1>
 <p>The following process should be followed EXACTLY to release MauroDataMapper in its entirety. Please pay attention to versions and whats changed
 between each git commit.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The main release cycle should be performed using Jenkins, not done manually. 
+However plugins &amp; documentation do still need to be done manually</p>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>You will need git flow installed in the command line to be able to perform the release.
@@ -2132,107 +2400,9 @@ A PATCH release should only be done if the MINOR release failed and this is a re
 <li>CORE_VERSION : The appropriate non-snapshot version from mdm-core/gradle.properties on the develop branch</li>
 <li>UI_VERSION : The appropriate non-snapshot version from mdm-ui/package.json on the develop branch</li>
 </ul>
-<h2 id="mdm-core">mdm-core<a class="headerlink" href="#mdm-core" title="Permanent link">&para;</a></h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
-git flow release start <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
-<p>Update gradle.properties</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
-<p>Update gradle.properties to next minor snapshot</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
-git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
-</code></pre></div>
-</td></tr></table>
-<h2 id="mdm-resources">mdm-resources<a class="headerlink" href="#mdm-resources" title="Permanent link">&para;</a></h2>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
-git flow release start <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
-<p>Update package.json version to CORE_VERSION</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install <span class="o">&amp;&amp;</span> npm run build
-git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
-<p>Update package.json version to next snapshot CORE_VERSION</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install <span class="o">&amp;&amp;</span> npm run build
-git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
-git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
-</code></pre></div>
-</td></tr></table>
-<h2 id="mdm-ui">mdm-ui<a class="headerlink" href="#mdm-ui" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>You must release mdm-resources first, or be able to use an existing release of mdm-resources</p>
-</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
-git flow release start <span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
-<p>Update package.json</p>
-<ul>
-<li><code>version</code> to UI_VERSION</li>
-<li><code>"@maurodatamapper/mdm-resources"</code> to CORE_VERSION</li>
-</ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install
-</code></pre></div>
-</td></tr></table>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>MAKE SURE in <code>package.lock</code> that all the lines for mdm-resources that have a commit hash MATCH the hash for the release, 
-if NOT then delete all entries in the lock file for mdm-resources with a commit hash and run npm install again</p>
-</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
-<p>Update package.json</p>
-<ul>
-<li><code>version</code> to next minor snapshot UI_VERSION</li>
-</ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install
-git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
-git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
-</code></pre></div>
-</td></tr></table>
-<h2 id="mdm-application-build">mdm-application-build<a class="headerlink" href="#mdm-application-build" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>You will need to wait for the main branch of mdm-core to finish before proceeding on the latest mdm-application-build</p>
-</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
-git flow release start <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
-<p>Update gradle.properties</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
-</code></pre></div>
-</td></tr></table>
-<p>Update gradle.properties to next minor snapshot</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
-git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
-</code></pre></div>
-</td></tr></table>
+<h2 id="jenkins-release">Jenkins Release<a class="headerlink" href="#jenkins-release" title="Permanent link">&para;</a></h2>
+<p>Use the <code>mdm-release/release</code> job, filling in the requested parameters.
+Sit back and relax.</p>
 <h2 id="mdm-plugins">MDM plugins<a class="headerlink" href="#mdm-plugins" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -2255,6 +2425,8 @@ order, if not listed then there is not required order.</p>
 <li>mdm-plugin-database-sqlserver</li>
 </ol>
 </li>
+<li>mdm-plugin-profile-schema-org</li>
+<li>mdm-plugin-profile-hdruk</li>
 </ol>
 <h3 id="no-changes-waiting-to-be-released">No changes waiting to be released<a class="headerlink" href="#no-changes-waiting-to-be-released" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2291,35 +2463,6 @@ git flow release finish -m <span class="s2">&quot;</span><span class="si">${</sp
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
-git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
-</code></pre></div>
-</td></tr></table>
-<h2 id="mdm-docker">mdm-docker<a class="headerlink" href="#mdm-docker" title="Permanent link">&para;</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>You will need to wait for the main branch of mdm-application-build and mdm-ui to finish before proceeding</p>
-</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
-git flow release start <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-</code></pre></div>
-</td></tr></table>
-<p>Update docker-compose.yml</p>
-<ul>
-<li>The 2 commit ARGS</li>
-<li>The image tag to <code>B${CORE_VERSION}_F${UI_VERSION}</code></li>
-</ul>
-<p>Dry run and check it comes up as expected</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>docker-compose build
-docker-compose up
-</code></pre></div>
-</td></tr></table>
-<p>If it all comes up.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish -m <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
 git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
 </code></pre></div>
 </td></tr></table>
@@ -2487,6 +2630,138 @@ Add
 | UI | <span class="sb">`6.5.0`</span> | https://github.com/MauroDataMapper/mdm-ui/releases/tag/6.5.0 |
 </code></pre></div>
 </td></tr></table>
+<h2 id="manual-release-process">Manual Release Process<a class="headerlink" href="#manual-release-process" title="Permanent link">&para;</a></h2>
+<p>In the event Jenkins is unavailable follow the process below to release the systems Jenkins would release</p>
+<h3 id="mdm-core">mdm-core<a class="headerlink" href="#mdm-core" title="Permanent link">&para;</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
+git flow release start <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Update gradle.properties</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Update gradle.properties to next minor snapshot</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
+git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
+</code></pre></div>
+</td></tr></table>
+<h3 id="mdm-resources">mdm-resources<a class="headerlink" href="#mdm-resources" title="Permanent link">&para;</a></h3>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
+git flow release start <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Update package.json version to CORE_VERSION</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install <span class="o">&amp;&amp;</span> npm run build
+git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Update package.json version to next snapshot CORE_VERSION</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install <span class="o">&amp;&amp;</span> npm run build
+git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
+git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
+</code></pre></div>
+</td></tr></table>
+<h3 id="mdm-ui">mdm-ui<a class="headerlink" href="#mdm-ui" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You must release mdm-resources first, or be able to use an existing release of mdm-resources</p>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
+git flow release start <span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Update package.json</p>
+<ul>
+<li><code>version</code> to UI_VERSION</li>
+<li><code>"@maurodatamapper/mdm-resources"</code> to CORE_VERSION</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install
+</code></pre></div>
+</td></tr></table>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>MAKE SURE in <code>package.lock</code> that all the lines for mdm-resources that have a commit hash MATCH the hash for the release, 
+if NOT then delete all entries in the lock file for mdm-resources with a commit hash and run npm install again</p>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Update package.json</p>
+<ul>
+<li><code>version</code> to next minor snapshot UI_VERSION</li>
+</ul>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>npm install
+git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
+git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
+</code></pre></div>
+</td></tr></table>
+<h3 id="mdm-application-build">mdm-application-build<a class="headerlink" href="#mdm-application-build" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You will need to wait for the main branch of mdm-core to finish before proceeding on the latest mdm-application-build</p>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
+git flow release start <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Update gradle.properties</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Update gradle.properties to next minor snapshot</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s1">&#39;Next snapshot&#39;</span>
+git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
+</code></pre></div>
+</td></tr></table>
+<h3 id="mdm-docker">mdm-docker<a class="headerlink" href="#mdm-docker" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You will need to wait for the main branch of mdm-application-build and mdm-ui to finish before proceeding</p>
+</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
+git flow release start <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+</code></pre></div>
+</td></tr></table>
+<p>Update docker-compose.yml</p>
+<ul>
+<li>The 2 commit ARGS</li>
+<li>The image tag to <code>B${CORE_VERSION}_F${UI_VERSION}</code></li>
+</ul>
+<p>Dry run and check it comes up as expected</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>docker-compose build
+docker-compose up
+</code></pre></div>
+</td></tr></table>
+<p>If it all comes up.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git flow release finish -m <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
+</code></pre></div>
+</td></tr></table>
                 
                   
   
@@ -2505,10 +2780,50 @@ Add
           </div>
         </div>
         
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
       </main>
       
         
 <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../plugins/rest-api/sparql/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SPARQL" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              SPARQL
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../build_status/" class="md-footer__link md-footer__link--next" aria-label="Next: System Build Status" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              System Build Status
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2624,7 +2939,7 @@ doesn't immediately re-open -->
     })
 </script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.d5944110.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.d5944110.min.js", "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.10cf5afe.min.js"></script>

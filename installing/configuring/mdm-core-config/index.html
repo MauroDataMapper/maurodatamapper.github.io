@@ -1923,6 +1923,67 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_5" type="checkbox" id="__nav_5_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_5">
+          Releasing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Releasing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Releasing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer/releasing/" class="md-nav__link">
+        Release Process
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer/build_status/" class="md-nav__link">
+        System Build Status
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2051,7 +2112,10 @@
 <dl>
 <dt><code>grails.cors.allowedOrigins</code></dt>
 <dd>Should be set to a single fully qualified domain name (FQDN) URL which is the host where MDM will be accessed from. If using a proxy to break SSL then the origin would be the
-hostname where the proxy sits, not the host of the server running the docker containers. The origin must include the protocol, i.e. <code>https</code> or <code>http</code>.</dd>
+hostname where the proxy sits, not the host of the server running the docker containers. The origin must include the protocol, i.e. <code>https</code> or <code>http</code>. 
+At the same time the <code>grails.cors.allowedOriginPatterns</code> property should be overriden to <code>[]</code> to ensure the "allow all" option is prevented.</dd>
+<dt><code>grails.cors.allowedOriginPatterns</code></dt>
+<dd>MUST be overriden to <code>[]</code> to prevent "allow all"</dd>
 <dt><code>maurodatamapper.authority.name</code></dt>
 <dd>A unique name used to distinguish a running MDM instance.</dd>
 <dt><code>maurodatamapper.authority.url</code></dt>
@@ -2105,6 +2169,11 @@ found in the grails or spring documentation.</p>
             
           </div>
         </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
         
       </main>
       
@@ -2260,7 +2329,7 @@ doesn't immediately re-open -->
     })
 </script>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.d5944110.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.d5944110.min.js", "version": null}</script>
     
     
       <script src="../../../assets/javascripts/bundle.10cf5afe.min.js"></script>
