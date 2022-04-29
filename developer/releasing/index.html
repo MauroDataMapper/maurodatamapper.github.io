@@ -523,6 +523,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../user-guides/bulk-editing/bulk-editing/" class="md-nav__link">
+        Bulk editing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../user-guides/exporting-data-models/exporting-data-models/" class="md-nav__link">
         Exporting Data Models
       </a>
@@ -666,18 +680,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_18" type="checkbox" id="__nav_3_1_18" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1_19" type="checkbox" id="__nav_3_1_19" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_3_1_18">
+        <label class="md-nav__link" for="__nav_3_1_19">
           Plugins
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Plugins" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_1_18">
+        <label class="md-nav__title" for="__nav_3_1_19">
           <span class="md-nav__icon md-icon"></span>
           Plugins
         </label>
@@ -1869,6 +1883,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../plugins/cli/remote-database-importers/" class="md-nav__link">
+        Command-line database importers
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2397,6 +2425,7 @@ A PATCH release should only be done if the MINOR release failed and this is a re
 </div>
 <p>You should identify the following from the repositories before starting</p>
 <ul>
+<li>RELEASE_VERSION : The quarterly release version. e.g. 2022.2</li>
 <li>CORE_VERSION : The appropriate non-snapshot version from mdm-core/gradle.properties on the develop branch</li>
 <li>UI_VERSION : The appropriate non-snapshot version from mdm-ui/package.json on the develop branch</li>
 </ul>
@@ -2419,12 +2448,12 @@ order, if not listed then there is not required order.</p>
 <ol>
 <li>mdm-plugin-database</li>
 <li>mdm-plugin-testing-utils<ol>
-<li>mdm-plugin-database-mysql</li>
 <li>mdm-plugin-database-oracle</li>
-<li>mdm-plugin-database-postgresql</li>
-<li>mdm-plugin-database-sqlserver</li>
 </ol>
 </li>
+<li>mdm-plugin-database-mysql</li>
+<li>mdm-plugin-database-postgresql</li>
+<li>mdm-plugin-database-sqlserver</li>
 <li>mdm-plugin-profile-schema-org</li>
 <li>mdm-plugin-profile-hdruk</li>
 </ol>
@@ -2528,7 +2557,7 @@ and [<span class="nt">UI Milestones</span>](<span class="na">https://github.com/
 <p>This should be performed inside the <a href="https://github.com/MauroDataMapper/docs">docs</a> repository.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
-git flow release start <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git flow release start <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RELEASE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
 </td></tr></table>
 <ul>
@@ -2536,8 +2565,8 @@ git flow release start <span class="s2">&quot;B</span><span class="si">${</span>
 </ul>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish -m <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">RELEASE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RELEASE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RELEASE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
 git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
 </code></pre></div>
 </td></tr></table>
@@ -2551,7 +2580,7 @@ Add
 <ul>
 <li>Update the "Current Full Release" line:</li>
 </ul>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>The current full release is <span class="gs">**B${CORE_VERSION}_F${UI_VERSION}**</span>.
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>The current full release is <span class="gs">**${RELEASE_VERSION}**</span> (a.k.a B${CORE_VERSION}_F${UI_VERSION}).
 </code></pre></div>
 </td></tr></table>
 <ul>
@@ -2625,7 +2654,7 @@ Add
 
 | Application | Version | Release Notes |
 |----|-----|-----|
-| Docker | <span class="sb">`B4.9.0_F6.5.0`</span> | https://github.com/MauroDataMapper/mdm-docker/releases/tag/B4.9.0_F6.5.0 |
+| Docker | <span class="sb">`2022.2`</span> | https://github.com/MauroDataMapper/mdm-docker/releases/tag/2022.2 |
 | RESTful API | <span class="sb">`4.9.0`</span> | https://github.com/MauroDataMapper/mdm-application-build/releases/tag/4.9.0 |
 | UI | <span class="sb">`6.5.0`</span> | https://github.com/MauroDataMapper/mdm-ui/releases/tag/6.5.0 |
 </code></pre></div>
@@ -2740,7 +2769,7 @@ git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&am
 </div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git checkout main <span class="o">&amp;&amp;</span> git pull <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git pull
-git flow release start <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git flow release start <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RELEASE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div>
 </td></tr></table>
 <p>Update docker-compose.yml</p>
@@ -2757,9 +2786,13 @@ docker-compose up
 <p>If it all comes up.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git flow release finish -m <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
-git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git commit -am <span class="s2">&quot;Release </span><span class="si">${</span><span class="nv">RELEASE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git flow release finish -m <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RELEASE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">RELEASE_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git checkout main 
+git tag <span class="s2">&quot;B</span><span class="si">${</span><span class="nv">CORE_VERSION</span><span class="si">}</span><span class="s2">_F</span><span class="si">${</span><span class="nv">UI_VERSION</span><span class="si">}</span><span class="s2">&quot;</span>
+git push <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> git push <span class="o">&amp;&amp;</span> git push --tags
 </code></pre></div>
 </td></tr></table>
                 
@@ -2793,7 +2826,7 @@ git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&am
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../plugins/rest-api/sparql/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SPARQL" rel="prev">
+        <a href="../../plugins/cli/remote-database-importers/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Command-line database importers" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2802,7 +2835,7 @@ git checkout main <span class="o">&amp;&amp;</span> git push <span class="o">&am
               <span class="md-footer__direction">
                 Previous
               </span>
-              SPARQL
+              Command-line database importers
             </div>
           </div>
         </a>
