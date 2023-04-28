@@ -84,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#1-select-a-data-model" class="md-skip">
+        <a href="#1-select-a-model" class="md-skip">
           Skip to content
         </a>
       
@@ -959,10 +959,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-select-a-data-model" class="md-nav__link">
+  <a href="#1-select-a-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Select a Data Model
+        1. Select a Model
       
     </span>
   </a>
@@ -970,10 +970,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-select-elements-and-profiles" class="md-nav__link">
+  <a href="#2-selecting-items-and-profiles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Select Elements and Profiles
+        2. Selecting Items and Profiles
       
     </span>
   </a>
@@ -991,6 +991,17 @@
   
     <nav class="md-nav" aria-label="3. Bulk editing">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profile-field-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profile field descriptions
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#cell-values" class="md-nav__link">
@@ -3872,10 +3883,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-select-a-data-model" class="md-nav__link">
+  <a href="#1-select-a-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Select a Data Model
+        1. Select a Model
       
     </span>
   </a>
@@ -3883,10 +3894,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-select-elements-and-profiles" class="md-nav__link">
+  <a href="#2-selecting-items-and-profiles" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Select Elements and Profiles
+        2. Selecting Items and Profiles
       
     </span>
   </a>
@@ -3904,6 +3915,17 @@
   
     <nav class="md-nav" aria-label="3. Bulk editing">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#profile-field-descriptions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profile field descriptions
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#cell-values" class="md-nav__link">
@@ -4032,30 +4054,49 @@
   <h1>Bulk editing</h1>
 
 <p>This user guide will explain how to modify more than one catalogue item at once using <a href="../../../glossary/profile/profile/">Profiles</a>. </p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Currently only <a href="../../../glossary/data-element/data-element/">Data Elements</a> may be updated using the built-in bulk editor. More catalogue item types will be supported in the future.</p>
-</div>
-<h2 id="1-select-a-data-model">1. Select a Data Model<a class="headerlink" href="#1-select-a-data-model" title="Permanent link">&para;</a></h2>
-<p>Select a <strong>Data Model</strong> currently in a <strong>draft</strong> state from the <strong>Model Tree</strong>. Once the item's details panel is displayed on the right, click the three vertical dot menu at the top right of the details panel. Select <strong>'Bulk Edit'</strong> from the dropdown menu.</p>
-<p><img alt="Select a Data Model" src="../select-data-model.png" /></p>
-<h2 id="2-select-elements-and-profiles">2. Select Elements and Profiles<a class="headerlink" href="#2-select-elements-and-profiles" title="Permanent link">&para;</a></h2>
-<p>Before proceeding to the bulk editor, you must first select your <strong>Data Elements</strong> and the <strong>Profiles</strong> to edit. Clicking on each dropdown field will display a multi-select option list, where more than one element/profile may be selected. Select all the elements/profiles you require, then click the <strong>'Next'</strong> button to continue.</p>
+<p>The Mauro Data Mapper bulk editor can support editing the following top-level domains:</p>
+<ol>
+<li><a href="../../../glossary/data-model/data-model/">Data Models</a></li>
+<li><a href="../../../glossary/data-class/data-class/">Data Classes</a></li>
+<li><strong>Terminologies</strong></li>
+<li><strong>Code Sets</strong></li>
+</ol>
+<p>From these, the following child items may be edited:</p>
+<ol>
+<li><a href="../../../glossary/data-type/data-type/">Data Types</a></li>
+<li><a href="../../../glossary/data-class/data-class/">Data Classes</a></li>
+<li><a href="../../../glossary/data-element/data-element/">Data Elements</a></li>
+<li><strong>Terms</strong></li>
+</ol>
+<h2 id="1-select-a-model">1. Select a Model<a class="headerlink" href="#1-select-a-model" title="Permanent link">&para;</a></h2>
+<p>Select a model currently in a <strong>draft</strong> state from the <strong>Model Tree</strong>. Once the item's details panel is displayed on the right, click the three vertical dot menu at the top right of the details panel. Select <strong>'Bulk Edit'</strong> from the dropdown menu.</p>
+<p><img alt="Select a Model" src="../select-data-model.png" /></p>
+<h2 id="2-selecting-items-and-profiles">2. Selecting Items and Profiles<a class="headerlink" href="#2-selecting-items-and-profiles" title="Permanent link">&para;</a></h2>
+<p>Before proceeding to the bulk editor, you must first select your item(s) and the <strong>Profiles</strong> to edit. First choose which <strong>domain type</strong> to use for the items; only one child domain type can be edited at a time, and the available options will depend on which top-level model you chose.</p>
+<p><img alt="Select domain type" src="../select-domain-type.png" /></p>
+<p>Selecting a domain type will then search for possible catalogue items of that type under the model. Click on one or more items from the list to select which items to edit. There are also ways of selecting (or clearing) all items and filtering to aid navigation if the list is large.</p>
+<p>Finally, select one of more <strong>Profiles</strong> to edit against these items. Most profiles are located due to their domain type or via the Mauro configuration you have (for example, profiles may be imported via plugins, or dynamically created by yourself). A special profile in this list is the <strong>"Default profile"</strong> - this provides the same fields as you would find when editing a catalogue item on its own, such as <strong>Description</strong>, <strong>Aliases</strong>, and so on.</p>
+<p>Click on the <strong>Next</strong> button to continue.</p>
 <div class="admonition information">
 <p class="admonition-title">Information</p>
-<p>At least one element and profile must be selected before you can continue.</p>
+<p>At least one item and profile must be selected before you can continue.</p>
 </div>
-<p><img alt="Select Elements and Profiles" src="../select-elements-profiles.png" /></p>
+<p><img alt="Select items and profiles" src="../select-items-profiles.png" /></p>
 <h2 id="3-bulk-editing">3. Bulk editing<a class="headerlink" href="#3-bulk-editing" title="Permanent link">&para;</a></h2>
 <p>The next screen will display a tab for each chosen profile. Inside each tab will be:</p>
 <ol>
 <li>An editable grid listing each element along with each profile field.</li>
-<li>Possibly a validation label stating how many validation issues were found in the grid.</li>
+<li>The ability to validate and save your changes within that tab/profile.</li>
+<li>A visual count of how many current validation issues were found, or a visual cue stating the profiles are valid.</li>
 </ol>
-<p>For all open tabs, there will also be buttons to validate the current grids, save all changes currently made, or go back to the element/profile selection screen.</p>
-<p><img alt="Bulk Editor Tabs" src="../bulk-editor-tabs.png" /></p>
+<p><img alt="Bulk editor tabs" src="../bulk-editing-tabs.png" /></p>
+<p>Any validation errors found will be highlighted.</p>
+<p><img alt="Validation errors" src="../bulk-editing-validation-errors.png" /></p>
 <p>Simply click on any grid cell to display an editing cursor, type in the value, and either click away from that cell or press the <strong>'Enter'</strong> key to accept that change.</p>
 <p>Here are some other useful tips and information:</p>
+<h3 id="profile-field-descriptions">Profile field descriptions<a class="headerlink" href="#profile-field-descriptions" title="Permanent link">&para;</a></h3>
+<p>Some profile fields may describe what they are. Hover your mouse cursor over a column heading and a tooltip may appear to provide further information.</p>
+<p><img alt="Profile field descriptions" src="../profile-field-descriptions.png" /></p>
 <h3 id="cell-values">Cell values<a class="headerlink" href="#cell-values" title="Permanent link">&para;</a></h3>
 <p>Mostly you will be editing text cells, though <strong>Profiles</strong> do support other types of data, which the bulk editor can also support.</p>
 <div class="admonition note">
@@ -4063,6 +4104,11 @@
 <p>The different data types supported is currently limited, though further support will come in the future.</p>
 </div>
 <p>For example:</p>
+<ul>
+<li>Text areas for editing large sections of <strong>text</strong>, such as descriptions. It is posible to edit large text fields using a simple pop-up editor, or by clicking the <strong>Pop-out</strong> button to use full editing tools:</li>
+</ul>
+<p><img alt="Inline text editor" src="../text-editor-inline.png" /></p>
+<p><img alt="Full text editor" src="../text-editor-full.png" /></p>
 <ul>
 <li>Checkboxes to support <strong>boolean</strong> types:</li>
 </ul>
@@ -4075,7 +4121,7 @@
 <li>Calendar pickers to support <strong>dates</strong>:</li>
 </ul>
 <p><img alt="Date editor" src="../date-editor.png" /></p>
-<p>Some cells may also appear uneditable, this will be because of the way the <strong>Profile</strong> works - some profile fields can be configured to infer metadata from other parts of the model.</p>
+<p>Some cells may also appear uneditable, this will be because of the way the <strong>Profile</strong> works - either because the profile field is read-only, or some profile fields can be configured to infer metadata from other parts of the model.</p>
 <p><img alt="Read-only fields" src="../read-only-fields.png" /></p>
 <h3 id="validation">Validation<a class="headerlink" href="#validation" title="Permanent link">&para;</a></h3>
 <p>When you click on the <strong>'Validate'</strong> button, the <strong>Profiles</strong> as currently edited will be verified by Mauro. Any issues found will be highlighted with a red border around the appropriate cells, and an issue total will state how many issues were found altogether.</p>
@@ -4085,7 +4131,7 @@
 </div>
 <p><img alt="Validation" src="../validation.png" /></p>
 <h2 id="4-save-your-changes">4. Save your changes<a class="headerlink" href="#4-save-your-changes" title="Permanent link">&para;</a></h2>
-<p>Once you are happy with the changes you have made to every <strong>Profile</strong>, click on the <strong>'Save All'</strong> button. A message will appear to show the operation was successful, and you may continue making more changes, or click the <strong>'Close'</strong> button to go back to the model.</p>
+<p>Once you are happy with the changes you have made in a profile tab, click on the <strong>'Save'</strong> button. A message will appear to show the operation was successful, and you may continue making more changes, or click the <strong>'Close'</strong> button to go back to the model.</p>
 <p><img alt="Save changes" src="../save-changes.png" /></p>
 
 

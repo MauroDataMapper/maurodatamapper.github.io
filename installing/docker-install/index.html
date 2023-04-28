@@ -1770,17 +1770,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#ssh-firewalled-servers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SSH firewalled servers
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -4123,17 +4112,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#ssh-firewalled-servers" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        SSH firewalled servers
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -4342,10 +4320,11 @@
 can read more about installing <code>git</code> on different operating systems here: <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Getting Started - Installing Git</a></p>
 <p>The <strong>Mauro Docker</strong> configuration repository can be found here: 
 <a href="https://github.com/MauroDataMapper/mdm-docker">https://github.com/MauroDataMapper/mdm-docker</a>.  Where you clone it is up to you, but on a *nix 
-system we recommend cloning into <code>/opt/</code> (for optional software packages)</p>
+system we recommend cloning into <code>/opt/</code> (for optional software packages).</p>
 <p>Different branches provide different configurations. We recommend checking out the <code>main</code> branch which will provide the latest releases of back-end 
-and front-end.  Alternatively, you can check out a specific tag to install a specific front-end / back-end combination. Tagged releases of 
-<strong>Docker</strong> take the form <code>Ba.b.c_Fx.y.z</code> where <code>a.b.c</code> is the tagged version of the back-end and <code>x.y.z</code> is the tagged version of the front-end.</p>
+and front-end.  Alternatively, you can check out a specific tag to install a specific release. Tagged releases of 
+<strong>Mauro Docker</strong> take the form <code>YYYY.Q[.P]</code>, where YYYY.Q is the year and quarter of the release, and .P is an optional point release. For example, 2023.1.1 is point release 1 in
+Q1 of 2023.</p>
 <div class="admonition information">
 <p class="admonition-title">Information</p>
 <p>If you're running on an internal server with SSH access forbidden by a firewall, you can use the following link to access the repository via 
@@ -4353,16 +4332,16 @@ HTTPS: <a href="https://docs.github.com/en/free-pro-team@latest/github/authentic
 </div>
 <hr />
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>The <strong>Docker Compose</strong> configuration defines two interacting containers: </p>
+<p>The <strong>Docker Compose</strong> configuration defines two interacting containers:</p>
 <ul>
 <li>Postgres 12 [<code>postgres</code>] - Postgres Database</li>
 <li>Mauro Data Mapper [<code>maurodatamapper</code>] - Mauro Data Mapper</li>
 </ul>
 <p>The first of these is a standard <strong>Postgres</strong> container with an external volume for persistent storage.  The second builds on the standard <strong>Apache 
 Tomcat</strong> container, which hosts built versions of the <strong>Mauro</strong> application.  The <strong>Postgres</strong> container must be running whenever the <strong>Mauro</strong> application 
-starts.  The <strong>Mauro</strong> container persists logs and Lucene indexes to shared folders which can be found in the docker repository folder. </p>
+starts.  The <strong>Mauro</strong> container persists logs and Lucene indexes to shared folders which can be found in the Docker repository folder. </p>
 <h3 id="default-username-password">Default username / password<a class="headerlink" href="#default-username-password" title="Permanent link">&para;</a></h3>
-<p>The docker installation is empty on initialisation - it comes with one pre-configured user: with the username <code>admin@maurodatamapper.com</code> and the
+<p>The Docker installation is empty on initialisation - it comes with one pre-configured user: with the username <code>admin@maurodatamapper.com</code> and the
 password <code>password</code>.  </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -4370,10 +4349,10 @@ password <code>password</code>.  </p>
 </div>
 <hr />
 <h2 id="building">Building<a class="headerlink" href="#building" title="Permanent link">&para;</a></h2>
-<p>Once cloned then running the standard <code>docker-compose</code> build command will build the images necessary to run the services.</p>
+<p>Once cloned then running the standard <code>docker compose</code> build command will build the images necessary to run the services.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Build the entire system</span>
-$<span class="w"> </span>./docker-compose<span class="w"> </span>build
+$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>build
 </code></pre></div></td></tr></table></div>
 <h3 id="additional-backend-plugins">Additional Backend Plugins<a class="headerlink" href="#additional-backend-plugins" title="Permanent link">&para;</a></h3>
 <p>Additional plugins can be found at the <a href="https://github.com/MauroDataMapper-Plugins">Mauro Data Mapper Plugins</a> organisation page. A complete list with
@@ -4382,7 +4361,7 @@ Please note that while we will do our best to keep this page up-to-date, there m
 our official <a href="https://github.com/MauroDataMapper-Plugins">GitHub Plugins organisation</a> to find the latest releases and all available plugins.</p>
 <p>Each of these can be added as <code>runtimeOnly</code> dependencies by adding them to the <code>ADDITIONAL_PLUGINS</code> build argument for the <code>mauro-data-mapper</code>
 service build.</p>
-<p>These dependencies should be provided in a semi-colon separated list in the gradle style, they will be split and each will be added as a <code>runtimeOnly</code>
+<p>These dependencies should be provided in a semicolon separated list in the Gradle style, they will be split and each will be added as a <code>runtimeOnly</code>
 dependency.</p>
 <p>Example:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -4393,10 +4372,10 @@ dependency.</p>
 <span class="w">   </span><span class="nt">build</span><span class="p">:</span>
 <span class="w">     </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mauro-data-mapper</span>
 <span class="w">     </span><span class="nt">args</span><span class="p">:</span>
-<span class="w">       </span><span class="nt">ADDITIONAL_PLUGINS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;uk.ac.ox.softeng.maurodatamapper.plugins:mdm-plugin-excel:3.0.0&quot;</span>
+<span class="w">       </span><span class="nt">ADDITIONAL_PLUGINS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;uk.ac.ox.softeng.maurodatamapper.plugins:mdm-plugin-excel:5.2.0&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p>This will add the Excel plugin to the <code>dependencies.gradle</code> file:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>runtimeOnly uk.ac.ox.softeng.maurodatamapper.plugins:mdm-plugin-excel:3.0.0
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>runtimeOnly uk.ac.ox.softeng.maurodatamapper.plugins:mdm-plugin-excel:5.2.0
 </code></pre></div></td></tr></table></div>
 <h4 id="dynamic-versions">Dynamic Versions<a class="headerlink" href="#dynamic-versions" title="Permanent link">&para;</a></h4>
 <p>You can use <a href="https://docs.gradle.org/current/userguide/single_versions.html">dynamic versioning</a> to add dependencies, however this comes with a risk
@@ -4411,7 +4390,7 @@ plugins. Therefore, we do <strong>not</strong> advise this approach.</p>
 <span class="w">   </span><span class="nt">build</span><span class="p">:</span>
 <span class="w">     </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mauro-data-mapper</span>
 <span class="w">     </span><span class="nt">args</span><span class="p">:</span>
-<span class="w">       </span><span class="nt">ADDITIONAL_PLUGINS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;uk.ac.ox.softeng.maurodatamapper.plugins:mdm-plugin-excel:3.+&quot;</span>
+<span class="w">       </span><span class="nt">ADDITIONAL_PLUGINS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;uk.ac.ox.softeng.maurodatamapper.plugins:mdm-plugin-excel:5.+&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p>This will add the latest minor version of the Excel plugin.</p>
 <h3 id="theme">Theme<a class="headerlink" href="#theme" title="Permanent link">&para;</a></h3>
@@ -4421,15 +4400,8 @@ the <code>docker-compose.yml</code> file, with instructions provided in the <a h
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="w"> </span><span class="nt">MDM_UI_THEME_NAME</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;default&quot;</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="running-multiple-instances">Running multiple instances<a class="headerlink" href="#running-multiple-instances" title="Permanent link">&para;</a></h3>
-<p>If running multiple docker-compose instances then they will all make use of the same initial images, therefore you only need to run the <code>./make</code> 
-script once per server.</p>
-<h3 id="ssh-firewalled-servers">SSH firewalled servers<a class="headerlink" href="#ssh-firewalled-servers" title="Permanent link">&para;</a></h3>
-<p>Some servers have the 22 SSH port firewalled for external connections.
-If this is the case you can change the <code>base_images/sdk_base/ssh/config</code> file:</p>
-<ul>
-<li>Comment out the <code>Hostname</code> field that's currently active</li>
-<li>Uncomment both commented out <code>Hostname</code> and <code>Port</code> fields, this will allow git to work using the 443 port which will not be blocked</li>
-</ul>
+<p>If running multiple Mauro Docker instances then they can all make use of the same initial images, therefore you only need to run the <code>docker compose build</code> command once per
+server.</p>
 <hr />
 <h2 id="run-environment">Run environment<a class="headerlink" href="#run-environment" title="Permanent link">&para;</a></h2>
 <p>By adding variables to the <code>&lt;service&gt;.environment</code> section of the <code>docker-compose.yml</code> file, you can pass them into the container as environment variables. These will override
@@ -4478,15 +4450,15 @@ you want. Therefore, you can find all the information on configuring MDM <a href
 </div>
 <h3 id="environment-notes">Environment Notes<a class="headerlink" href="#environment-notes" title="Permanent link">&para;</a></h3>
 <h4 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h4>
-<p>The system is designed to use the postgres service provided in the docker-compose file, therefore there should be no need to alter any of these
-settings. Only make alterations if running postgres as a separate service outside of docker-compose.</p>
+<p>The system is designed to use the Postgres service provided in the docker-compose file, therefore there should be no need to alter any of these
+settings. Only make alterations if running Postgres as a separate service outside of Docker Compose.</p>
 <h4 id="email">Email<a class="headerlink" href="#email" title="Permanent link">&para;</a></h4>
 <p>The standard email properties will allow emails to be sent to a specific SMTP server.</p>
 <hr />
 <h2 id="docker-reference">Docker Reference<a class="headerlink" href="#docker-reference" title="Permanent link">&para;</a></h2>
 <h3 id="running">Running<a class="headerlink" href="#running" title="Permanent link">&para;</a></h3>
 <p>Before running please read the <a href="#run-environment">parameters</a> section first.</p>
-<p>With <code>docker</code> and <code>docker-compose</code> installed, run the following:</p>
+<p>With <code>docker</code> (with <code>docker compose</code>) installed, run the following:</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -4505,31 +4477,25 @@ settings. Only make alterations if running postgres as a separate service outsid
 <span class="normal">16</span>
 <span class="normal">17</span>
 <span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Build all the images</span>
-$<span class="w"> </span>docker-compose-dev<span class="w"> </span>build
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Build all the images</span>
+$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>build
 
 <span class="c1"># Start all the components up</span>
-$<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 
 <span class="c1"># To only start 1 service</span>
 <span class="c1"># This will also start up any of the services the named service depends on (defined by `links` or `depends_on`)</span>
-$<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span><span class="o">[</span>SERVICE<span class="o">]</span>
+$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span><span class="o">[</span>SERVICE<span class="o">]</span>
 
 <span class="c1"># To push all the output to the background add `-d`</span>
-$<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span><span class="o">[</span>SERVICE<span class="o">]</span>
+$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span><span class="o">[</span>SERVICE<span class="o">]</span>
 
 <span class="c1"># Stop background running and remove the containers</span>
-$<span class="w"> </span>docker-compose<span class="w"> </span>down
+$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>down
 
 <span class="c1"># To update an already running service</span>
-$<span class="w"> </span>docker-compose-dev<span class="w"> </span>build<span class="w"> </span><span class="o">[</span>SERVICE<span class="o">]</span>
-$<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--no-deps<span class="w"> </span><span class="o">[</span>SERVICE<span class="o">]</span>
-
-<span class="c1"># To run in production mode</span>
-$<span class="w"> </span>docker-compose-prod<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span><span class="o">[</span>SERVICE<span class="o">]</span>
+$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>build<span class="w"> </span><span class="o">[</span>SERVICE<span class="o">]</span>
+$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--no-deps<span class="w"> </span><span class="o">[</span>SERVICE<span class="o">]</span>
 </code></pre></div></td></tr></table></div>
 <p>If you run everything in the background use <code>Kitematic</code> to see the individual container logs.
 You can do this if running in the foreground and it is easier as it splits each of the containers up.</p>

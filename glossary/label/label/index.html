@@ -3813,6 +3813,15 @@
 <p>For example, there can only be one <strong>Data Class</strong> called <strong>‘Personal details’</strong> within a particular <strong>Data Model</strong>. Therefore, if you need to add a similar <strong>Data Class</strong>, include version information within the <strong>Label</strong> such as <strong>‘Personal details 2.0’</strong> to uniquely identify it. </p>
 <p><img alt="Unique Labels for similar Data Classes highlighted" src="../unique-label-example.png" /></p>
 <p>In some cases, two different <strong>Data Models</strong> could consist of a <strong>Data Class</strong> with the same <strong>Label</strong>, such as <strong>'Personal details'</strong>. However, because these two <strong>Data Classes</strong> are each associated with their own unique parent <strong>Data Model</strong>, then this is acceptable. Only when two items are within the same parent must they each have a unique <strong>Label</strong>.  </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The following special characters are not permitted in labels, and will produce an error message:</p>
+<ul>
+<li><code>@</code></li>
+<li><code>$</code></li>
+<li><code>|</code></li>
+</ul>
+</div>
 <hr />
 <h2 id="how-do-you-edit-a-label">How do you edit a Label?<a class="headerlink" href="#how-do-you-edit-a-label" title="Permanent link">&para;</a></h2>
 <p>You can edit the <strong>Label</strong> of any item by selecting it in the <strong>Model Tree</strong> and clicking the <strong>‘Edit’</strong> pencil icon at the bottom right of the details panel. You will then be able to amend the <strong>Label</strong> at the top of the details panel. </p>

@@ -4037,27 +4037,27 @@ Any operating system, on a server or desktop, running <strong>Docker</strong> ca
 the use of <strong>Docker</strong> on virtual machines.</p>
 <p>We advise a minimum of 2 CPUs and 4GBs RAM just to run this system. This does not allow for the requirements to have an operating system running as
 well. Therefore we recommend a 4 CPU and 8GB RAM server.</p>
-<p>The default install of Docker inside Linux configures the docker engine with unlimited access to the server's resources. However, if running in Windows
-or Mac OS X the Docker Toolbox will need to be configured.</p>
+<p>The default install of Docker inside Linux configures the Docker Engine with unlimited access to the server's resources. However, if running in Windows
+or macOS the Docker Toolbox will need to be configured.</p>
 <hr />
 <h2 id="installing-docker-and-docker-compose">Installing Docker and Docker Compose<a class="headerlink" href="#installing-docker-and-docker-compose" title="Permanent link">&para;</a></h2>
 <p>You will need to install <a href="https://www.docker.com/get-started">Docker</a> and <a href="https://github.com/docker/compose">Docker Compose</a>.  <strong>Docker Compose</strong> is
-included as part of the standard <strong>'Docker Desktop'</strong> for Windows and MacOS.</p>
-<p>To run <strong>Mauro Data Mapper</strong>, the minimum versions are as follows:</p>
+included as part of the standard <strong>'Docker Desktop'</strong> for Windows and macOS.</p>
+<p>To run <strong>Mauro Data Mapper</strong>, we recommend the following minimum versions:</p>
 <ul>
-<li><strong>Docker Engine:</strong> 19.03.8</li>
-<li><strong>Docker Compose:</strong> 1.25.5</li>
+<li><strong>Docker Engine:</strong> 20.10.21 or higher</li>
+<li><strong>Docker Compose:</strong> preferably v2.x.x (<code>docker compose</code> command); alternatively v1.27.x (<code>docker-compose</code> command) or higher </li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If you are running on Ubuntu, the default version of <code>docker-compose</code> installed with apt-get is currently 1.17.1, and you might get the error message:
+<p>If you are running on Ubuntu (20.04 or earlier), the default version of <code>docker-compose</code> installed with apt-get is currently 1.25.0 or earlier, and you might get the error message:
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>Building docker compose ERROR: Need service name for --build-arg option
 </code></pre></div></td></tr></table></div>
 In this case, you should uninstall <code>docker-compose</code> and re-install directly from Docker, following <a href="https://docs.docker.com/compose/install/">the instructions here</a>.</p>
 </div>
 <hr />
 <h2 id="docker-machine-configuration">Docker Machine configuration<a class="headerlink" href="#docker-machine-configuration" title="Permanent link">&para;</a></h2>
-<p>The default <code>docker-machine</code> in a Windows or Mac OS X environment is configured to make use of one CPU and 1GB RAM. This is not enough RAM to reliably
+<p>The default <code>docker-machine</code> in a Windows or macOS environment is configured to make use of one CPU and 1GB RAM. This is not enough RAM to reliably
 run the <strong>Mauro Data Mapper</strong> system and so should be increased.</p>
 <p>On Linux the docker machine is the host machine so there is no need to build or remove anything.</p>
 <h3 id="native-docker">Native Docker<a class="headerlink" href="#native-docker" title="Permanent link">&para;</a></h3>
