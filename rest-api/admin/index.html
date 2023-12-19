@@ -4187,8 +4187,8 @@
 <endpoint class="get">/api/admin/plugins/importers</endpoint></p>
 <hr />
 <h2 id="system-actions">System actions<a class="headerlink" href="#system-actions" title="Permanent link">&para;</a></h2>
-<p><endpoint class="post">/api/admin/rebuildLuceneIndexes</endpoint></p>
-<p>This endpoint forces the rebuild of the Lucene indexes.  This is only necessary when synchronisation between database and indexes is lost; when
+<p><endpoint class="post">/api/admin/rebuildHibernateSearchIndexes</endpoint></p>
+<p>This endpoint forces the rebuild of the indexes used for searching (built using Hibernate Search and Lucene).  This is only necessary when synchronisation between database and indexes is lost; when
 the search functionality is not returning correct results.  Authentication credentials can be passed as part of the request body.</p>
 <hr />
 <h2 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h2>

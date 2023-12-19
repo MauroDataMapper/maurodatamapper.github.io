@@ -4245,24 +4245,24 @@ use the following endpoint: </p>
 <h2 id="finalise-a-versioned-folder">Finalise a versioned folder<a class="headerlink" href="#finalise-a-versioned-folder" title="Permanent link">&para;</a></h2>
 <p>To <em>finalise</em> a versioned folder means to lock it to a particular version and make it read-only; only new versions can be created to make further modifications after that point. This also applies to the child contents of this versioned folder too, all child items will share the same finalised state and version number assigned. Use this endpoint with a similar payloads described below to finalise a versioned folder.</p>
 <p><endpoint class="put">/api/versionedFolders/<strong>{id}</strong>/finalise</endpoint></p>
-<p>To automatically let Mauro choose the next version number, set the <strong>versionChange</strong> property to either <code>'Major'</code>, <code>'Minor'</code> or <code>'Patch'</code>.</p>
+<p>To automatically let Mauro choose the next version number, set the <strong>versionChangeType</strong> property to either <code>'Major'</code>, <code>'Minor'</code> or <code>'Patch'</code>.</p>
 <div class="tabbed-set" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Request body (JSON)</label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;versionChange&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Major&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;Minor&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;Patch&quot;</span>
+<span class="w">    </span><span class="nt">&quot;versionChangeType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Major&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;Minor&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;Patch&quot;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
-<p>Mauro uses <a href="https://semver.org/">Semantic Versioning</a> rules to determine the next appropriate version number based on the <strong>versionChange</strong> value provided.</p>
-<p>To optionally choose your own version number, provide this payload. If <strong>versionChange</strong> is <code>'Custom'</code>, then <strong>version</strong> must also be provided.</p>
+<p>Mauro uses <a href="https://semver.org/">Semantic Versioning</a> rules to determine the next appropriate version number based on the <strong>versionChangeType</strong> value provided.</p>
+<p>To optionally choose your own version number, provide this payload. If <strong>versionChangeType</strong> is <code>'Custom'</code>, then <strong>version</strong> must also be provided.</p>
 <div class="tabbed-set" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">Request body (JSON)</label><div class="tabbed-content">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;versionChange&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Custom&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;versionChangeType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Custom&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.2.3.4&quot;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -4274,7 +4274,7 @@ use the following endpoint: </p>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;versionChange&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Major&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;Minor&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;Patch&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;versionChangeType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Major&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;Minor&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;Patch&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="nt">&quot;versionTag&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;My first version&quot;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
